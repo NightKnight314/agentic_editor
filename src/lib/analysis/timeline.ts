@@ -1,5 +1,6 @@
 import type { AnalysisResponse, TranscriptWord } from "./schema";
 import type { TimelineDocument, TimelineElement } from "@/lib/editor/types";
+import { BUILTIN_GLOBAL_ASSETS, type GlobalAsset } from "@/lib/assets/catalog";
 
 const beatColors: Record<string, string> = {
   pattern_interrupt: "#e55745",
@@ -61,6 +62,35 @@ function sourceSlices(storyBeat: string, sourceStart: number, sourceEnd: number,
   return [{ start: sourceStart, end: deadlineEnd }, { start: promiseStart, end: sourceEnd }];
 }
 
+function removeEmptySpace(slices: Array<{ start: number; end: number }>, allWords: TranscriptWord[]) {
+  return slices.flatMap((slice) => {
+    const words = allWords.filter((word) => word.end >= slice.start - 0.04 && word.start <= slice.end + 0.04);
+    if (!words.length) return [slice];
+    const groups: TranscriptWord[][] = [];
+    let group: TranscriptWord[] = [];
+    words.forEach((word) => {
+      const previous = group.at(-1);
+      if (previous && word.start - previous.end >= 0.32 && previous.end - group[0].start >= 0.55) {
+        groups.push(group);
+        group = [];
+      }
+      group.push(word);
+    });
+    if (group.length) groups.push(group);
+    return groups
+      .map((items) => ({
+        start: Math.max(slice.start, items[0].start - 0.025),
+        end: Math.min(slice.end, items.at(-1)!.end + 0.045)
+      }))
+      .filter((item) => item.end - item.start >= 0.24);
+  });
+}
+
+function findAsset(assets: GlobalAsset[], preferred: string, fallbackIndex: number) {
+  const usable = assets.filter((asset) => asset.kind === "sfx" || asset.kind === "audio");
+  return usable.find((asset) => asset.name.toLowerCase().includes(preferred)) ?? usable[fallbackIndex % Math.max(1, usable.length)];
+}
+
 function groupCaptionWords(words: TranscriptWord[], compositionStart: number, sourceStart: number, segmentId: string) {
   const elements: TimelineElement[] = [];
   let group: TranscriptWord[] = [];
@@ -93,19 +123,22 @@ function groupCaptionWords(words: TranscriptWord[], compositionStart: number, so
   return elements;
 }
 
-export function timelineFromAnalysis(response: AnalysisResponse, assetId = "source-1"): TimelineDocument {
+export function timelineFromAnalysis(response: AnalysisResponse, assetId = "source-1", assets: GlobalAsset[] = BUILTIN_GLOBAL_ASSETS): TimelineDocument {
   let cursor = 0;
   const primary: TimelineElement[] = [];
   const broll: TimelineElement[] = [];
   const titles: TimelineElement[] = [];
   const captions: TimelineElement[] = [];
   const dialogue: TimelineElement[] = [];
+  const sfx: TimelineElement[] = [];
+  const availableEffects = new Set(assets.flatMap((asset) => asset.effectId ? [asset.effectId] : []));
+  const titleFont = assets.find((asset) => asset.fontFamily === "Anton")?.fontFamily ?? assets.find((asset) => asset.fontFamily)?.fontFamily ?? "Anton";
 
   let ambitionIndex = 0;
   response.analysis.timeline.segments.forEach((segment, index) => {
     const sourceEnd = alignedSourceEnd(segment.sourceStart, segment.sourceEnd, response.transcript.segments);
     const segmentWords = response.transcript.words.filter((word) => word.start >= segment.sourceStart - 0.08 && word.end <= sourceEnd + 0.08);
-    const slices = sourceSlices(segment.storyBeat, segment.sourceStart, sourceEnd, segmentWords, response.transcript.words);
+    const slices = removeEmptySpace(sourceSlices(segment.storyBeat, segment.sourceStart, sourceEnd, segmentWords, response.transcript.words), response.transcript.words);
     const segmentStart = cursor;
     const color = beatColors[segment.storyBeat] ?? "#6657e8";
     if (segment.storyBeat === "ambition_conflict") ambitionIndex += 1;
@@ -123,7 +156,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
         sourceStart: slice.start,
         assetId,
         color,
-        effects: beatEffects[segment.storyBeat] ?? segment.effects
+        effects: (beatEffects[segment.storyBeat] ?? segment.effects).filter((effect) => effect === "raw-cut" || availableEffects.size === 0 || availableEffects.has(effect))
       });
       dialogue.push({
         id: `dialogue-${sliceId}`,
@@ -154,7 +187,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
         start: segment.storyBeat === "pattern_interrupt" ? segmentStart : segmentStart + Math.min(0.14, duration * 0.05),
         duration: Math.min(2.4, Math.max(1.15, duration * 0.52)),
         color: "#e55745",
-        fontFamily: "Anton",
+      fontFamily: titleFont,
         effects: ["hard-reveal"]
       });
     }
@@ -174,6 +207,29 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
       });
     }
 
+    const sfxChoice = segment.storyBeat === "pattern_interrupt"
+      ? findAsset(assets, "impact", 0)
+      : segment.storyBeat === "human_record_scratch"
+        ? findAsset(assets, "scratch", 2)
+        : ["ambition_conflict", "proof_escalation", "callback_cta"].includes(segment.storyBeat)
+          ? findAsset(assets, "whoosh", index)
+          : undefined;
+    if (sfxChoice) {
+      sfx.push({
+        id: `sfx-${segment.id || index}`,
+        trackId: "a3",
+        kind: "audio",
+        name: `${sfxChoice.name} · ${segment.storyBeat.replaceAll("_", " ")}`,
+        start: segmentStart,
+        duration: segment.storyBeat === "human_record_scratch" ? 0.42 : 0.24,
+        sourceStart: 0,
+        assetId: sfxChoice.fileKey ?? sfxChoice.id,
+        color: "#d28a36",
+        volume: segment.storyBeat === "pattern_interrupt" ? 0.72 : 0.5,
+        effects: ["mix.sfx@1"]
+      });
+    }
+
   });
 
   const duration = Number(cursor.toFixed(3));
@@ -190,6 +246,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
       { id: "g1", name: "Titles", kind: "overlay", elements: titles },
       { id: "c1", name: "Captions", kind: "caption", elements: captions },
       { id: "a1", name: "Dialogue", kind: "audio", elements: dialogue },
+      { id: "a3", name: "SFX", kind: "audio", elements: sfx },
       {
         id: "a2",
         name: "Music",

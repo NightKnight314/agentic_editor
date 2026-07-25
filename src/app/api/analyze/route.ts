@@ -27,6 +27,13 @@ export async function POST(request: Request) {
     const sourceDuration = asNumber(form.get("duration"));
     const sourceName = String(form.get("name") ?? "source-video");
     const brief = String(form.get("brief") ?? "Create a catchy 30 to 60 second Kumar-style short.").slice(0, 2_000);
+    let assetInventory: Array<Record<string, unknown>> = [];
+    try {
+      const parsed = JSON.parse(String(form.get("assetInventory") ?? "[]"));
+      if (Array.isArray(parsed)) assetInventory = parsed.filter((item) => item && typeof item === "object").slice(0, 100);
+    } catch {
+      return Response.json({ error: "Asset inventory is invalid." }, { status: 400 });
+    }
 
     if (!(audio instanceof File)) return Response.json({ error: "Audio file is required." }, { status: 400 });
     if (audio.size > MAX_AUDIO_BYTES) return Response.json({ error: "Extracted audio must be under 24 MB." }, { status: 413 });
@@ -91,7 +98,7 @@ export async function POST(request: Request) {
           content: [
             {
               type: "input_text",
-              text: `SOURCE\nName: ${sourceName}\nDuration: ${sourceDuration.toFixed(2)} seconds\n\nUSER BRIEF\n${brief}\n\nSTYLE MAP\n${JSON.stringify({ creativeThesis: kumarStyle.creativeThesis, storyBeats: kumarStyle.storyBeats, pacing: kumarStyle.pacing, typography: kumarStyle.typography, plannerRules: kumarStyle.plannerRules, review: kumarStyle.review })}\n\nTIMESTAMPED TRANSCRIPT\n${transcriptForPlanner}\n\nReturn 8-36 useful evidence events and an 8-12 segment edit plan. Target 42-52 seconds. Every segment must be 2-8 seconds and end on a complete phrase; never cut a sentence merely to hit duration. Required arc: immediate deadline/promise, concise identity, three clearly numbered bets with concrete proof, an honest human release or explicitly missing beat, then synthesis/CTA. Spend at most 8 seconds on the opening before the first bet. Use no more than seven words per editorial title. Do not put unverified credentials, stronger claims, or generated quotations in titles. Preserve the CTA and ending before allocating exposition. Reordering is allowed when it improves clarity. Calculate the selected durations before responding and make targetDuration match their sum.`
+              text: `SOURCE\nName: ${sourceName}\nDuration: ${sourceDuration.toFixed(2)} seconds\n\nUSER BRIEF\n${brief}\n\nAVAILABLE ASSET INVENTORY\n${JSON.stringify(assetInventory)}\nTreat this as the complete asset inventory. Consider every entry and choose only assets that materially improve the cut; do not invent unavailable media. The deterministic compiler will place compatible fonts, VFX, and SFX after your evidence plan.\n\nSTYLE MAP\n${JSON.stringify({ creativeThesis: kumarStyle.creativeThesis, storyBeats: kumarStyle.storyBeats, pacing: kumarStyle.pacing, typography: kumarStyle.typography, plannerRules: kumarStyle.plannerRules, review: kumarStyle.review })}\n\nTIMESTAMPED TRANSCRIPT\n${transcriptForPlanner}\n\nReturn 8-36 useful evidence events and an 8-12 segment edit plan. Target 42-52 seconds before silence removal. Every segment must be 2-8 seconds and end on a complete phrase; never cut a sentence merely to hit duration. Prefer dense, semantic phrases with minimal dead air. Required arc: immediate deadline/promise, concise identity, three clearly numbered bets with concrete proof, an honest human release or explicitly missing beat, then synthesis/CTA. Spend at most 8 seconds on the opening before the first bet. Use no more than seven words per editorial title. Do not put unverified credentials, stronger claims, or generated quotations in titles. Preserve the CTA and ending before allocating exposition. Reordering is allowed when it improves clarity. Calculate the selected durations before responding and make targetDuration match their sum.`
             },
             ...visualContent
           ]

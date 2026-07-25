@@ -34,6 +34,7 @@ const idleAnalysis: MediaAnalysisState = {
 
 const SESSION_KEY = "nightcut:active-project:v1";
 const SOURCE_FILE_KEY = "project:active:source";
+const DEFAULT_CREATIVE_BRIEF = "Create a catchy, cinematic 30 to 60 second short in the Kumar Method style. Prioritize a strong character-led hook, clear escalation, proof, a humanizing beat, and a clean open-loop ending.";
 
 export function EditorShell() {
   const [timeline, setTimeline] = useState(demoTimeline);
@@ -48,6 +49,7 @@ export function EditorShell() {
   const [globalAssets, setGlobalAssets] = useState<GlobalAsset[]>(BUILTIN_GLOBAL_ASSETS);
   const [workspaceReady, setWorkspaceReady] = useState(false);
   const [exportProgress, setExportProgress] = useState<number | null>(null);
+  const [creativeBrief, setCreativeBrief] = useState("");
 
   const selectedElement = useMemo(
     () => timeline.tracks.flatMap((track) => track.elements).find((element) => element.id === selection.elementId) ?? null,
@@ -68,6 +70,7 @@ export function EditorShell() {
             playhead?: number;
             asset?: { name: string; size: number; duration?: number } | null;
             importedAssets?: GlobalAsset[];
+            creativeBrief?: string;
           };
           if (saved.timeline) setTimeline(saved.timeline);
           if (saved.analysisReport) {
@@ -82,6 +85,7 @@ export function EditorShell() {
           }
           if (saved.selection) setSelection(saved.selection);
           if (typeof saved.playhead === "number") setPlayhead(saved.playhead);
+          if (typeof saved.creativeBrief === "string") setCreativeBrief(saved.creativeBrief);
           if (saved.importedAssets?.length) setGlobalAssets([...BUILTIN_GLOBAL_ASSETS, ...saved.importedAssets]);
           if (saved.asset) {
             const file = await loadWorkspaceFile(SOURCE_FILE_KEY);
@@ -107,12 +111,13 @@ export function EditorShell() {
         analysisReport,
         selection,
         playhead,
+        creativeBrief,
         asset: asset ? { name: asset.name, size: asset.size, duration: asset.duration } : null,
         importedAssets
       }));
     }, 250);
     return () => window.clearTimeout(timeout);
-  }, [analysisReport, asset, globalAssets, playhead, selection, timeline, workspaceReady]);
+  }, [analysisReport, asset, creativeBrief, globalAssets, playhead, selection, timeline, workspaceReady]);
 
   useEffect(() => {
     const fonts = new Set(timeline.tracks.flatMap((track) => track.elements.map((element) => element.fontFamily).filter(Boolean)) as string[]);
@@ -234,6 +239,15 @@ export function EditorShell() {
     setToast(`${item.name} placed at ${playhead.toFixed(1)}s`);
   };
 
+  const rebuildKumarDraft = () => {
+    if (!analysisReport) return setToast("Analyze source media before rebuilding the style pass");
+    const nextTimeline = timelineFromAnalysis(analysisReport, "source-1", globalAssets);
+    setTimeline(nextTimeline);
+    setPlayhead(0);
+    setSelection({ elementId: nextTimeline.tracks[0].elements[0]?.id ?? null, trackId: "v1" });
+    setToast(`Kumar compiler rebuilt a ${nextTimeline.duration.toFixed(1)}s cut · no API cost`);
+  };
+
   const analyzeSource = async () => {
     if (!asset) return;
     let failurePhase = "Reading video metadata";
@@ -260,13 +274,16 @@ export function EditorShell() {
       form.set("frames", JSON.stringify(prepared.frames));
       form.set("duration", String(prepared.metadata.duration));
       form.set("name", asset.name);
-      form.set("brief", "Create a catchy, cinematic 30 to 60 second short in the Kumar Method style. Prioritize a strong character-led hook, clear escalation, proof, a humanizing beat, and a clean open-loop ending.");
+      form.set("assetInventory", JSON.stringify(globalAssets.map(({ id, name, kind, source, detail, fontFamily, effectId, fileKey }) => ({ id, name, kind, source, detail, fontFamily, effectId, available: source === "builtin" || Boolean(fileKey) }))));
+      form.set("brief", creativeBrief.trim()
+        ? `${DEFAULT_CREATIVE_BRIEF}\n\nAdditional creative direction from the editor:\n${creativeBrief.trim()}`
+        : DEFAULT_CREATIVE_BRIEF);
 
       const response = await fetch("/api/analyze", { method: "POST", body: form });
       const payload = await response.json() as AnalysisResponse & { error?: string };
       if (!response.ok) throw new Error(payload.error || `Analysis failed with status ${response.status}.`);
 
-      const nextTimeline = timelineFromAnalysis(payload);
+      const nextTimeline = timelineFromAnalysis(payload, "source-1", globalAssets);
       if (!nextTimeline.tracks[0]?.elements.length) throw new Error("The planner returned no usable timeline clips.");
       setTimeline(nextTimeline);
       setAnalysisReport(payload);
@@ -338,17 +355,18 @@ export function EditorShell() {
           <span className="header-divider" />
           <Link className="about-header-link" href="/about"><Icon name="layers" size={13} /> How it works</Link>
           <button className="share-button">Share</button>
-          <button className="export-button" disabled={exportProgress !== null} onClick={() => void exportMp4()}><Icon name="export" size={15} /> {exportProgress === null ? "Export MP4" : `Rendering ${Math.round(exportProgress * 100)}%`}</button>
+          <button className="export-button" title={asset ? "Render and download the current timeline" : "Import source media to download"} disabled={!asset || exportProgress !== null} onClick={() => void exportMp4()}><Icon name="export" size={15} /> {exportProgress === null ? "Download MP4" : `Rendering ${Math.round(exportProgress * 100)}%`}</button>
         </div>
       </header>
 
       <div className="workspace-top">
-        <MediaPanel asset={asset} analysis={analysisState} onImport={importFile} onAnalyze={analyzeSource} globalAssets={globalAssets} onGlobalImport={importGlobalFiles} onApplyAsset={applyGlobalAsset} />
+        <MediaPanel asset={asset} analysis={analysisState} creativeBrief={creativeBrief} onCreativeBriefChange={setCreativeBrief} onImport={importFile} onAnalyze={analyzeSource} globalAssets={globalAssets} onGlobalImport={importGlobalFiles} onApplyAsset={applyGlobalAsset} onRebuildStyle={rebuildKumarDraft} />
         <PreviewMonitor
           timeline={timeline}
           playhead={playhead}
           playing={playing}
           assetUrl={asset?.url}
+          globalAssets={globalAssets}
           onTogglePlaying={() => setPlaying((value) => !value)}
           onTimeChange={setPlayhead}
           onDuration={(duration) => setAsset((current) => current ? { ...current, duration } : current)}

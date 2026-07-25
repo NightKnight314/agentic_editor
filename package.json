@@ -8,7 +8,8 @@
     "start": "next start",
     "lint": "eslint .",
     "typecheck": "tsc --noEmit",
-    "analyze:sample": "node scripts/analyze-sample.mjs"
+    "analyze:sample": "node scripts/analyze-sample.mjs",
+    "test:kumar": "node --experimental-strip-types scripts/test-kumar-pipeline.mjs"
   },
   "dependencies": {
     "@ffmpeg/ffmpeg": "^0.12.15",

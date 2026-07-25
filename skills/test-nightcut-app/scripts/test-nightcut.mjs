@@ -272,6 +272,19 @@ async function runBrowserSmoke() {
   }
   const imported = await waitFor(() => evaluate(`Array.from(document.querySelectorAll('.asset-copy strong')).some((node) => node.textContent === ${JSON.stringify(path.basename(videoPath))})`), 15_000, "media import");
   record("sample media imported", Boolean(imported), path.basename(videoPath));
+  const downloadReady = await evaluate(`(() => {
+    const button = document.querySelector('.export-button');
+    return button?.textContent?.includes('Download MP4') && !button.disabled;
+  })()`);
+  record("MP4 download ready", Boolean(downloadReady), "download control enables after media import");
+  await evaluate(`(() => {
+    const input = document.querySelector('textarea[aria-label="Style direction"]');
+    if (!input) return false;
+    const setter = Object.getOwnPropertyDescriptor(HTMLTextAreaElement.prototype, 'value')?.set;
+    setter?.call(input, 'Lead with the contrarian claim and keep the humor dry.');
+    input.dispatchEvent(new Event('input', { bubbles: true }));
+    return true;
+  })()`);
   await screenshot("before-analysis.png");
 
   await sleep(1_500);
@@ -279,6 +292,8 @@ async function runBrowserSmoke() {
   await waitFor(() => evaluate("document.readyState === 'complete' && Boolean(document.querySelector('.editor-shell'))"), 20_000, "editor reload");
   const restored = await waitFor(() => evaluate(`Array.from(document.querySelectorAll('.asset-copy strong')).some((node) => node.textContent === ${JSON.stringify(path.basename(videoPath))}) && Boolean(document.querySelector('.source-preview'))`), 20_000, "persistent source restore");
   record("source restored after refresh", Boolean(restored));
+  const briefRestored = await waitFor(() => evaluate(`document.querySelector('textarea[aria-label="Style direction"]')?.value.includes('contrarian claim')`), 10_000, "style direction restore");
+  record("style direction restored", Boolean(briefRestored), "creative brief persists with the project");
   await screenshot("after-refresh.png");
 
   await evaluate(`Array.from(document.querySelectorAll('.panel-tabs button')).find((button) => button.textContent === 'Assets')?.click()`);
@@ -287,6 +302,10 @@ async function runBrowserSmoke() {
     return text.includes('Anton') && text.includes('Impact Hit') && text.includes('Slow Push');
   })()`), 10_000, "global asset library");
   record("global asset library", Boolean(library), "fonts, SFX, and VFX visible");
+
+  await evaluate(`Array.from(document.querySelectorAll('.panel-tabs button')).find((button) => button.textContent === 'Styles')?.click()`);
+  const kumarCompiler = await waitFor(() => evaluate(`Array.from(document.querySelectorAll('button')).some((button) => button.textContent?.includes('Rebuild Kumar draft'))`), 10_000, "Kumar compiler control");
+  record("Kumar compiler control", Boolean(kumarCompiler), "deterministic rebuild is available from Styles");
 
   if (testExport) {
     await cdp.send("Browser.setDownloadBehavior", { behavior: "allow", downloadPath: artifacts, eventsEnabled: true });

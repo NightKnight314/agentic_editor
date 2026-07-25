@@ -392,10 +392,10 @@ export default function AboutPage() {
           <div className="about-sketch-grid">
             {sketches.map((sketch, index) => (
               <figure className="about-sketch-card" key={sketch.number}>
-                <div className="about-sketch-image">
+                <a className="about-sketch-image" href={sketch.image.src} target="_blank" rel="noreferrer" aria-label={`Open original note ${sketch.number} at full resolution`}>
                   <Image src={sketch.image} alt={sketch.alt} sizes="(max-width: 760px) 90vw, (max-width: 1200px) 44vw, 24vw" priority={index === 0} />
                   <span>{sketch.number}</span>
-                </div>
+                </a>
                 <figcaption><small>NOTE {sketch.number}</small><h3>{sketch.title}</h3><p>{sketch.description}</p></figcaption>
               </figure>
             ))}

@@ -24,14 +24,17 @@ const formatBytes = (bytes: number) => {
   return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
 };
 
-export function MediaPanel({ asset, analysis, onImport, onAnalyze, globalAssets, onGlobalImport, onApplyAsset }: {
+export function MediaPanel({ asset, analysis, creativeBrief, onCreativeBriefChange, onImport, onAnalyze, globalAssets, onGlobalImport, onApplyAsset, onRebuildStyle }: {
   asset: ImportedAsset | null;
   analysis: MediaAnalysisState;
+  creativeBrief: string;
+  onCreativeBriefChange: (brief: string) => void;
   onImport: (file: File) => void;
   onAnalyze: () => void;
   globalAssets: GlobalAsset[];
   onGlobalImport: (files: FileList) => void;
   onApplyAsset: (asset: GlobalAsset) => void;
+  onRebuildStyle: () => void;
 }) {
   const [tab, setTab] = useState<"media" | "assets" | "styles">("media");
   const inputRef = useRef<HTMLInputElement>(null);
@@ -80,6 +83,18 @@ export function MediaPanel({ asset, analysis, onImport, onAnalyze, globalAssets,
                   <small>{formatBytes(asset.size)} · SOURCE</small>
                 </div>
               </div>
+              <label className="creative-brief-box">
+                <span><Icon name="sparkle" size={12} /> STYLE DIRECTION <small>OPTIONAL</small></span>
+                <textarea
+                  aria-label="Style direction"
+                  value={creativeBrief}
+                  maxLength={1200}
+                  rows={3}
+                  placeholder="e.g. Open on the strongest contrarian claim, feel urgent, use dry humor, keep the CTA conversational…"
+                  onChange={(event) => onCreativeBriefChange(event.target.value)}
+                />
+                <small>{creativeBrief.length}/1200 · saved with project</small>
+              </label>
               <button className="analyze-source-button" disabled={analysis.status === "preparing" || analysis.status === "analyzing"} onClick={onAnalyze}>
                 <Icon name={analysis.status === "done" ? "check" : "sparkle"} size={14} />
                 {analysis.status === "done" ? "Analyze again" : analysis.status === "preparing" || analysis.status === "analyzing" ? "Agent working…" : "Analyze & build draft"}
@@ -162,6 +177,7 @@ export function MediaPanel({ asset, analysis, onImport, onAnalyze, globalAssets,
             <p>Prestige-thriller pacing with an unexpected character and humanizing release.</p>
             <div className="style-tags"><span>6 story beats</span><span>92 BPM</span><span>9:16</span></div>
           </div>
+          <button className="analyze-source-button" disabled={analysis.status !== "done"} onClick={onRebuildStyle}><Icon name="sparkle" size={14} /> Rebuild Kumar draft</button>
           <button className="secondary-button wide"><Icon name="plus" size={15} /> Add style map</button>
         </div>
       )}
