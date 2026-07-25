@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useMemo, useRef, type CSSProperties } from "react";
+import { useEffect, useMemo, useRef, useState, type CSSProperties } from "react";
 import { Icon } from "@/components/ui/Icon";
 import type { TimelineDocument } from "@/lib/editor/types";
 import { canonicalEffectId } from "@/lib/effects/catalog";
@@ -57,7 +57,12 @@ const formatTime = (seconds: number, fps = 30) => {
 };
 
 export function PreviewMonitor({ timeline, playhead, playing, assetUrl, globalAssets, onTogglePlaying, onDuration }: PreviewMonitorProps) {
-  const videoRef = useRef<HTMLVideoElement>(null);
+  const videoARef = useRef<HTMLVideoElement>(null);
+  const videoBRef = useRef<HTMLVideoElement>(null);
+  const activeBufferRef = useRef<0 | 1>(0);
+  const preparedClipIdsRef = useRef<Array<string | null>>([null, null]);
+  const previousClipIdRef = useRef<string | null>(null);
+  const [activeBuffer, setActiveBuffer] = useState<0 | 1>(0);
   const previousPlayheadRef = useRef(playhead);
   const lastSfxRef = useRef<string | null>(null);
   const activeText = useMemo(
@@ -100,6 +105,34 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, globalAs
     return { transform: `translateX(${x}px) rotate(${rotation}deg) scale(${scale})`, filter: filters.join(" ") || undefined };
   }, [activeClip, playhead]);
   const hasVignette = useMemo(() => (activeClip?.effects ?? []).map(canonicalEffectId).includes("look.vignette@1"), [activeClip]);
+  const videos = () => [videoARef.current, videoBRef.current] as const;
+
+  const seekWhenReady = (video: HTMLVideoElement, time: number, shouldPlay = false) => {
+    const seek = () => {
+      video.currentTime = Math.max(0, time);
+      if (shouldPlay) void video.play().catch(() => undefined);
+    };
+    if (video.readyState >= 1) seek();
+    else video.addEventListener("loadedmetadata", seek, { once: true });
+  };
+
+  const warmBuffer = (video: HTMLVideoElement, time: number) => {
+    const warm = () => {
+      video.muted = true;
+      video.currentTime = Math.max(0, time);
+      const hold = () => {
+        video.pause();
+        if (Math.abs(video.currentTime - time) > 0.08) video.currentTime = time;
+      };
+      if (video.readyState >= 3) hold();
+      else {
+        video.addEventListener("canplay", hold, { once: true });
+        void video.play().catch(() => undefined);
+      }
+    };
+    if (video.readyState >= 1) warm();
+    else video.addEventListener("loadedmetadata", warm, { once: true });
+  };
 
   useEffect(() => {
     const previous = previousPlayheadRef.current;
@@ -124,28 +157,79 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, globalAs
   }, [globalAssets, playhead, playing, sfxCues]);
 
   useEffect(() => {
-    const video = videoRef.current;
-    if (!video || !assetUrl || !activeClip) return;
+    if (!assetUrl || !activeClip) return;
+    const buffers = videos();
+    const previousClipId = previousClipIdRef.current;
+    let targetBuffer = activeBufferRef.current;
+    if (previousClipId && previousClipId !== activeClip.id) targetBuffer = (1 - activeBufferRef.current) as 0 | 1;
+    const video = buffers[targetBuffer];
+    const oldVideo = buffers[activeBufferRef.current];
+    if (!video) return;
     const targetSourceTime = (activeClip.sourceStart ?? 0) + Math.max(0, playhead - activeClip.start);
-    video.currentTime = targetSourceTime;
-    if (playing) void video.play().catch(() => undefined);
-    // Seek once at each edit boundary. Per-frame correction causes a seek storm on large local files.
+    if (preparedClipIdsRef.current[targetBuffer] !== activeClip.id || Math.abs(video.currentTime - targetSourceTime) > 0.12) {
+      seekWhenReady(video, targetSourceTime, playing);
+    } else if (playing) {
+      void video.play().catch(() => undefined);
+    }
+    preparedClipIdsRef.current[targetBuffer] = activeClip.id;
+    if (targetBuffer !== activeBufferRef.current) {
+      if (oldVideo) {
+        oldVideo.muted = true;
+        oldVideo.pause();
+      }
+      video.muted = false;
+      activeBufferRef.current = targetBuffer;
+      setActiveBuffer(targetBuffer);
+    } else {
+      video.muted = false;
+    }
+    previousClipIdRef.current = activeClip.id;
+
+    const activeIndex = primaryClips.findIndex((clip) => clip.id === activeClip.id);
+    const nextClip = primaryClips[activeIndex + 1];
+    const preloadBuffer = (1 - targetBuffer) as 0 | 1;
+    const preloadVideo = buffers[preloadBuffer];
+    if (nextClip && preloadVideo) {
+      preloadVideo.muted = true;
+      preloadVideo.pause();
+      preparedClipIdsRef.current[preloadBuffer] = nextClip.id;
+      warmBuffer(preloadVideo, nextClip.sourceStart ?? 0);
+    }
+    // Switch buffers once at each edit boundary. The next clip is pre-seeked during the current clip.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [activeClip?.id, assetUrl]);
 
   useEffect(() => {
-    const video = videoRef.current;
+    const video = videos()[activeBufferRef.current];
     if (!video || !assetUrl || !activeClip || playing) return;
     const targetSourceTime = (activeClip.sourceStart ?? 0) + Math.max(0, playhead - activeClip.start);
     if (Math.abs(video.currentTime - targetSourceTime) > 0.04) video.currentTime = targetSourceTime;
   }, [activeClip, assetUrl, playhead, playing]);
 
   useEffect(() => {
-    const video = videoRef.current;
+    const buffers = videos();
+    const video = buffers[activeBufferRef.current];
+    const standby = buffers[(1 - activeBufferRef.current) as 0 | 1];
     if (!video || !assetUrl) return;
-    if (playing) void video.play().catch(() => undefined);
-    else video.pause();
+    video.muted = false;
+    if (standby) standby.muted = true;
+    if (playing) {
+      void video.play().catch(() => undefined);
+      const activeIndex = primaryClips.findIndex((clip) => clip.id === activeClip?.id);
+      const nextClip = primaryClips[activeIndex + 1];
+      if (standby && nextClip) warmBuffer(standby, nextClip.sourceStart ?? 0);
+    } else {
+      video.pause();
+      standby?.pause();
+    }
+    // warmBuffer and the clip list are intentionally read when the transport state changes.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [assetUrl, playing]);
+
+  useEffect(() => {
+    preparedClipIdsRef.current = [null, null];
+    previousClipIdRef.current = null;
+  }, [assetUrl]);
 
   return (
     <section className="preview-column">
@@ -161,15 +245,29 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, globalAs
       <div className="stage-wrap">
         <div className="video-canvas" aria-label="Video preview">
           {assetUrl ? (
-            <video
-              ref={videoRef}
-              className="source-preview"
-              src={assetUrl}
-              style={previewStyle}
-              playsInline
-              onSeeked={(event) => { if (playing && event.currentTarget.paused) void event.currentTarget.play().catch(() => undefined); }}
-              onLoadedMetadata={(event) => onDuration(event.currentTarget.duration)}
-            />
+            <>
+              <video
+                ref={videoARef}
+                className={`source-preview ${activeBuffer === 0 ? "active" : "standby"}`}
+                src={assetUrl}
+                style={activeBuffer === 0 ? previewStyle : undefined}
+                preload="auto"
+                muted={activeBuffer !== 0}
+                playsInline
+                onSeeked={(event) => { if (playing && activeBufferRef.current === 0 && event.currentTarget.paused) void event.currentTarget.play().catch(() => undefined); }}
+                onLoadedMetadata={(event) => onDuration(event.currentTarget.duration)}
+              />
+              <video
+                ref={videoBRef}
+                className={`source-preview ${activeBuffer === 1 ? "active" : "standby"}`}
+                src={assetUrl}
+                style={activeBuffer === 1 ? previewStyle : undefined}
+                preload="auto"
+                muted={activeBuffer !== 1}
+                playsInline
+                onSeeked={(event) => { if (playing && activeBufferRef.current === 1 && event.currentTarget.paused) void event.currentTarget.play().catch(() => undefined); }}
+              />
+            </>
           ) : (
             <div className="mock-cinematic-frame">
               <span className="red-halo" />

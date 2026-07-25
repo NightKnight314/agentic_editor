@@ -290,15 +290,39 @@ async function runBrowserSmoke() {
     return button?.textContent?.includes('Download MP4') && button.disabled;
   })()`);
   record("MP4 download gated", Boolean(downloadGated), "download waits for a source-derived draft");
+  await sleep(1_000);
+  const fixtureInstalled = await evaluate(`(() => {
+    const key = 'nightcut:active-project:v2';
+    const saved = JSON.parse(localStorage.getItem(key) ?? '{}');
+    const tracks = [
+      { id: 'v1', name: 'Primary video', kind: 'video', elements: [2, 18, 36, 54].map((sourceStart, index) => ({ id: 'qa-cut-' + index, trackId: 'v1', kind: 'video', name: 'QA cut ' + (index + 1), start: index * 2, duration: 2, sourceStart, assetId: 'source-1', color: '#6657e8', effects: [] })) },
+      { id: 'v2', name: 'B-roll / accents', kind: 'video', elements: [] },
+      { id: 'g1', name: 'Titles', kind: 'overlay', elements: [] },
+      { id: 'c1', name: 'Captions', kind: 'caption', elements: [] },
+      { id: 'a1', name: 'Dialogue', kind: 'audio', elements: [] },
+      { id: 'a2', name: 'Music', kind: 'audio', elements: [] },
+      { id: 'a3', name: 'SFX', kind: 'audio', elements: [] }
+    ];
+    saved.timeline = { id: 'qa-jump-cut-draft', name: 'QA jump-cut draft', width: 1080, height: 1920, fps: 30, duration: 8, tracks };
+    saved.playhead = 0;
+    saved.selection = { elementId: 'qa-cut-0', trackId: 'v1' };
+    localStorage.setItem(key, JSON.stringify(saved));
+    return true;
+  })()`);
+  record("jump-cut fixture installed", Boolean(fixtureInstalled), "four distant source ranges over eight seconds");
+  await cdp.send("Page.reload", { ignoreCache: false });
+  await waitFor(() => evaluate("document.readyState === 'complete' && Boolean(document.querySelector('.editor-shell')) && document.querySelectorAll('.source-preview').length === 2"), 20_000, "dual-buffer preview reload");
+  const downloadReady = await waitFor(() => evaluate(`!document.querySelector('.export-button')?.disabled && document.querySelector('.timecode span:last-child')?.textContent?.startsWith('00:08')`), 15_000, "fixture timeline restore");
+  record("MP4 download ready", Boolean(downloadReady), "source-derived timeline enables download");
   await clickSelector(".play-button");
   await sleep(6_500);
   const playbackState = await evaluate(`(() => {
     const timecode = document.querySelector('.timecode strong')?.textContent ?? '';
     const parts = timecode.split(':').map(Number);
-    const video = document.querySelector('.source-preview');
-    return { timecode, seconds: parts.length === 3 ? parts[0] * 60 + parts[1] + parts[2] / 30 : 0, currentTime: video?.currentTime, paused: video?.paused, readyState: video?.readyState, error: video?.error?.message, button: document.querySelector('.play-button')?.getAttribute('aria-label') };
+    const video = document.querySelector('.source-preview.active');
+    return { timecode, seconds: parts.length === 3 ? parts[0] * 60 + parts[1] + parts[2] / 30 : 0, currentTime: video?.currentTime, paused: video?.paused, readyState: video?.readyState, error: video?.error?.message, buffers: document.querySelectorAll('.source-preview').length, button: document.querySelector('.play-button')?.getAttribute('aria-label') };
   })()`);
-  record("continuous preview playback", playbackState?.seconds >= 5, JSON.stringify(playbackState));
+  record("continuous jump-cut playback", playbackState?.seconds >= 6 && playbackState?.currentTime > 54.25 && playbackState?.readyState >= 2 && playbackState?.buffers === 2 && playbackState?.paused === false, JSON.stringify(playbackState));
   await clickSelector('.play-button[aria-label="Pause"]');
   await evaluate(`(() => {
     const input = document.querySelector('textarea[aria-label="Style direction"]');

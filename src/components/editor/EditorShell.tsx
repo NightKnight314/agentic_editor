@@ -157,7 +157,11 @@ export function EditorShell() {
     return () => window.clearTimeout(timeout);
   }, [toast]);
 
-  useEffect(() => () => { if (asset) URL.revokeObjectURL(asset.url); }, [asset]);
+  const assetUrl = asset?.url;
+  useEffect(() => {
+    if (!assetUrl) return;
+    return () => URL.revokeObjectURL(assetUrl);
+  }, [assetUrl]);
 
   const patchElement = useCallback((elementId: string, patch: Partial<TimelineElement>) => {
     setTimeline((current) => updateElement(current, elementId, patch));
