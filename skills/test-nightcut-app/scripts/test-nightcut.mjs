@@ -181,6 +181,19 @@ async function evaluate(expression) {
   return result.result?.value;
 }
 
+async function clickSelector(selector) {
+  const point = await evaluate(`(() => {
+    const element = document.querySelector(${JSON.stringify(selector)});
+    if (!element) return null;
+    const rect = element.getBoundingClientRect();
+    return { x: rect.left + rect.width / 2, y: rect.top + rect.height / 2 };
+  })()`);
+  if (!point) return false;
+  await cdp.send("Input.dispatchMouseEvent", { type: "mousePressed", x: point.x, y: point.y, button: "left", clickCount: 1 });
+  await cdp.send("Input.dispatchMouseEvent", { type: "mouseReleased", x: point.x, y: point.y, button: "left", clickCount: 1 });
+  return true;
+}
+
 async function screenshot(filename) {
   const result = await cdp.send("Page.captureScreenshot", { format: "png", captureBeyondViewport: false });
   await writeFile(path.join(artifacts, filename), Buffer.from(result.data, "base64"));
@@ -277,6 +290,16 @@ async function runBrowserSmoke() {
     return button?.textContent?.includes('Download MP4') && !button.disabled;
   })()`);
   record("MP4 download ready", Boolean(downloadReady), "download control enables after media import");
+  await clickSelector(".play-button");
+  await sleep(6_500);
+  const playbackState = await evaluate(`(() => {
+    const timecode = document.querySelector('.timecode strong')?.textContent ?? '';
+    const parts = timecode.split(':').map(Number);
+    const video = document.querySelector('.source-preview');
+    return { timecode, seconds: parts.length === 3 ? parts[0] * 60 + parts[1] + parts[2] / 30 : 0, currentTime: video?.currentTime, paused: video?.paused, readyState: video?.readyState, error: video?.error?.message, button: document.querySelector('.play-button')?.getAttribute('aria-label') };
+  })()`);
+  record("continuous preview playback", playbackState?.seconds >= 5, JSON.stringify(playbackState));
+  await clickSelector('.play-button[aria-label="Pause"]');
   await evaluate(`(() => {
     const input = document.querySelector('textarea[aria-label="Style direction"]');
     if (!input) return false;

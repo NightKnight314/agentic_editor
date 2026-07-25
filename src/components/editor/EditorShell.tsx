@@ -125,7 +125,7 @@ export function EditorShell() {
   }, [timeline]);
 
   useEffect(() => {
-    if (!playing || asset) return;
+    if (!playing) return;
     let frame = 0;
     let previous = performance.now();
     const tick = (now: number) => {
@@ -136,7 +136,7 @@ export function EditorShell() {
     };
     frame = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(frame);
-  }, [playing, asset, timeline.duration]);
+  }, [playing, timeline.duration]);
 
   useEffect(() => {
     const onKeyDown = (event: KeyboardEvent) => {
@@ -368,7 +368,6 @@ export function EditorShell() {
           assetUrl={asset?.url}
           globalAssets={globalAssets}
           onTogglePlaying={() => setPlaying((value) => !value)}
-          onTimeChange={setPlayhead}
           onDuration={(duration) => setAsset((current) => current ? { ...current, duration } : current)}
         />
         <AgentPanel context={agentContext} selectedElement={selectedElement} analysisReport={analysisReport} onOperations={runOperations} onElementPatch={patchElement} />

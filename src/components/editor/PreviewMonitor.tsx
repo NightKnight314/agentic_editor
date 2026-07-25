@@ -4,15 +4,48 @@ import { useEffect, useMemo, useRef, type CSSProperties } from "react";
 import { Icon } from "@/components/ui/Icon";
 import type { TimelineDocument } from "@/lib/editor/types";
 import { canonicalEffectId } from "@/lib/effects/catalog";
+import type { GlobalAsset } from "@/lib/assets/catalog";
+import { loadWorkspaceFile } from "@/lib/storage/project-store";
 
 interface PreviewMonitorProps {
   timeline: TimelineDocument;
   playhead: number;
   playing: boolean;
   assetUrl?: string;
+  globalAssets: GlobalAsset[];
   onTogglePlaying: () => void;
-  onTimeChange: (time: number) => void;
   onDuration: (duration: number) => void;
+}
+
+function playGeneratedSfx(assetId: string, volume: number) {
+  const AudioContextClass = window.AudioContext;
+  const context = new AudioContextClass();
+  const gain = context.createGain();
+  gain.gain.setValueAtTime(Math.max(0.01, volume), context.currentTime);
+  gain.gain.exponentialRampToValueAtTime(0.001, context.currentTime + (assetId.includes("scratch") ? 0.38 : 0.22));
+  gain.connect(context.destination);
+  if (assetId.includes("impact")) {
+    const oscillator = context.createOscillator();
+    oscillator.type = "sine";
+    oscillator.frequency.setValueAtTime(105, context.currentTime);
+    oscillator.frequency.exponentialRampToValueAtTime(48, context.currentTime + 0.2);
+    oscillator.connect(gain);
+    oscillator.start();
+    oscillator.stop(context.currentTime + 0.22);
+  } else {
+    const length = Math.floor(context.sampleRate * (assetId.includes("scratch") ? 0.38 : 0.2));
+    const buffer = context.createBuffer(1, length, context.sampleRate);
+    const data = buffer.getChannelData(0);
+    for (let index = 0; index < length; index += 1) data[index] = (Math.random() * 2 - 1) * (1 - index / length);
+    const source = context.createBufferSource();
+    const filter = context.createBiquadFilter();
+    filter.type = assetId.includes("scratch") ? "highpass" : "bandpass";
+    filter.frequency.value = assetId.includes("scratch") ? 1400 : 850;
+    source.buffer = buffer;
+    source.connect(filter).connect(gain);
+    source.start();
+  }
+  window.setTimeout(() => void context.close(), 600);
 }
 
 const formatTime = (seconds: number, fps = 30) => {
@@ -23,8 +56,10 @@ const formatTime = (seconds: number, fps = 30) => {
   return `${String(minutes).padStart(2, "0")}:${String(secs).padStart(2, "0")}:${String(frames).padStart(2, "0")}`;
 };
 
-export function PreviewMonitor({ timeline, playhead, playing, assetUrl, onTogglePlaying, onTimeChange, onDuration }: PreviewMonitorProps) {
+export function PreviewMonitor({ timeline, playhead, playing, assetUrl, globalAssets, onTogglePlaying, onDuration }: PreviewMonitorProps) {
   const videoRef = useRef<HTMLVideoElement>(null);
+  const previousPlayheadRef = useRef(playhead);
+  const lastSfxRef = useRef<string | null>(null);
   const activeText = useMemo(
     () => timeline.tracks.flatMap((track) => track.elements).filter((element) => element.kind === "text").find((element) => playhead >= element.start && playhead < element.start + element.duration),
     [timeline, playhead]
@@ -38,8 +73,12 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, onToggle
     [timeline]
   );
   const activeClip = useMemo(
-    () => primaryClips.find((element) => playhead >= element.start && playhead < element.start + element.duration) ?? primaryClips.at(-1),
+    () => primaryClips.find((element) => playhead >= element.start && playhead < element.start + element.duration),
     [playhead, primaryClips]
+  );
+  const sfxCues = useMemo(
+    () => timeline.tracks.find((track) => track.id === "a3")?.elements.filter((element) => element.kind === "audio").sort((a, b) => a.start - b.start) ?? [],
+    [timeline]
   );
   const previewStyle = useMemo<CSSProperties>(() => {
     if (!activeClip) return {};
@@ -63,11 +102,43 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, onToggle
   const hasVignette = useMemo(() => (activeClip?.effects ?? []).map(canonicalEffectId).includes("look.vignette@1"), [activeClip]);
 
   useEffect(() => {
+    const previous = previousPlayheadRef.current;
+    previousPlayheadRef.current = playhead;
+    if (!playing || playhead < previous || playhead - previous > 1) return;
+    const cue = sfxCues.find((item) => item.start >= previous - 0.015 && item.start < playhead + 0.015 && item.id !== lastSfxRef.current);
+    if (!cue?.assetId) return;
+    lastSfxRef.current = cue.id;
+    const asset = globalAssets.find((item) => item.id === cue.assetId || item.fileKey === cue.assetId);
+    if (asset?.fileKey) {
+      void loadWorkspaceFile(asset.fileKey).then((file) => {
+        if (!file) return playGeneratedSfx(cue.assetId!, cue.volume ?? 0.5);
+        const url = URL.createObjectURL(file);
+        const audio = new Audio(url);
+        audio.volume = cue.volume ?? 0.5;
+        audio.onended = () => URL.revokeObjectURL(url);
+        void audio.play().catch(() => URL.revokeObjectURL(url));
+      });
+    } else {
+      playGeneratedSfx(cue.assetId, cue.volume ?? 0.5);
+    }
+  }, [globalAssets, playhead, playing, sfxCues]);
+
+  useEffect(() => {
     const video = videoRef.current;
     if (!video || !assetUrl || !activeClip) return;
     const targetSourceTime = (activeClip.sourceStart ?? 0) + Math.max(0, playhead - activeClip.start);
-    if (Math.abs(video.currentTime - targetSourceTime) > 0.35) video.currentTime = targetSourceTime;
-  }, [activeClip, assetUrl, playhead]);
+    video.currentTime = targetSourceTime;
+    if (playing) void video.play().catch(() => undefined);
+    // Seek once at each edit boundary. Per-frame correction causes a seek storm on large local files.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [activeClip?.id, assetUrl]);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (!video || !assetUrl || !activeClip || playing) return;
+    const targetSourceTime = (activeClip.sourceStart ?? 0) + Math.max(0, playhead - activeClip.start);
+    if (Math.abs(video.currentTime - targetSourceTime) > 0.04) video.currentTime = targetSourceTime;
+  }, [activeClip, assetUrl, playhead, playing]);
 
   useEffect(() => {
     const video = videoRef.current;
@@ -96,23 +167,8 @@ export function PreviewMonitor({ timeline, playhead, playing, assetUrl, onToggle
               src={assetUrl}
               style={previewStyle}
               playsInline
-              onTimeUpdate={(event) => {
-                if (!activeClip) return onTimeChange(event.currentTarget.currentTime);
-                const sourceStart = activeClip.sourceStart ?? 0;
-                const sourceOffset = event.currentTarget.currentTime - sourceStart;
-                if (sourceOffset >= activeClip.duration - 0.05) {
-                  const activeIndex = primaryClips.findIndex((clip) => clip.id === activeClip.id);
-                  const next = primaryClips[activeIndex + 1];
-                  if (next) {
-                    event.currentTarget.currentTime = next.sourceStart ?? 0;
-                    onTimeChange(next.start);
-                  }
-                  return;
-                }
-                onTimeChange(Math.max(activeClip.start, activeClip.start + sourceOffset));
-              }}
+              onSeeked={(event) => { if (playing && event.currentTarget.paused) void event.currentTarget.play().catch(() => undefined); }}
               onLoadedMetadata={(event) => onDuration(event.currentTarget.duration)}
-              onEnded={onTogglePlaying}
             />
           ) : (
             <div className="mock-cinematic-frame">

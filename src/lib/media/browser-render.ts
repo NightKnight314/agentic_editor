@@ -2,6 +2,7 @@
 
 import type { TimelineDocument, TimelineElement } from "@/lib/editor/types";
 import { canonicalEffectId } from "@/lib/effects/catalog";
+import { loadWorkspaceFile } from "@/lib/storage/project-store";
 
 const CORE_BASE_URL = "https://unpkg.com/@ffmpeg/core@0.12.10/dist/esm";
 
@@ -33,11 +34,22 @@ function audioChain(clip: TimelineElement, index: number) {
   return `[0:a]atrim=start=${number(start)}:end=${number(end)},asetpts=PTS-STARTPTS[a${index}]`;
 }
 
+function generatedSfxChain(cue: TimelineElement, index: number) {
+  const duration = Math.max(0.12, cue.duration);
+  const delay = Math.max(0, Math.round(cue.start * 1000));
+  const volume = cue.volume ?? 0.5;
+  const frequency = cue.assetId?.includes("impact") ? 82 : cue.assetId?.includes("scratch") ? 1320 : 620;
+  return `sine=frequency=${frequency}:sample_rate=48000:duration=${number(duration)},volume=${number(volume)},afade=t=out:st=0:d=${number(duration)},adelay=${delay}|${delay}[sfx${index}]`;
+}
+
 export async function renderTimelineMp4(file: File, timeline: TimelineDocument, onProgress: (progress: number) => void) {
   const clips = timeline.tracks.find((track) => track.id === "v1")?.elements
     .filter((element) => element.kind === "video" && element.duration > 0.1)
     .sort((left, right) => left.start - right.start) ?? [];
   if (!clips.length) throw new Error("The primary video track has no renderable clips.");
+  const sfxCues = timeline.tracks.find((track) => track.id === "a3")?.elements
+    .filter((element) => element.kind === "audio" && element.duration > 0.05)
+    .sort((left, right) => left.start - right.start) ?? [];
 
   const [{ FFmpeg }, { fetchFile, toBlobURL }] = await Promise.all([
     import("@ffmpeg/ffmpeg"),
@@ -54,13 +66,37 @@ export async function renderTimelineMp4(file: File, timeline: TimelineDocument, 
 
   const inputName = "nightcut-source.mp4";
   const outputName = "nightcut-export.mp4";
+  const extraInputs: Array<{ cue: TimelineElement; name: string; inputIndex: number }> = [];
   try {
     await ffmpeg.writeFile(inputName, await fetchFile(file));
+    for (const cue of sfxCues) {
+      if (!cue.assetId?.startsWith("global:")) continue;
+      const sfxFile = await loadWorkspaceFile(cue.assetId);
+      if (!sfxFile) continue;
+      const extension = sfxFile.name.split(".").at(-1)?.replaceAll(/[^a-z0-9]/gi, "").toLowerCase() || "wav";
+      const name = `nightcut-sfx-${extraInputs.length}.${extension}`;
+      await ffmpeg.writeFile(name, await fetchFile(sfxFile));
+      extraInputs.push({ cue, name, inputIndex: extraInputs.length + 1 });
+    }
     const chains = clips.flatMap((clip, index) => [videoChain(clip, index), audioChain(clip, index)]);
     const concatInputs = clips.map((_, index) => `[v${index}][a${index}]`).join("");
-    chains.push(`${concatInputs}concat=n=${clips.length}:v=1:a=1[vout][aout]`);
+    const hasSfx = sfxCues.length > 0;
+    chains.push(`${concatInputs}concat=n=${clips.length}:v=1:a=1[vout][${hasSfx ? "dialogue" : "aout"}]`);
+    const sfxLabels: string[] = [];
+    sfxCues.forEach((cue, index) => {
+      const imported = extraInputs.find((item) => item.cue.id === cue.id);
+      const delay = Math.max(0, Math.round(cue.start * 1000));
+      if (imported) {
+        chains.push(`[${imported.inputIndex}:a]atrim=start=0:end=${number(cue.duration)},asetpts=PTS-STARTPTS,volume=${number(cue.volume ?? 0.5)},afade=t=out:st=0:d=${number(cue.duration)},adelay=${delay}|${delay}[sfx${index}]`);
+      } else {
+        chains.push(generatedSfxChain(cue, index));
+      }
+      sfxLabels.push(`[sfx${index}]`);
+    });
+    if (hasSfx) chains.push(`[dialogue]${sfxLabels.join("")}amix=inputs=${sfxLabels.length + 1}:duration=first:dropout_transition=0:normalize=0,alimiter=limit=0.95[aout]`);
+    const inputArgs = ["-i", inputName, ...extraInputs.flatMap((item) => ["-i", item.name])];
     const exitCode = await ffmpeg.exec([
-      "-i", inputName,
+      ...inputArgs,
       "-filter_complex", chains.join(";"),
       "-map", "[vout]",
       "-map", "[aout]",
@@ -80,6 +116,7 @@ export async function renderTimelineMp4(file: File, timeline: TimelineDocument, 
   } finally {
     ffmpeg.off("progress", progressHandler);
     await ffmpeg.deleteFile(inputName).catch(() => undefined);
+    for (const input of extraInputs) await ffmpeg.deleteFile(input.name).catch(() => undefined);
     await ffmpeg.deleteFile(outputName).catch(() => undefined);
     ffmpeg.terminate();
   }

@@ -1,6 +1,18 @@
 import type { AnalysisResponse, TranscriptWord } from "./schema";
 import type { TimelineDocument, TimelineElement } from "@/lib/editor/types";
-import { BUILTIN_GLOBAL_ASSETS, type GlobalAsset } from "@/lib/assets/catalog";
+import type { GlobalAsset } from "@/lib/assets/catalog";
+
+const DEFAULT_COMPOSITION_ASSETS: GlobalAsset[] = [
+  { id: "font-anton", name: "Anton", kind: "font", source: "builtin", fontFamily: "Anton" },
+  { id: "vfx-push", name: "Slow Push", kind: "vfx", source: "builtin", effectId: "transform.push@1" },
+  { id: "vfx-punch", name: "Punch In", kind: "vfx", source: "builtin", effectId: "transform.punch@1" },
+  { id: "vfx-blur", name: "Blur Reveal", kind: "vfx", source: "builtin", effectId: "filter.blur@1" },
+  { id: "vfx-grade", name: "Kumar Grade", kind: "vfx", source: "builtin", effectId: "color.basic@1" },
+  { id: "vfx-vignette", name: "Soft Vignette", kind: "vfx", source: "builtin", effectId: "look.vignette@1" },
+  { id: "sfx-impact", name: "Impact Hit", kind: "sfx", source: "builtin" },
+  { id: "sfx-whoosh", name: "Fast Whoosh", kind: "sfx", source: "builtin" },
+  { id: "sfx-scratch", name: "Record Scratch", kind: "sfx", source: "builtin" }
+];
 
 const beatColors: Record<string, string> = {
   pattern_interrupt: "#e55745",
@@ -87,7 +99,9 @@ function removeEmptySpace(slices: Array<{ start: number; end: number }>, allWord
 }
 
 function findAsset(assets: GlobalAsset[], preferred: string, fallbackIndex: number) {
-  const usable = assets.filter((asset) => asset.kind === "sfx" || asset.kind === "audio");
+  const usable = assets
+    .filter((asset) => asset.kind === "sfx" || asset.kind === "audio")
+    .sort((left, right) => Number(right.source === "imported") - Number(left.source === "imported"));
   return usable.find((asset) => asset.name.toLowerCase().includes(preferred)) ?? usable[fallbackIndex % Math.max(1, usable.length)];
 }
 
@@ -123,7 +137,7 @@ function groupCaptionWords(words: TranscriptWord[], compositionStart: number, so
   return elements;
 }
 
-export function timelineFromAnalysis(response: AnalysisResponse, assetId = "source-1", assets: GlobalAsset[] = BUILTIN_GLOBAL_ASSETS): TimelineDocument {
+export function timelineFromAnalysis(response: AnalysisResponse, assetId = "source-1", assets: GlobalAsset[] = DEFAULT_COMPOSITION_ASSETS): TimelineDocument {
   let cursor = 0;
   const primary: TimelineElement[] = [];
   const broll: TimelineElement[] = [];
@@ -187,7 +201,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
         start: segment.storyBeat === "pattern_interrupt" ? segmentStart : segmentStart + Math.min(0.14, duration * 0.05),
         duration: Math.min(2.4, Math.max(1.15, duration * 0.52)),
         color: "#e55745",
-      fontFamily: titleFont,
+        fontFamily: titleFont,
         effects: ["hard-reveal"]
       });
     }
