@@ -7,16 +7,13 @@ const timeline = timelineFromAnalysis(analysis);
 const primary = timeline.tracks.find((track) => track.id === "v1").elements;
 const titles = timeline.tracks.find((track) => track.id === "g1").elements;
 const sfx = timeline.tracks.find((track) => track.id === "a3").elements;
-const firstBet = primary.find((clip) => clip.id === "e03" || clip.id.startsWith("e03-"));
+const sourceTitles = analysis.analysis.timeline.segments
+  .map((segment) => segment.title?.replace(/\s+/g, " ").trim().split(" ").slice(0, 7).join(" ").toUpperCase())
+  .filter(Boolean);
 
 assert.ok(timeline.duration >= 30 && timeline.duration <= 60, "Kumar draft must be 30–60 seconds");
 assert.equal(primary[0].start, 0, "Hook must start at frame zero");
-assert.ok(primary[1].start <= 3, "Hook promise must begin within three seconds");
-assert.ok(firstBet?.start <= 8.5, "First numbered bet must arrive by 8.5 seconds");
-assert.equal(titles[0].text, "3 MARKETS I'D BET ON");
-assert.ok(titles.every((title) => !title.text.includes("MIT")), "Rendered titles must omit unverified MIT copy");
-assert.ok(titles.some((title) => title.text === "WHAT I ACTUALLY USE"), "Human release must be visible");
-assert.equal(titles.at(-1).text, "WHAT ARE YOU BUILDING?", "CTA must close the edit");
+assert.deepEqual(titles.map((title) => title.text), sourceTitles, "Compiler must not inject titles absent from the analysis");
 assert.ok(primary.every((clip) => clip.sourceStart >= 0 && clip.sourceStart + clip.duration <= analysis.transcript.duration + 0.1), "All clips must stay in source bounds");
 assert.ok(primary.every((clip) => clip.effects.length <= 3), "Effect budget is capped at three effects per primary clip");
 assert.ok(primary.length >= 18, "Silence removal must create enough semantic jump cuts");
@@ -24,8 +21,6 @@ assert.ok(sfx.length >= 4, "Major story beats must receive SFX cues");
 
 process.stdout.write(`${JSON.stringify({
   duration: timeline.duration,
-  hookPromiseAt: primary[1].start,
-  firstBetAt: firstBet.start,
   primaryClips: primary.length,
   sfxCues: sfx.length,
   captions: timeline.tracks.find((track) => track.id === "c1").elements.length,

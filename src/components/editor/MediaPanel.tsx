@@ -109,13 +109,10 @@ export function MediaPanel({ asset, analysis, creativeBrief, onCreativeBriefChan
             </>
           ) : (
             <div className="asset-card selected">
-              <div className="asset-thumb demo-thumb">
-                <span className="demo-person" />
-                <span><Icon name="play" size={13} /></span>
-              </div>
+              <div className="asset-thumb score-thumb"><Icon name="upload" size={18} /></div>
               <div className="asset-copy">
-                <strong>founder_interview.mp4</strong>
-                <small>02:34 · DEMO</small>
+                <strong>No source imported</strong>
+                <small>ADD MEDIA TO BEGIN</small>
               </div>
             </div>
           )}

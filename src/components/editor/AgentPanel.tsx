@@ -27,34 +27,33 @@ const prompts = ["Tighten the hook", "Make captions punchier", "Clean the dialog
 function localPlan(prompt: string, selected: TimelineElement | null): { text: string; operations: TimelineOperation[]; actions: string[] } {
   const normalized = prompt.toLowerCase();
   if (normalized.includes("hook") || normalized.includes("tight")) {
+    const operations: TimelineOperation[] = selected?.kind === "video"
+      ? [{ type: "element.update", elementId: selected.id, patch: { duration: Math.max(0.8, selected.duration * 0.82), effects: [...new Set([...(selected.effects ?? []), "transform.punch@1"])] } }]
+      : [];
     return {
-      text: "I tightened the opening beat and brought the reveal forward. The identity card now lands before the three-second hook deadline.",
-      operations: [
-        { type: "element.update", elementId: "clip-hook", patch: { duration: 5.8, effects: ["vertical-reframe", "slow-push", "punch-in"] } },
-        { type: "element.update", elementId: "clip-reveal", patch: { start: 5.8 } },
-        { type: "element.update", elementId: "title-name", patch: { start: 0.35, duration: 2.2 } }
-      ],
-      actions: ["timeline.trim · Cold open → 5.8s", "timeline.move · The reveal → 00:05.8", "text.compose · Identity card → 00:00.35"]
+      text: operations.length ? "I tightened the selected opening clip and added restrained emphasis." : "Select the opening video clip and I’ll tighten it without inventing new source content.",
+      operations,
+      actions: operations.length ? [`timeline.trim · ${selected?.name}`, "visual.transform · restrained punch"] : ["context.await · opening clip selection"]
     };
   }
   if (normalized.includes("caption") || normalized.includes("text")) {
+    const operations: TimelineOperation[] = selected?.kind === "caption"
+      ? [{ type: "element.update", elementId: selected.id, patch: { color: "#ef5b49", effects: [...new Set([...(selected.effects ?? []), "word-pop"])] } }]
+      : [];
     return {
-      text: "Captions are now shorter phrase chunks with stronger active-word emphasis. I preserved the lower safe area for Shorts UI.",
-      operations: [
-        { type: "element.update", elementId: "caption-1", patch: { text: "I DIDN'T COME TO FIT IN", color: "#ef5b49", effects: ["word-pop"] } },
-        { type: "element.update", elementId: "caption-2", patch: { text: "I CAME TO CHANGE IT", color: "#ef5b49", effects: ["word-pop"] } }
-      ],
-      actions: ["text.compose · 2 phrase chunks", "visual.transform · active word emphasis", "review.safeArea · passed"]
+      text: operations.length ? "I added active-word emphasis to the selected source-aligned caption." : "Select a caption and I’ll restyle its existing transcript text.",
+      operations,
+      actions: operations.length ? ["visual.transform · active word emphasis", "review.safeArea · preserved"] : ["context.await · caption selection"]
     };
   }
   if (normalized.includes("audio") || normalized.includes("dialogue") || normalized.includes("clean")) {
+    const operations: TimelineOperation[] = selected?.kind === "audio"
+      ? [{ type: "element.update", elementId: selected.id, patch: { volume: 1, effects: [...new Set([...(selected.effects ?? []), "audio.gain_fade@1"])] } }]
+      : [];
     return {
-      text: "I applied a restrained dialogue-cleanup chain and increased music ducking beneath speech. This remains non-destructive in the timeline.",
-      operations: [
-        { type: "element.update", elementId: "audio-dialogue", patch: { volume: 1, effects: ["noise-reduction", "high-pass-80hz", "compressor", "normalize"] } },
-        { type: "element.update", elementId: "audio-score", patch: { volume: 0.2, effects: ["duck-under-dialogue-18db"] } }
-      ],
-      actions: ["audio.clean · dialogue / balanced", "audio.mix · music ducking −18 dB", "review.loudness · −14 LUFS target"]
+      text: operations.length ? "I applied a restrained, non-destructive cleanup pass to the selected audio." : "Select a dialogue or music element and I’ll clean that source.",
+      operations,
+      actions: operations.length ? ["audio.clean · selected source", "review.loudness · protected"] : ["context.await · audio selection"]
     };
   }
   if (selected) {
@@ -76,7 +75,7 @@ export function AgentPanel({ context, selectedElement, analysisReport, onOperati
   const [input, setInput] = useState("");
   const [working, setWorking] = useState(false);
   const [messages, setMessages] = useState<Message[]>([
-    { id: "welcome", role: "agent", text: "I’ve mapped this draft into six Kumar-style story beats. Import source media or ask me to reshape the timeline." }
+    { id: "welcome", role: "agent", text: "Import source media and I’ll build a story from that material only, then apply the active style map." }
   ]);
   const reportedAnalysis = useRef<string | null>(null);
   const estimatedTokens = useMemo(() => Math.max(680, context.nearbyElements.length * 170), [context.nearbyElements.length]);

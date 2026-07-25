@@ -39,39 +39,12 @@ function alignedSourceEnd(sourceStart: number, sourceEnd: number, transcript: An
   return completing[0]?.end ?? sourceEnd;
 }
 
-function editorialTitle(storyBeat: string, title: string | null, ambitionIndex: number) {
-  if (storyBeat === "pattern_interrupt") return "3 MARKETS I'D BET ON";
-  if (storyBeat === "identity_authority") return "KIRO / FOUNDER";
-  if (storyBeat === "human_record_scratch") return "WHAT I ACTUALLY USE";
-  if (storyBeat === "callback_cta") return "WHAT ARE YOU BUILDING?";
+function editorialTitle(title: string | null) {
   const cleaned = (title ?? "")
-    .replace(/MIT\s+STUDENT\s*/gi, "")
     .replace(/\s+/g, " ")
     .trim();
   if (cleaned) return cleaned.split(" ").slice(0, 7).join(" ").toUpperCase();
-  return storyBeat === "ambition_conflict" ? `${String(ambitionIndex).padStart(2, "0")} / THE BET` : null;
-}
-
-function sourceSlices(storyBeat: string, sourceStart: number, sourceEnd: number, words: TranscriptWord[], allWords: TranscriptWord[]) {
-  if (storyBeat === "identity_authority") {
-    for (const [index, word] of allWords.entries()) {
-      if (word.word.toLowerCase().replace(/[^a-z]/g, "") !== "kiro") continue;
-      const nearbyBefore = allWords.slice(Math.max(0, index - 4), index + 1);
-      const nearbyAfter = allWords.slice(index + 1, index + 18);
-      const hi = nearbyBefore.find((item) => item.word.toLowerCase().replace(/[^a-z]/g, "") === "hi");
-      const experienceStart = nearbyAfter.find((item) => ["ive", "i"].includes(item.word.toLowerCase().replace(/[^a-z]/g, "")));
-      const founders = nearbyAfter.find((item) => item.word.toLowerCase().replace(/[^a-z]/g, "") === "founders");
-      if (hi && experienceStart && founders && founders.end - experienceStart.start <= 4) {
-        return [{ start: hi.start, end: word.end }, { start: experienceStart.start, end: founders.end }];
-      }
-    }
-  }
-  if (storyBeat !== "pattern_interrupt") return [{ start: sourceStart, end: sourceEnd }];
-  const selected = words.filter((word) => word.start >= sourceStart - 0.08 && word.end <= sourceEnd + 0.08);
-  const deadlineEnd = selected.find((word) => word.word.toLowerCase().replace(/[^a-z]/g, "") === "school")?.end;
-  const promiseStart = selected.find((word) => word.start > (deadlineEnd ?? sourceStart) && word.word.toLowerCase().replace(/[^a-z]/g, "") === "heres")?.start;
-  if (!deadlineEnd || !promiseStart || deadlineEnd - sourceStart < 1 || sourceEnd - promiseStart < 1) return [{ start: sourceStart, end: sourceEnd }];
-  return [{ start: sourceStart, end: deadlineEnd }, { start: promiseStart, end: sourceEnd }];
+  return null;
 }
 
 function removeEmptySpace(slices: Array<{ start: number; end: number }>, allWords: TranscriptWord[]) {
@@ -148,15 +121,13 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
   const availableEffects = new Set(assets.flatMap((asset) => asset.effectId ? [asset.effectId] : []));
   const titleFont = assets.find((asset) => asset.fontFamily === "Anton")?.fontFamily ?? assets.find((asset) => asset.fontFamily)?.fontFamily ?? "Anton";
 
-  let ambitionIndex = 0;
   response.analysis.timeline.segments.forEach((segment, index) => {
     const sourceEnd = alignedSourceEnd(segment.sourceStart, segment.sourceEnd, response.transcript.segments);
     const segmentWords = response.transcript.words.filter((word) => word.start >= segment.sourceStart - 0.08 && word.end <= sourceEnd + 0.08);
-    const slices = removeEmptySpace(sourceSlices(segment.storyBeat, segment.sourceStart, sourceEnd, segmentWords, response.transcript.words), response.transcript.words);
+    const slices = removeEmptySpace([{ start: segment.sourceStart, end: sourceEnd }], response.transcript.words);
     const segmentStart = cursor;
     const color = beatColors[segment.storyBeat] ?? "#6657e8";
-    if (segment.storyBeat === "ambition_conflict") ambitionIndex += 1;
-    const title = editorialTitle(segment.storyBeat, segment.title, ambitionIndex);
+    const title = editorialTitle(segment.title);
     slices.forEach((slice, sliceIndex) => {
       const sliceDuration = Math.ceil((slice.end - slice.start) * 30) / 30;
       const sliceId = slices.length === 1 ? segment.id || `clip-${index}` : `${segment.id || `clip-${index}`}-${sliceIndex + 1}`;
@@ -164,7 +135,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
         id: sliceId,
         trackId: "v1",
         kind: "video",
-        name: slices.length === 1 ? segment.rationale : `${segment.rationale} · ${sliceIndex === 0 ? "deadline" : "promise"}`,
+        name: slices.length === 1 ? segment.rationale : `${segment.rationale} · jump ${sliceIndex + 1}`,
         start: cursor,
         duration: sliceDuration,
         sourceStart: slice.start,

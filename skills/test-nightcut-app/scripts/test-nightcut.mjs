@@ -285,11 +285,11 @@ async function runBrowserSmoke() {
   }
   const imported = await waitFor(() => evaluate(`Array.from(document.querySelectorAll('.asset-copy strong')).some((node) => node.textContent === ${JSON.stringify(path.basename(videoPath))})`), 15_000, "media import");
   record("sample media imported", Boolean(imported), path.basename(videoPath));
-  const downloadReady = await evaluate(`(() => {
+  const downloadGated = await evaluate(`(() => {
     const button = document.querySelector('.export-button');
-    return button?.textContent?.includes('Download MP4') && !button.disabled;
+    return button?.textContent?.includes('Download MP4') && button.disabled;
   })()`);
-  record("MP4 download ready", Boolean(downloadReady), "download control enables after media import");
+  record("MP4 download gated", Boolean(downloadGated), "download waits for a source-derived draft");
   await clickSelector(".play-button");
   await sleep(6_500);
   const playbackState = await evaluate(`(() => {

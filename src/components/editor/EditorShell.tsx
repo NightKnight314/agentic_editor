@@ -32,19 +32,19 @@ const idleAnalysis: MediaAnalysisState = {
   message: "Ready to analyze"
 };
 
-const SESSION_KEY = "nightcut:active-project:v1";
+const SESSION_KEY = "nightcut:active-project:v2";
 const SOURCE_FILE_KEY = "project:active:source";
 const DEFAULT_CREATIVE_BRIEF = "Create a catchy, cinematic 30 to 60 second short in the Kumar Method style. Prioritize a strong character-led hook, clear escalation, proof, a humanizing beat, and a clean open-loop ending.";
 
 export function EditorShell() {
   const [timeline, setTimeline] = useState(demoTimeline);
-  const [playhead, setPlayhead] = useState(1.1);
+  const [playhead, setPlayhead] = useState(0);
   const [playing, setPlaying] = useState(false);
   const [zoom, setZoom] = useState(24);
   const [asset, setAsset] = useState<ImportedAsset | null>(null);
   const [analysisState, setAnalysisState] = useState<MediaAnalysisState>(idleAnalysis);
   const [analysisReport, setAnalysisReport] = useState<AnalysisResponse | null>(null);
-  const [selection, setSelection] = useState<EditorSelection>({ elementId: "title-name", trackId: "g1" });
+  const [selection, setSelection] = useState<EditorSelection>({ elementId: null, trackId: null });
   const [toast, setToast] = useState<string | null>(null);
   const [globalAssets, setGlobalAssets] = useState<GlobalAsset[]>(BUILTIN_GLOBAL_ASSETS);
   const [workspaceReady, setWorkspaceReady] = useState(false);
@@ -56,6 +56,7 @@ export function EditorShell() {
     [timeline, selection.elementId]
   );
   const agentContext = useMemo(() => buildAgentContext(timeline, playhead, selection), [timeline, playhead, selection]);
+  const canExport = Boolean(asset && timeline.tracks.find((track) => track.id === "v1")?.elements.some((element) => element.kind === "video"));
 
   useEffect(() => {
     let cancelled = false;
@@ -348,14 +349,14 @@ export function EditorShell() {
       <header className="app-header">
         <div className="brand-mark"><span><Icon name="sparkle" size={16} /></span><strong>NIGHTCUT</strong><small>AGENT VIDEO</small></div>
         <div className="project-switcher"><span className="project-dot" /><div><small>PROJECT</small><strong>{timeline.name}</strong></div><Icon name="chevron" size={13} /></div>
-        <div className="header-center-status"><span><i /> {analysisState.status === "preparing" || analysisState.status === "analyzing" ? analysisState.message : analysisReport ? `${analysisReport.analysis.events.length} events indexed` : "Draft synced"}</span></div>
+        <div className="header-center-status"><span><i /> {analysisState.status === "preparing" || analysisState.status === "analyzing" ? analysisState.message : analysisReport ? `${analysisReport.analysis.events.length} events indexed` : asset ? "Source ready" : "Waiting for source"}</span></div>
         <div className="header-actions">
           <button className="icon-button" title="Undo"><Icon name="undo" size={16} /></button>
           <button className="icon-button" title="Redo"><Icon name="redo" size={16} /></button>
           <span className="header-divider" />
           <Link className="about-header-link" href="/about"><Icon name="layers" size={13} /> How it works</Link>
           <button className="share-button">Share</button>
-          <button className="export-button" title={asset ? "Render and download the current timeline" : "Import source media to download"} disabled={!asset || exportProgress !== null} onClick={() => void exportMp4()}><Icon name="export" size={15} /> {exportProgress === null ? "Download MP4" : `Rendering ${Math.round(exportProgress * 100)}%`}</button>
+          <button className="export-button" title={canExport ? "Render and download the current timeline" : "Analyze source media to build a downloadable draft"} disabled={!canExport || exportProgress !== null} onClick={() => void exportMp4()}><Icon name="export" size={15} /> {exportProgress === null ? "Download MP4" : `Rendering ${Math.round(exportProgress * 100)}%`}</button>
         </div>
       </header>
 
