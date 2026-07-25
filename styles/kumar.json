@@ -1,0 +1,133 @@
+{
+  "$schema": "./style-map.schema.json",
+  "id": "kumar-method",
+  "version": 1,
+  "name": "Kumar Method",
+  "description": "Character-first prestige-thriller editing applied to an unexpected, grounded subject, with a comedic humanizing release.",
+  "output": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "durationSeconds": { "min": 30, "target": 45, "max": 60 },
+    "container": "mp4",
+    "videoCodec": "h264",
+    "audioCodec": "aac"
+  },
+  "creativeThesis": {
+    "primary": "Create tension between an ordinary or unexpected character and an outsized cinematic presentation.",
+    "mustFeel": ["confident", "cinematic", "slightly threatening", "self-aware", "human"],
+    "avoid": ["generic motivational montage", "constant glitching", "fabricated dialogue", "slow preamble", "copying Kumar's identity or exact script"]
+  },
+  "storyBeats": [
+    {
+      "id": "pattern_interrupt",
+      "range": [0, 0.08],
+      "purpose": "Stop the scroll with an unexpected face, image, or declaration.",
+      "selectionSignals": ["bold claim", "contradiction", "unexpected identity", "direct address"],
+      "rules": ["Start speech or motion immediately", "Land the premise within 3 seconds", "No greeting or setup"]
+    },
+    {
+      "id": "identity_authority",
+      "range": [0.08, 0.22],
+      "purpose": "Establish the character, credential, or unusual point of view.",
+      "selectionSignals": ["name", "role", "experience", "specific expertise"],
+      "rules": ["Use one bold identity card", "Prefer a calm direct-to-camera shot"]
+    },
+    {
+      "id": "ambition_conflict",
+      "range": [0.22, 0.48],
+      "purpose": "State an audacious mission, opponent, or consequence.",
+      "selectionSignals": ["goal", "challenge", "threat", "transformation", "stakes"],
+      "rules": ["Escalate rather than explain", "Use punch-ins on decisive phrases"]
+    },
+    {
+      "id": "proof_escalation",
+      "range": [0.48, 0.72],
+      "purpose": "Build credibility and energy through concise proof or detail.",
+      "selectionSignals": ["result", "demonstration", "specific example", "reaction", "visual proof"],
+      "rules": ["Use 3 to 6 short shots", "Prefer cutaways that visually differ from the main shot", "Land important cuts on musical beats"]
+    },
+    {
+      "id": "human_record_scratch",
+      "range": [0.72, 0.88],
+      "purpose": "Break the prestige tone with humor, warmth, skepticism, or an imperfect candid moment.",
+      "selectionSignals": ["laughter", "reaction", "interruption", "self-deprecation", "candid aside"],
+      "rules": ["Allow raw phone-like footage", "Reduce effects", "Use the tonal contrast as the transition"]
+    },
+    {
+      "id": "callback_cta",
+      "range": [0.88, 1],
+      "purpose": "Return to the mission and leave an open loop or concise call to action.",
+      "selectionSignals": ["callback", "promise", "next step", "challenge", "call to action"],
+      "rules": ["End on a complete phrase", "Prefer a hard ending over a long fade"]
+    }
+  ],
+  "pacing": {
+    "hookDeadlineSeconds": 3,
+    "targetMedianShotSeconds": [0.8, 1.8],
+    "maximumUnchangedShotSeconds": 4,
+    "tailMontageShotSeconds": [0.25, 0.9],
+    "preferredTransitions": ["hard_cut", "beat_cut"],
+    "accentTransitions": ["white_flash", "rgb_split", "glitch", "whip"],
+    "accentTransitionFrames": [3, 8]
+  },
+  "visual": {
+    "palette": {
+      "background": "#070707",
+      "foreground": "#F4F1EA",
+      "accent": "#EF2B2D",
+      "muted": "#8F8F8F"
+    },
+    "grade": ["deep blacks", "controlled saturation", "warm skin", "red accents", "subtle grain", "vignette"],
+    "framing": ["vertical close-up", "centered authority portrait", "slow digital push", "detail insert", "three-panel stack"],
+    "effectBudgetPerTenSeconds": {
+      "punchZoom": [1, 3],
+      "glitchOrRgbSplit": [0, 2],
+      "flash": [0, 2],
+      "splitScreen": [0, 1]
+    }
+  },
+  "typography": {
+    "display": {
+      "familyClass": "condensed sans serif",
+      "case": "uppercase",
+      "weight": 800,
+      "colors": ["foreground", "accent"],
+      "maxWords": 7,
+      "motion": ["hard reveal", "scale settle", "tracking snap"]
+    },
+    "captions": {
+      "wordsPerChunk": [2, 5],
+      "lines": [1, 2],
+      "activeWordColor": "accent",
+      "safeAreaPercent": { "left": 8, "right": 8, "top": 8, "bottom": 12 }
+    }
+  },
+  "audio": {
+    "musicMood": ["dark", "minimal", "percussive", "luxury swagger", "rising tension"],
+    "targetIntegratedLufs": -14,
+    "musicDuckDbUnderSpeech": -18,
+    "cues": ["impact on identity card", "riser before escalation", "record scratch or drop for human beat", "final impact on end card"],
+    "publishingRule": "Use original or licensed music only. Reference audio is for analysis, never for final export."
+  },
+  "plannerRules": [
+    "Use only source ranges that exist and remain within asset duration.",
+    "Do not fabricate spoken dialogue or imply that a speaker said generated copy.",
+    "If a story beat is absent, use a clearly editorial on-screen card or mark the beat missing.",
+    "Preserve sentence intelligibility when trimming speech.",
+    "Do not repeat the same source range unless repetition is an intentional callback.",
+    "Prefer narrative contrast over maximizing the number of effects."
+  ],
+  "review": {
+    "passScore": 80,
+    "criteria": [
+      { "id": "hook", "weight": 20, "question": "Is the premise or pattern interrupt clear within 3 seconds?" },
+      { "id": "contrast", "weight": 20, "question": "Does cinematic treatment create productive contrast with the subject?" },
+      { "id": "story", "weight": 20, "question": "Do the beats form a coherent character-driven arc?" },
+      { "id": "rhythm", "weight": 15, "question": "Do cuts, emphasis, and music cues create controlled escalation?" },
+      { "id": "legibility", "weight": 10, "question": "Are captions and title cards readable inside vertical safe areas?" },
+      { "id": "humanity", "weight": 10, "question": "Is there a tonal release that makes the character likable or relatable?" },
+      { "id": "technical", "weight": 5, "question": "Are all ranges valid, dialogue complete, and output constraints satisfied?" }
+    ]
+  }
+}

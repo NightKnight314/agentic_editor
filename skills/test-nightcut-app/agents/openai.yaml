@@ -1,0 +1,4 @@
+interface:
+  display_name: "Test Nightcut App"
+  short_description: "Run evidence-driven Nightcut app tests"
+  default_prompt: "Use $test-nightcut-app to test the Nightcut editor and return an evidence-backed report."

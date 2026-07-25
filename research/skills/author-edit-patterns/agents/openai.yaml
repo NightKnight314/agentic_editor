@@ -1,0 +1,4 @@
+interface:
+  display_name: "Author Edit Patterns"
+  short_description: "Create safe, reusable video-edit recipes"
+  default_prompt: "Use $author-edit-patterns to turn this editing technique into a reusable, constrained pattern."

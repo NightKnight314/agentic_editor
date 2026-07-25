@@ -1,0 +1,124 @@
+{
+  "schemaVersion": "nighthack.effects-demo/1",
+  "project": {
+    "width": 1080,
+    "height": 1920,
+    "fps": 30,
+    "sampleRate": 48000
+  },
+  "assets": {
+    "source-1": {
+      "path": "videos/kiro_sample_video.mp4",
+      "durationFrames": 15990
+    }
+  },
+  "clips": [
+    {
+      "id": "clip-hook",
+      "kind": "video",
+      "assetId": "source-1",
+      "startFrame": 0,
+      "durationFrames": 240,
+      "sourceStartFrame": 1569,
+      "sourceDurationFrames": 276,
+      "effects": [
+        {
+          "id": "fx-hook-rate",
+          "definition": { "id": "time.constant_rate", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 0, "durationFrames": 240 },
+          "parameters": {
+            "rate": 1.15,
+            "preservePitch": true,
+            "audioPolicy": "linked_pitch_preserve"
+          }
+        },
+        {
+          "id": "fx-hook-push",
+          "definition": { "id": "transform.push", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 0, "durationFrames": 240 },
+          "parameters": { "anchorX": 0.5, "anchorY": 0.38 },
+          "automation": {
+            "scale": {
+              "keyframes": [
+                { "frame": 0, "value": 1, "easing": "ease_in_out" },
+                { "frame": 119, "value": 1.08, "easing": "hold" }
+              ]
+            },
+            "x": { "keyframes": [{ "frame": 0, "value": 0, "easing": "hold" }] },
+            "y": { "keyframes": [{ "frame": 0, "value": 0, "easing": "hold" }] }
+          }
+        },
+        {
+          "id": "fx-hook-punch",
+          "definition": { "id": "transform.punch", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 120, "durationFrames": 20 },
+          "parameters": { "anchorX": 0.5, "anchorY": 0.38 },
+          "automation": {
+            "scale": {
+              "keyframes": [
+                { "frame": 0, "value": 1, "easing": "ease_out" },
+                { "frame": 4, "value": 1.064815, "easing": "ease_out" },
+                { "frame": 19, "value": 1, "easing": "hold" }
+              ]
+            },
+            "x": { "keyframes": [{ "frame": 0, "value": 0, "easing": "hold" }] },
+            "y": { "keyframes": [{ "frame": 0, "value": 0, "easing": "hold" }] }
+          }
+        },
+        {
+          "id": "fx-hook-blur-reveal",
+          "definition": { "id": "filter.blur", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 0, "durationFrames": 18 },
+          "parameters": {},
+          "automation": {
+            "radiusPx": {
+              "keyframes": [
+                { "frame": 0, "value": 12, "easing": "ease_out" },
+                { "frame": 17, "value": 0, "easing": "hold" }
+              ]
+            }
+          }
+        },
+        {
+          "id": "fx-hook-grade",
+          "definition": { "id": "color.basic", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 0, "durationFrames": 240 },
+          "parameters": {
+            "brightness": -0.03,
+            "contrast": 1.12,
+            "saturation": 0.92,
+            "warmth": 0.08
+          }
+        },
+        {
+          "id": "fx-hook-vignette",
+          "definition": { "id": "look.vignette", "version": 1 },
+          "enabled": true,
+          "range": { "startFrame": 0, "durationFrames": 240 },
+          "parameters": { "amount": 0.32, "softness": 0.72 }
+        }
+      ]
+    }
+  ],
+  "audio": {
+    "durationTicks": 384000,
+    "dialogueActivity": [
+      { "startTick": 0, "endTick": 80000 },
+      { "startTick": 120000, "endTick": 220000 },
+      { "startTick": 280000, "endTick": 360000 }
+    ],
+    "musicDuck": {
+      "attenuationDb": -14,
+      "attackMs": 80,
+      "releaseMs": 260,
+      "preRollMs": 40,
+      "postRollMs": 120,
+      "mergeGapMs": 180
+    }
+  }
+}

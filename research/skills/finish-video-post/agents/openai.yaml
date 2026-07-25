@@ -1,0 +1,4 @@
+interface:
+  display_name: "Finish Video Post"
+  short_description: "Polish audio, color, captions, and delivery"
+  default_prompt: "Use $finish-video-post to finish and quality-check this video for delivery."

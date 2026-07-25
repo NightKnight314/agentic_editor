@@ -1,0 +1,175 @@
+"use client";
+
+import { useRef, useState } from "react";
+import { Icon } from "@/components/ui/Icon";
+import type { GlobalAsset } from "@/lib/assets/catalog";
+
+interface ImportedAsset {
+  name: string;
+  url: string;
+  size: number;
+  duration?: number;
+}
+
+export interface MediaAnalysisState {
+  status: "idle" | "preparing" | "analyzing" | "done" | "error";
+  progress: number;
+  message: string;
+  cost?: number;
+  eventCount?: number;
+}
+
+const formatBytes = (bytes: number) => {
+  if (!bytes) return "0 MB";
+  return `${(bytes / 1024 / 1024).toFixed(1)} MB`;
+};
+
+export function MediaPanel({ asset, analysis, onImport, onAnalyze, globalAssets, onGlobalImport, onApplyAsset }: {
+  asset: ImportedAsset | null;
+  analysis: MediaAnalysisState;
+  onImport: (file: File) => void;
+  onAnalyze: () => void;
+  globalAssets: GlobalAsset[];
+  onGlobalImport: (files: FileList) => void;
+  onApplyAsset: (asset: GlobalAsset) => void;
+}) {
+  const [tab, setTab] = useState<"media" | "assets" | "styles">("media");
+  const inputRef = useRef<HTMLInputElement>(null);
+  const globalInputRef = useRef<HTMLInputElement>(null);
+
+  return (
+    <aside className="media-panel panel-surface">
+      <div className="panel-tabs">
+        <button className={tab === "media" ? "active" : ""} onClick={() => setTab("media")}>Media</button>
+        <button className={tab === "assets" ? "active" : ""} onClick={() => setTab("assets")}>Assets</button>
+        <button className={tab === "styles" ? "active" : ""} onClick={() => setTab("styles")}>Styles</button>
+      </div>
+
+      {tab === "media" ? (
+        <div className="media-panel-content">
+          <button className="import-drop" onClick={() => inputRef.current?.click()}>
+            <span className="import-icon"><Icon name="upload" size={18} /></span>
+            <span>Import source media</span>
+            <small>MP4, MOV, WebM</small>
+          </button>
+          <input
+            ref={inputRef}
+            type="file"
+            accept="video/*,audio/*,image/*"
+            hidden
+            onChange={(event) => {
+              const file = event.target.files?.[0];
+              if (file) onImport(file);
+            }}
+          />
+
+          <div className="section-heading">
+            <span>PROJECT MEDIA</span>
+            <button aria-label="More options"><Icon name="more" size={16} /></button>
+          </div>
+
+          {asset ? (
+            <>
+              <div className="asset-card selected">
+                <div className="asset-thumb asset-thumb-video">
+                  <video src={asset.url} muted preload="metadata" />
+                  <span><Icon name="play" size={13} /></span>
+                </div>
+                <div className="asset-copy">
+                  <strong>{asset.name}</strong>
+                  <small>{formatBytes(asset.size)} · SOURCE</small>
+                </div>
+              </div>
+              <button className="analyze-source-button" disabled={analysis.status === "preparing" || analysis.status === "analyzing"} onClick={onAnalyze}>
+                <Icon name={analysis.status === "done" ? "check" : "sparkle"} size={14} />
+                {analysis.status === "done" ? "Analyze again" : analysis.status === "preparing" || analysis.status === "analyzing" ? "Agent working…" : "Analyze & build draft"}
+              </button>
+              {analysis.status !== "idle" && (
+                <div className={`analysis-progress-card ${analysis.status}`}>
+                  <div><span>{analysis.message}</span><small>{Math.round(analysis.progress * 100)}%</small></div>
+                  <div className="analysis-progress-track"><i style={{ width: `${Math.max(3, analysis.progress * 100)}%` }} /></div>
+                  {analysis.status === "done" && <p>{analysis.eventCount} source events · ${analysis.cost?.toFixed(3)} estimated</p>}
+                </div>
+              )}
+            </>
+          ) : (
+            <div className="asset-card selected">
+              <div className="asset-thumb demo-thumb">
+                <span className="demo-person" />
+                <span><Icon name="play" size={13} /></span>
+              </div>
+              <div className="asset-copy">
+                <strong>founder_interview.mp4</strong>
+                <small>02:34 · DEMO</small>
+              </div>
+            </div>
+          )}
+
+          <div className="asset-card">
+            <div className="asset-thumb score-thumb"><Icon name="audio" size={20} /></div>
+            <div className="asset-copy">
+              <strong>dark_pulse_92bpm.wav</strong>
+              <small>00:47 · AUDIO</small>
+            </div>
+          </div>
+        </div>
+      ) : tab === "assets" ? (
+        <div className="media-panel-content">
+          <button className="import-drop compact-drop" onClick={() => globalInputRef.current?.click()}>
+            <span className="import-icon"><Icon name="plus" size={16} /></span>
+            <span>Add global assets</span>
+            <small>SFX, images, overlays</small>
+          </button>
+          <input
+            ref={globalInputRef}
+            type="file"
+            accept="audio/*,image/*,video/*"
+            multiple
+            hidden
+            onChange={(event) => {
+              if (event.target.files?.length) onGlobalImport(event.target.files);
+              event.target.value = "";
+            }}
+          />
+          {(["font", "sfx", "vfx", "image"] as const).map((kind) => {
+            const items = globalAssets.filter((item) => item.kind === kind || (kind === "sfx" && item.kind === "audio"));
+            if (!items.length) return null;
+            return (
+              <div className="library-group" key={kind}>
+                <div className="section-heading"><span>{kind.toUpperCase()}</span></div>
+                {items.map((item) => (
+                  <button className="library-asset" key={item.id} onClick={() => onApplyAsset(item)}>
+                    <span className={`library-icon kind-${kind}`}><Icon name={kind === "font" ? "text" : kind === "sfx" ? "audio" : "wand"} size={14} /></span>
+                    <span><strong style={item.fontFamily ? { fontFamily: item.fontFamily } : undefined}>{item.name}</strong><small>{item.detail ?? item.source}</small></span>
+                    <i>{item.source === "builtin" ? "+" : "LOCAL"}</i>
+                  </button>
+                ))}
+              </div>
+            );
+          })}
+        </div>
+      ) : (
+        <div className="media-panel-content">
+          <div className="active-style-card">
+            <div className="style-card-art">
+              <span>K</span>
+              <small>01 / 06</small>
+            </div>
+            <div className="style-card-head">
+              <div><small>ACTIVE STYLE MAP</small><strong>Kumar Method</strong></div>
+              <span className="status-dot" />
+            </div>
+            <p>Prestige-thriller pacing with an unexpected character and humanizing release.</p>
+            <div className="style-tags"><span>6 story beats</span><span>92 BPM</span><span>9:16</span></div>
+          </div>
+          <button className="secondary-button wide"><Icon name="plus" size={15} /> Add style map</button>
+        </div>
+      )}
+
+      <div className="panel-footnote">
+        <Icon name="cloud" size={14} />
+        <span>{tab === "assets" ? "Global library saved on this device" : "Media stays local until analysis"}</span>
+      </div>
+    </aside>
+  );
+}

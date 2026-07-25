@@ -1,0 +1,4 @@
+interface:
+  display_name: "Plan Video Edit"
+  short_description: "Turn raw footage into an editorial plan"
+  default_prompt: "Use $plan-video-edit to turn my footage analysis into a coherent, paced edit plan."

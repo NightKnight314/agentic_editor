@@ -1,0 +1,4 @@
+interface:
+  display_name: "Engineer AI Editing"
+  short_description: "Design reliable AI-assisted editing workflows"
+  default_prompt: "Use $engineer-ai-editing to design a reliable, auditable AI video-editing workflow."

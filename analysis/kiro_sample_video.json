@@ -1,0 +1,7533 @@
+{
+  "analysis": {
+    "summary": "A 52.92-second vertical short framing Kiro as an MIT student founder making a high-conviction bet on three startup markets before YC Startup School. The edit starts with the deadline and prediction, escalates through physical AI, data, and infrastructure, then closes with his personal use of startup infrastructure and a direct open-loop question. No genuine candid or humorous beat is present in the source, so the humanizing beat is approximated through his personal workflow rather than fabricated dialogue.",
+    "sourceQuality": {
+      "speechClarity": 0.86,
+      "visualVariety": 0.32,
+      "editability": 0.84,
+      "notes": [
+        "Consistent direct-to-camera outdoor footage with clear speech and usable facial close-ups.",
+        "Visual variety is limited; create contrast through punch-ins, vertical reframing, typography, and controlled transitions.",
+        "Several repeated takes cover the same lines; selections below avoid unnecessary repetition.",
+        "No clearly supported comedic, candid, or reaction moment was identified."
+      ]
+    },
+    "recommendedTitle": "3 Startup Markets I’d Bet On Before YC",
+    "events": [
+      {
+        "id": "e01",
+        "kind": "hook",
+        "start": 52.26,
+        "end": 59.32,
+        "summary": "Kiro immediately presents a time-sensitive prediction about the top three startup markets before YC Startup School.",
+        "transcript": "With just four days until YC Startup School, if you're creating a startup from scratch, here's the top three markets that I bet will show up the most.",
+        "visual": "Direct-to-camera outdoor shot; close framing and expressive delivery.",
+        "tags": [
+          "deadline",
+          "YC",
+          "prediction",
+          "startup-markets"
+        ],
+        "selectionScore": 0.98
+      },
+      {
+        "id": "e02",
+        "kind": "identity",
+        "start": 59.32,
+        "end": 63.82,
+        "summary": "Kiro identifies himself as an MIT student founder in San Francisco.",
+        "transcript": "Hi, I'm Kiro. I'm an MIT student founder here in SF.",
+        "visual": "Centered medium close-up in the park.",
+        "tags": [
+          "Kiro",
+          "MIT",
+          "founder",
+          "authority"
+        ],
+        "selectionScore": 0.93
+      },
+      {
+        "id": "e03",
+        "kind": "claim",
+        "start": 82.38,
+        "end": 89.08,
+        "summary": "The first market is physical AI, moving beyond chatbots into the physical world.",
+        "transcript": "Number one is physical AI. When we think of AI, we think of like a chatbot. It's moving way beyond that.",
+        "visual": "Direct address with a strong hand gesture and stable background.",
+        "tags": [
+          "physical-AI",
+          "chatbots",
+          "first-market"
+        ],
+        "selectionScore": 0.95
+      },
+      {
+        "id": "e04",
+        "kind": "proof",
+        "start": 89.36,
+        "end": 95.12,
+        "summary": "He gives concrete physical AI examples: drones, robots, manufacturing, and speech.",
+        "transcript": "People are working on creating autonomous drones, physical robots, being able to manufacture products, speak with people.",
+        "visual": "Tighter crop with kinetic text callouts for drones, robots, and manufacturing.",
+        "tags": [
+          "drones",
+          "robots",
+          "manufacturing",
+          "examples"
+        ],
+        "selectionScore": 0.91
+      },
+      {
+        "id": "e05",
+        "kind": "claim",
+        "start": 122.4,
+        "end": 126.16,
+        "summary": "The second market is data, stated as his favorite trend and a high-conviction thesis.",
+        "transcript": "Second, my favorite one is data. Data is truly king.",
+        "visual": "Close-up emphasis; use a brief title card reading DATA.",
+        "tags": [
+          "data",
+          "second-market",
+          "high-conviction"
+        ],
+        "selectionScore": 0.94
+      },
+      {
+        "id": "e06",
+        "kind": "proof",
+        "start": 188.7,
+        "end": 196.5,
+        "summary": "Mercor is used as a concrete example of companies collecting expert data to build a database for agents.",
+        "transcript": "And companies like Mercor are betting on that data. They are taking data from experts every single day and creating this massive database that agents can use to essentially replicate these experts.",
+        "visual": "Use the most intense direct-to-camera portion with a slow push and restrained data-interface overlays.",
+        "tags": [
+          "Mercor",
+          "expert-data",
+          "agents",
+          "proof"
+        ],
+        "selectionScore": 0.96
+      },
+      {
+        "id": "e07",
+        "kind": "claim",
+        "start": 305.58,
+        "end": 311.72,
+        "summary": "The third market is infrastructure, explained through the familiar shovel-selling analogy.",
+        "transcript": "You know the old saying, instead of digging for gold, sell the shovels instead. That's basically what some of these companies are doing.",
+        "visual": "Medium shot; editorial title card: INFRASTRUCTURE.",
+        "tags": [
+          "infrastructure",
+          "shovels",
+          "third-market"
+        ],
+        "selectionScore": 0.92
+      },
+      {
+        "id": "e08",
+        "kind": "proof",
+        "start": 312.58,
+        "end": 318.94,
+        "summary": "He lists the foundational needs every startup has, including security, authentication, payments, and compute.",
+        "transcript": "Every startup needs security, authentication, payment management, compute power. So each startup is focused on that.",
+        "visual": "Fast, readable four-item kinetic list synchronized to the spoken list.",
+        "tags": [
+          "security",
+          "authentication",
+          "payments",
+          "compute"
+        ],
+        "selectionScore": 0.9
+      },
+      {
+        "id": "e09",
+        "kind": "reaction",
+        "start": 467.72,
+        "end": 475.26,
+        "summary": "Kiro grounds the thesis in his own workflow, explaining that infrastructure removes a specific burden from his startup.",
+        "transcript": "For example, I use Superbase, Stripe, Clerk, and Vercel because they ease a specific type of infrastructure problem for me. Instead of having to create it on my own, I'm able to outsource it, which saves me a lot of time and money.",
+        "visual": "Closer phone-like framing provides a modest tonal and visual release from the thesis montage.",
+        "tags": [
+          "personal",
+          "workflow",
+          "time-saving",
+          "humanizing"
+        ],
+        "selectionScore": 0.88
+      },
+      {
+        "id": "e10",
+        "kind": "call_to_action",
+        "start": 507.44,
+        "end": 511.14,
+        "summary": "The short ends by asking viewers where the market is heading and what they are building.",
+        "transcript": "Where do you think the market is heading, and where are you building? Let me know in the comments.",
+        "visual": "Return to a clean centered shot; hold the final facial expression for the last frame.",
+        "tags": [
+          "open-loop",
+          "comments",
+          "market",
+          "builders"
+        ],
+        "selectionScore": 0.97
+      }
+    ],
+    "timeline": {
+      "targetDuration": 47.44002136230466,
+      "segments": [
+        {
+          "id": "e01",
+          "sourceStart": 52.26,
+          "sourceEnd": 58.059999999999995,
+          "storyBeat": "pattern_interrupt",
+          "rationale": "The four-day deadline and explicit top-three prediction land the premise immediately without a greeting.",
+          "title": "3 MARKETS BEFORE YC",
+          "transition": "hard_cut",
+          "effects": [
+            "vertical_reframe",
+            "punch_in",
+            "contrast_grade"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e02",
+          "sourceStart": 59.32,
+          "sourceEnd": 63.81999969482422,
+          "storyBeat": "identity_authority",
+          "rationale": "Adds a concise identity card after the hook and establishes Kiro's founder perspective.",
+          "title": "Kiro / MIT Student Founder",
+          "transition": "beat_cut",
+          "effects": [
+            "vertical_reframe",
+            "slow_push"
+          ],
+          "energy": 4
+        },
+        {
+          "id": "e03",
+          "sourceStart": 82.38,
+          "sourceEnd": 87.08000183105469,
+          "storyBeat": "ambition_conflict",
+          "rationale": "Introduces the first bet with a clear contradiction: AI is no longer just a chatbot.",
+          "title": "01 / PHYSICAL AI",
+          "transition": "hard_cut",
+          "effects": [
+            "punch_in",
+            "contrast_grade"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e04",
+          "sourceStart": 89.36,
+          "sourceEnd": 95.12000274658203,
+          "storyBeat": "proof_escalation",
+          "rationale": "Concrete examples make the physical-AI claim cinematic and tangible.",
+          "title": null,
+          "transition": "beat_cut",
+          "effects": [
+            "three_panel",
+            "vertical_reframe"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e05",
+          "sourceStart": 122.4,
+          "sourceEnd": 126.16000366210938,
+          "storyBeat": "ambition_conflict",
+          "rationale": "A short, emphatic pivot to the second market keeps the three-part structure legible.",
+          "title": "02 / DATA",
+          "transition": "white_flash",
+          "effects": [
+            "punch_in",
+            "rgb_split"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e06",
+          "sourceStart": 188.7,
+          "sourceEnd": 194.5,
+          "storyBeat": "proof_escalation",
+          "rationale": "Mercor supplies the strongest specific example of data becoming an asset for AI agents.",
+          "title": "EXAMPLE: MERCOR",
+          "transition": "beat_cut",
+          "effects": [
+            "vertical_reframe",
+            "slow_push",
+            "grain"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e07",
+          "sourceStart": 305.58,
+          "sourceEnd": 309.2799987792969,
+          "storyBeat": "ambition_conflict",
+          "rationale": "The shovel analogy cleanly reframes infrastructure as the business opportunity behind the gold rush.",
+          "title": "03 / INFRASTRUCTURE",
+          "transition": "hard_cut",
+          "effects": [
+            "punch_in",
+            "contrast_grade"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e08",
+          "sourceStart": 312.58,
+          "sourceEnd": 316.5,
+          "storyBeat": "proof_escalation",
+          "rationale": "A concise list of unavoidable startup needs gives the third bet practical proof.",
+          "title": null,
+          "transition": "beat_cut",
+          "effects": [
+            "three_panel",
+            "vertical_reframe"
+          ],
+          "energy": 5
+        },
+        {
+          "id": "e09",
+          "sourceStart": 467.72,
+          "sourceEnd": 473.52000000000004,
+          "storyBeat": "human_record_scratch",
+          "rationale": "His own use of infrastructure introduces personal stakes and a less abstract, more relatable beat. Keep this comparatively raw and effect-light.",
+          "title": "What I Use To Build",
+          "transition": "record_scratch",
+          "effects": [
+            "raw_cut",
+            "vertical_reframe"
+          ],
+          "energy": 3
+        },
+        {
+          "id": "e10",
+          "sourceStart": 507.44,
+          "sourceEnd": 511.1400146484375,
+          "storyBeat": "callback_cta",
+          "rationale": "Ends on a complete question that returns the viewer to the market thesis and creates an open loop in comments.",
+          "title": "Where Is The Market Going?",
+          "transition": "hard_cut",
+          "effects": [
+            "vertical_reframe",
+            "vignette"
+          ],
+          "energy": 4
+        }
+      ]
+    },
+    "review": {
+      "score": 88,
+      "strengths": [
+        "Premise lands in the first 3 seconds with a specific deadline and prediction.",
+        "Character-led authority is clear without inventing credentials or dialogue.",
+        "Escalation covers all three markets and includes concrete examples for physical AI, data, and infrastructure.",
+        "The personal infrastructure segment provides a modest humanizing release before the CTA.",
+        "Ending is complete, direct, and open-loop rather than a fade or generic sign-off."
+      ],
+      "risks": [
+        "The source is visually repetitive, so overlays and reframing must remain restrained to avoid disguising the lack of coverage.",
+        "The selected data proof runs close to the eight-second ceiling and should be trimmed only if sentence intelligibility remains intact.",
+        "There is no clearly supported humor, candid interruption, or skepticism; the human beat is functional rather than comedic.",
+        "The phrase 'top three markets' is an editorial framing based on the source's wording; do not add unsupported market names."
+      ],
+      "missingBeats": [
+        "human_record_scratch"
+      ]
+    }
+  },
+  "transcript": {
+    "text": "With just four days until YC Startup School, if you're creating a startup from scratch, here are the three markets that I would bet on showing up the most. With just four days before YC Startup School, if you're just entering the market, here's three markets that I would bet on showing up the most in the next batch. With just four days until YC Startup School, if you're just entering the market, here's three markets that I would bet on showing up the most in the next batch. With just four days until YC Startup School, if you're creating a startup from scratch, here's three markets that I'm betting on that will show up the most. With just four days until YC Startup School, if you're creating a startup from scratch, here's three markets that I bet will show up the most. With just four days until YC Startup School, if you're creating a startup from scratch, here's the top three markets that I bet will show up the most. Hi, I'm Kiro. I'm an MIT student founder here in SF. Hi, I'm Kiro. And over the past summer, I've been building startups, talking to founders, and meeting exceptional people in the San Francisco area. And these are the top three trends that I've been seeing. And these are the top three trends that I keep seeing. Number one is physical AI. When we think of AI, we think of like a chatbot. It's moving way beyond that. People are working on creating autonomous drones, physical robots, being able to manufacture products, speak with people. AI is moving from a simple text interface to something that can fully replicate human abilities. Now, there's obviously different applications of it. There's defense, there's manufacturing, there's productivity, just being able to include AI into humanoid slash robotic implications. That means a lot of the physical work that may sound repetitive, but a little bit complex, will be solved with AI within the next couple of years. Second, my favorite one is data. Data is truly king. Now, models are getting really, really good, but they're only able to work with what they've got. Being able to source complex data and categorize it in a way that agents can understand is truly important. Whether that's financial data or even robotic data. I've been seeing companies paying people to record their dash cams, record their daily tasks. Basically, whatever they're doing, being able to upload that to train a model or train an agent for purposes like robots or even normal agent work. And even normal integrations that developers use, like Stripe, Clerk, any authentication. Tools that can be easily replicated, but take a lot of time for simple startups to replicate on their own. And even infrastructure data for developers, like Clerk, Stripe, Natural. Tools that will take a long time for people to build on their own, but it's something that can be easily replicated. And being able to build a company around that is truly massive. And companies like Mercor are betting on that data. They are taking data from experts every single day and creating this massive database that agents can use to essentially replicate these experts. And companies like Mercor are betting on that same exact idea. They're literally hiring experts to simply give their information. And companies like Mercor are betting on this idea. What they're doing is they're literally hiring experts to give up their information. And companies like Mercor are betting on this idea. They're literally hiring experts to train these models that were basically able to replicate some of the thinking that these experts have. Companies like Mercor are betting on the same idea. They're using experts, they're hiring them for their knowledge to be able to train models to replicate some of their thinking. And companies like Mercor are betting on this idea. They're literally hiring experts for their knowledge to be able to train models to be able to think as good as them. The third one is infrastructure. You know the saying that's like, don't dig for gold, sell the shovels instead. There's been a massive wave of infrastructure, especially in the age of AI. For example, Clerk was created to essentially ease authentication for people who are just starting out. Instead of creating your own authentication, where you have to have security, password management, recovery emails, Clerk handles all of that. Similarly with Stripe, instead of creating your own entire bank and finances, Stripe has a similar idea. Instead of handling all of your finances on your own, Stripe has a simple web API that you can use. The third one is infrastructure. You know the old saying, instead of digging for gold, sell the shovels instead. That's basically what some of these companies are doing. Every startup needs security, authentication, payment management, compute power. So each startup is focused on that. For example, Clerk handles authentication. Instead of creating your own password management, recovery management, emails, Clerk handles all of that. Similarly, Stripe is the most well-known payment platform that allows finances to go through super easily, so that when you're just creating a startup, you can simply focus on your work, instead of creating all of these replicable, but very difficult to create on your own tasks. There's going to be a new wave of AI native infrastructure companies that are taking on the legacy companies, Similarly, there's been a new wave of compute infrastructure, whether that's renting out GPU, selling them like little stock bits. For example, there's been AI native versions of Superbase, Stripe, Vercel, basically replicating each of their abilities, but allowing it to work in a much more AI native way. Companies that are building in the space of physical AI, for example, will pay massive amounts of money to be able to collect this data instead of doing it on their own. Companies that are able to organize, label, and make their data very accessible are the ones that will win in this space. Across all three markets, there's one thing that's clear. There's a massive shift towards automating a lot of work that used to be seemingly impossible to do with just code. And now, at the same time, these companies reduce massive pains and problems, whether that's for developers, for customers, manufacturers. For example, I use Stripe, Clerk, Vercel, Superbase, because they all ease a specific problem that I use when I'm creating, so that I can simply focus on my startup instead of focusing on creating these tasks or creating these infrastructures that are already made, that are easier. For example, I use Vercel, Superbase, and Stripe because they ease a specific type of problem for me that I don't need to spend a lot of time doing and can simply focus on the bigger problem at hand, working on my actual startup. For example, I use Superbase, Stripe, Clerk, and Vercel because they ease a specific type of infrastructure problem for me. Instead of having to create it on my own, I'm able to outsource it, which saves me a lot of time and money. These are the three markets that I'm betting on showing up the most in YC and YC Startup School. If you're building something great, please feel free to reach out. And if you think there's other markets that we're heading towards, please leave them in the comments. Thank you. Where do you think the market is heading, and where are you building? Let me know in the comments. Let me know in the comments, and I'll see you at Startup School. As AI has been continuously entering important workflows, that also means that AI is entering the physical world, whether that's drones, manufacturing, healthcare, and defense. Now, AI is able to automate a lot of the physical work that could not have been done otherwise in the past. Companies are literally paying people to automate their work.",
+    "duration": 533.010009765625,
+    "language": "english",
+    "words": [
+      {
+        "word": "With",
+        "start": 0,
+        "end": 0.6399999856948853
+      },
+      {
+        "word": "just",
+        "start": 0.6399999856948853,
+        "end": 0.8799999952316284
+      },
+      {
+        "word": "four",
+        "start": 0.8799999952316284,
+        "end": 1.2599999904632568
+      },
+      {
+        "word": "days",
+        "start": 1.2599999904632568,
+        "end": 1.5
+      },
+      {
+        "word": "until",
+        "start": 1.5,
+        "end": 1.7799999713897705
+      },
+      {
+        "word": "YC",
+        "start": 1.7799999713897705,
+        "end": 2.140000104904175
+      },
+      {
+        "word": "Startup",
+        "start": 2.140000104904175,
+        "end": 2.440000057220459
+      },
+      {
+        "word": "School",
+        "start": 2.440000057220459,
+        "end": 2.619999885559082
+      },
+      {
+        "word": "if",
+        "start": 2.9200000762939453,
+        "end": 3.0799999237060547
+      },
+      {
+        "word": "you're",
+        "start": 3.0799999237060547,
+        "end": 3.2799999713897705
+      },
+      {
+        "word": "creating",
+        "start": 3.2799999713897705,
+        "end": 3.640000104904175
+      },
+      {
+        "word": "a",
+        "start": 3.640000104904175,
+        "end": 3.9800000190734863
+      },
+      {
+        "word": "startup",
+        "start": 3.9800000190734863,
+        "end": 3.9800000190734863
+      },
+      {
+        "word": "from",
+        "start": 3.9800000190734863,
+        "end": 4.260000228881836
+      },
+      {
+        "word": "scratch",
+        "start": 4.260000228881836,
+        "end": 4.519999980926514
+      },
+      {
+        "word": "here",
+        "start": 4.679999828338623,
+        "end": 4.760000228881836
+      },
+      {
+        "word": "are",
+        "start": 4.760000228881836,
+        "end": 4.800000190734863
+      },
+      {
+        "word": "the",
+        "start": 4.800000190734863,
+        "end": 4.980000019073486
+      },
+      {
+        "word": "three",
+        "start": 4.980000019073486,
+        "end": 5.460000038146973
+      },
+      {
+        "word": "markets",
+        "start": 5.460000038146973,
+        "end": 5.539999961853027
+      },
+      {
+        "word": "that",
+        "start": 5.539999961853027,
+        "end": 5.800000190734863
+      },
+      {
+        "word": "I",
+        "start": 5.800000190734863,
+        "end": 5.920000076293945
+      },
+      {
+        "word": "would",
+        "start": 5.920000076293945,
+        "end": 6.059999942779541
+      },
+      {
+        "word": "bet",
+        "start": 6.059999942779541,
+        "end": 6.079999923706055
+      },
+      {
+        "word": "on",
+        "start": 6.079999923706055,
+        "end": 6.320000171661377
+      },
+      {
+        "word": "showing",
+        "start": 6.320000171661377,
+        "end": 6.480000019073486
+      },
+      {
+        "word": "up",
+        "start": 6.480000019073486,
+        "end": 6.639999866485596
+      },
+      {
+        "word": "the",
+        "start": 6.639999866485596,
+        "end": 6.78000020980835
+      },
+      {
+        "word": "most",
+        "start": 6.78000020980835,
+        "end": 7.099999904632568
+      },
+      {
+        "word": "With",
+        "start": 8.079999923706055,
+        "end": 8.600000381469727
+      },
+      {
+        "word": "just",
+        "start": 8.600000381469727,
+        "end": 8.880000114440918
+      },
+      {
+        "word": "four",
+        "start": 8.880000114440918,
+        "end": 9.300000190734863
+      },
+      {
+        "word": "days",
+        "start": 9.300000190734863,
+        "end": 9.520000457763672
+      },
+      {
+        "word": "before",
+        "start": 9.520000457763672,
+        "end": 9.779999732971191
+      },
+      {
+        "word": "YC",
+        "start": 9.779999732971191,
+        "end": 10.199999809265137
+      },
+      {
+        "word": "Startup",
+        "start": 10.199999809265137,
+        "end": 10.5
+      },
+      {
+        "word": "School",
+        "start": 10.5,
+        "end": 10.600000381469727
+      },
+      {
+        "word": "if",
+        "start": 11.100000381469727,
+        "end": 11.199999809265137
+      },
+      {
+        "word": "you're",
+        "start": 11.199999809265137,
+        "end": 11.460000038146973
+      },
+      {
+        "word": "just",
+        "start": 11.460000038146973,
+        "end": 11.5600004196167
+      },
+      {
+        "word": "entering",
+        "start": 11.5600004196167,
+        "end": 11.779999732971191
+      },
+      {
+        "word": "the",
+        "start": 11.779999732971191,
+        "end": 12.15999984741211
+      },
+      {
+        "word": "market",
+        "start": 12.15999984741211,
+        "end": 12.15999984741211
+      },
+      {
+        "word": "here's",
+        "start": 12.420000076293945,
+        "end": 12.699999809265137
+      },
+      {
+        "word": "three",
+        "start": 12.699999809265137,
+        "end": 13.140000343322754
+      },
+      {
+        "word": "markets",
+        "start": 13.140000343322754,
+        "end": 13.4399995803833
+      },
+      {
+        "word": "that",
+        "start": 13.4399995803833,
+        "end": 13.779999732971191
+      },
+      {
+        "word": "I",
+        "start": 13.779999732971191,
+        "end": 13.960000038146973
+      },
+      {
+        "word": "would",
+        "start": 13.960000038146973,
+        "end": 14.119999885559082
+      },
+      {
+        "word": "bet",
+        "start": 14.119999885559082,
+        "end": 14.399999618530273
+      },
+      {
+        "word": "on",
+        "start": 14.399999618530273,
+        "end": 14.819999694824219
+      },
+      {
+        "word": "showing",
+        "start": 14.819999694824219,
+        "end": 14.9399995803833
+      },
+      {
+        "word": "up",
+        "start": 14.9399995803833,
+        "end": 15.119999885559082
+      },
+      {
+        "word": "the",
+        "start": 15.119999885559082,
+        "end": 15.239999771118164
+      },
+      {
+        "word": "most",
+        "start": 15.239999771118164,
+        "end": 15.539999961853027
+      },
+      {
+        "word": "in",
+        "start": 15.539999961853027,
+        "end": 15.859999656677246
+      },
+      {
+        "word": "the",
+        "start": 15.859999656677246,
+        "end": 16
+      },
+      {
+        "word": "next",
+        "start": 16,
+        "end": 16.280000686645508
+      },
+      {
+        "word": "batch",
+        "start": 16.280000686645508,
+        "end": 16.799999237060547
+      },
+      {
+        "word": "With",
+        "start": 17.639999389648438,
+        "end": 18.15999984741211
+      },
+      {
+        "word": "just",
+        "start": 18.15999984741211,
+        "end": 18.420000076293945
+      },
+      {
+        "word": "four",
+        "start": 18.420000076293945,
+        "end": 18.81999969482422
+      },
+      {
+        "word": "days",
+        "start": 18.81999969482422,
+        "end": 19.139999389648438
+      },
+      {
+        "word": "until",
+        "start": 19.139999389648438,
+        "end": 19.479999542236328
+      },
+      {
+        "word": "YC",
+        "start": 19.479999542236328,
+        "end": 19.84000015258789
+      },
+      {
+        "word": "Startup",
+        "start": 19.84000015258789,
+        "end": 20.1200008392334
+      },
+      {
+        "word": "School",
+        "start": 20.1200008392334,
+        "end": 20.31999969482422
+      },
+      {
+        "word": "if",
+        "start": 21.579999923706055,
+        "end": 28.15999984741211
+      },
+      {
+        "word": "you're",
+        "start": 28.15999984741211,
+        "end": 28.299999237060547
+      },
+      {
+        "word": "just",
+        "start": 28.299999237060547,
+        "end": 28.420000076293945
+      },
+      {
+        "word": "entering",
+        "start": 28.420000076293945,
+        "end": 28.81999969482422
+      },
+      {
+        "word": "the",
+        "start": 28.81999969482422,
+        "end": 28.979999542236328
+      },
+      {
+        "word": "market",
+        "start": 28.979999542236328,
+        "end": 29.260000228881836
+      },
+      {
+        "word": "here's",
+        "start": 34.08000183105469,
+        "end": 34.08000183105469
+      },
+      {
+        "word": "three",
+        "start": 34.08000183105469,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "markets",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "that",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "I",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "would",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "bet",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "on",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "showing",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "up",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "the",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "most",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "in",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "the",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "next",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "batch",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "With",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "just",
+        "start": 34.119998931884766,
+        "end": 34.119998931884766
+      },
+      {
+        "word": "four",
+        "start": 34.119998931884766,
+        "end": 34.540000915527344
+      },
+      {
+        "word": "days",
+        "start": 34.540000915527344,
+        "end": 34.7599983215332
+      },
+      {
+        "word": "until",
+        "start": 34.7599983215332,
+        "end": 34.91999816894531
+      },
+      {
+        "word": "YC",
+        "start": 34.91999816894531,
+        "end": 35.36000061035156
+      },
+      {
+        "word": "Startup",
+        "start": 35.36000061035156,
+        "end": 35.68000030517578
+      },
+      {
+        "word": "School",
+        "start": 35.68000030517578,
+        "end": 35.779998779296875
+      },
+      {
+        "word": "if",
+        "start": 35.86000061035156,
+        "end": 36.2599983215332
+      },
+      {
+        "word": "you're",
+        "start": 36.2599983215332,
+        "end": 36.400001525878906
+      },
+      {
+        "word": "creating",
+        "start": 36.400001525878906,
+        "end": 36.65999984741211
+      },
+      {
+        "word": "a",
+        "start": 36.65999984741211,
+        "end": 36.900001525878906
+      },
+      {
+        "word": "startup",
+        "start": 36.900001525878906,
+        "end": 37.02000045776367
+      },
+      {
+        "word": "from",
+        "start": 37.02000045776367,
+        "end": 37.31999969482422
+      },
+      {
+        "word": "scratch",
+        "start": 37.31999969482422,
+        "end": 37.68000030517578
+      },
+      {
+        "word": "here's",
+        "start": 38.2400016784668,
+        "end": 38.34000015258789
+      },
+      {
+        "word": "three",
+        "start": 38.34000015258789,
+        "end": 38.619998931884766
+      },
+      {
+        "word": "markets",
+        "start": 38.619998931884766,
+        "end": 38.81999969482422
+      },
+      {
+        "word": "that",
+        "start": 38.81999969482422,
+        "end": 39.08000183105469
+      },
+      {
+        "word": "I'm",
+        "start": 39.08000183105469,
+        "end": 39.34000015258789
+      },
+      {
+        "word": "betting",
+        "start": 39.34000015258789,
+        "end": 39.34000015258789
+      },
+      {
+        "word": "on",
+        "start": 39.34000015258789,
+        "end": 39.560001373291016
+      },
+      {
+        "word": "that",
+        "start": 39.560001373291016,
+        "end": 39.79999923706055
+      },
+      {
+        "word": "will",
+        "start": 39.79999923706055,
+        "end": 39.79999923706055
+      },
+      {
+        "word": "show",
+        "start": 39.79999923706055,
+        "end": 39.91999816894531
+      },
+      {
+        "word": "up",
+        "start": 39.91999816894531,
+        "end": 40.060001373291016
+      },
+      {
+        "word": "the",
+        "start": 40.060001373291016,
+        "end": 43.15999984741211
+      },
+      {
+        "word": "most",
+        "start": 43.15999984741211,
+        "end": 43.15999984741211
+      },
+      {
+        "word": "With",
+        "start": 44.34000015258789,
+        "end": 44.900001525878906
+      },
+      {
+        "word": "just",
+        "start": 44.900001525878906,
+        "end": 45.18000030517578
+      },
+      {
+        "word": "four",
+        "start": 45.18000030517578,
+        "end": 45.52000045776367
+      },
+      {
+        "word": "days",
+        "start": 45.52000045776367,
+        "end": 45.7400016784668
+      },
+      {
+        "word": "until",
+        "start": 45.7400016784668,
+        "end": 46.02000045776367
+      },
+      {
+        "word": "YC",
+        "start": 46.02000045776367,
+        "end": 46.31999969482422
+      },
+      {
+        "word": "Startup",
+        "start": 46.31999969482422,
+        "end": 46.599998474121094
+      },
+      {
+        "word": "School",
+        "start": 46.599998474121094,
+        "end": 46.7599983215332
+      },
+      {
+        "word": "if",
+        "start": 47.099998474121094,
+        "end": 47.20000076293945
+      },
+      {
+        "word": "you're",
+        "start": 47.20000076293945,
+        "end": 47.439998626708984
+      },
+      {
+        "word": "creating",
+        "start": 47.439998626708984,
+        "end": 47.599998474121094
+      },
+      {
+        "word": "a",
+        "start": 47.599998474121094,
+        "end": 47.81999969482422
+      },
+      {
+        "word": "startup",
+        "start": 47.81999969482422,
+        "end": 47.939998626708984
+      },
+      {
+        "word": "from",
+        "start": 47.939998626708984,
+        "end": 48.220001220703125
+      },
+      {
+        "word": "scratch",
+        "start": 48.220001220703125,
+        "end": 48.47999954223633
+      },
+      {
+        "word": "here's",
+        "start": 48.619998931884766,
+        "end": 49.060001373291016
+      },
+      {
+        "word": "three",
+        "start": 49.060001373291016,
+        "end": 49.36000061035156
+      },
+      {
+        "word": "markets",
+        "start": 49.36000061035156,
+        "end": 49.65999984741211
+      },
+      {
+        "word": "that",
+        "start": 49.65999984741211,
+        "end": 49.84000015258789
+      },
+      {
+        "word": "I",
+        "start": 49.84000015258789,
+        "end": 50.13999938964844
+      },
+      {
+        "word": "bet",
+        "start": 50.13999938964844,
+        "end": 50.13999938964844
+      },
+      {
+        "word": "will",
+        "start": 50.13999938964844,
+        "end": 50.41999816894531
+      },
+      {
+        "word": "show",
+        "start": 50.41999816894531,
+        "end": 50.52000045776367
+      },
+      {
+        "word": "up",
+        "start": 50.52000045776367,
+        "end": 50.619998931884766
+      },
+      {
+        "word": "the",
+        "start": 50.619998931884766,
+        "end": 50.779998779296875
+      },
+      {
+        "word": "most",
+        "start": 50.779998779296875,
+        "end": 51.02000045776367
+      },
+      {
+        "word": "With",
+        "start": 52.2599983215332,
+        "end": 52.81999969482422
+      },
+      {
+        "word": "just",
+        "start": 52.81999969482422,
+        "end": 53.060001373291016
+      },
+      {
+        "word": "four",
+        "start": 53.060001373291016,
+        "end": 53.400001525878906
+      },
+      {
+        "word": "days",
+        "start": 53.400001525878906,
+        "end": 53.560001373291016
+      },
+      {
+        "word": "until",
+        "start": 53.560001373291016,
+        "end": 53.7599983215332
+      },
+      {
+        "word": "YC",
+        "start": 53.7599983215332,
+        "end": 54.18000030517578
+      },
+      {
+        "word": "Startup",
+        "start": 54.18000030517578,
+        "end": 54.47999954223633
+      },
+      {
+        "word": "School",
+        "start": 54.47999954223633,
+        "end": 54.540000915527344
+      },
+      {
+        "word": "if",
+        "start": 54.959999084472656,
+        "end": 55
+      },
+      {
+        "word": "you're",
+        "start": 55,
+        "end": 55.41999816894531
+      },
+      {
+        "word": "creating",
+        "start": 55.41999816894531,
+        "end": 55.41999816894531
+      },
+      {
+        "word": "a",
+        "start": 55.41999816894531,
+        "end": 55.79999923706055
+      },
+      {
+        "word": "startup",
+        "start": 55.79999923706055,
+        "end": 55.79999923706055
+      },
+      {
+        "word": "from",
+        "start": 55.79999923706055,
+        "end": 56.02000045776367
+      },
+      {
+        "word": "scratch",
+        "start": 56.02000045776367,
+        "end": 56.2400016784668
+      },
+      {
+        "word": "here's",
+        "start": 56.65999984741211,
+        "end": 56.7599983215332
+      },
+      {
+        "word": "the",
+        "start": 56.7599983215332,
+        "end": 57.099998474121094
+      },
+      {
+        "word": "top",
+        "start": 57.099998474121094,
+        "end": 57.34000015258789
+      },
+      {
+        "word": "three",
+        "start": 57.34000015258789,
+        "end": 57.619998931884766
+      },
+      {
+        "word": "markets",
+        "start": 57.619998931884766,
+        "end": 57.84000015258789
+      },
+      {
+        "word": "that",
+        "start": 57.84000015258789,
+        "end": 58.040000915527344
+      },
+      {
+        "word": "I",
+        "start": 58.040000915527344,
+        "end": 58.34000015258789
+      },
+      {
+        "word": "bet",
+        "start": 58.34000015258789,
+        "end": 58.34000015258789
+      },
+      {
+        "word": "will",
+        "start": 58.34000015258789,
+        "end": 58.68000030517578
+      },
+      {
+        "word": "show",
+        "start": 58.68000030517578,
+        "end": 58.779998779296875
+      },
+      {
+        "word": "up",
+        "start": 58.779998779296875,
+        "end": 58.91999816894531
+      },
+      {
+        "word": "the",
+        "start": 58.91999816894531,
+        "end": 59.31999969482422
+      },
+      {
+        "word": "most",
+        "start": 59.31999969482422,
+        "end": 59.31999969482422
+      },
+      {
+        "word": "Hi",
+        "start": 59.31999969482422,
+        "end": 59.70000076293945
+      },
+      {
+        "word": "I'm",
+        "start": 61.040000915527344,
+        "end": 61.2400016784668
+      },
+      {
+        "word": "Kiro",
+        "start": 61.2400016784668,
+        "end": 61.400001525878906
+      },
+      {
+        "word": "I'm",
+        "start": 61.84000015258789,
+        "end": 61.939998626708984
+      },
+      {
+        "word": "an",
+        "start": 61.939998626708984,
+        "end": 62.060001373291016
+      },
+      {
+        "word": "MIT",
+        "start": 62.060001373291016,
+        "end": 62.29999923706055
+      },
+      {
+        "word": "student",
+        "start": 62.29999923706055,
+        "end": 62.63999938964844
+      },
+      {
+        "word": "founder",
+        "start": 62.63999938964844,
+        "end": 62.97999954223633
+      },
+      {
+        "word": "here",
+        "start": 62.97999954223633,
+        "end": 63.34000015258789
+      },
+      {
+        "word": "in",
+        "start": 63.34000015258789,
+        "end": 63.5
+      },
+      {
+        "word": "SF",
+        "start": 63.5,
+        "end": 63.81999969482422
+      },
+      {
+        "word": "Hi",
+        "start": 66.4000015258789,
+        "end": 66.76000213623047
+      },
+      {
+        "word": "I'm",
+        "start": 66.91999816894531,
+        "end": 67.33999633789062
+      },
+      {
+        "word": "Kiro",
+        "start": 67.33999633789062,
+        "end": 67.5
+      },
+      {
+        "word": "And",
+        "start": 68.0199966430664,
+        "end": 68.12000274658203
+      },
+      {
+        "word": "over",
+        "start": 68.12000274658203,
+        "end": 68.18000030517578
+      },
+      {
+        "word": "the",
+        "start": 68.18000030517578,
+        "end": 68.31999969482422
+      },
+      {
+        "word": "past",
+        "start": 68.31999969482422,
+        "end": 68.58000183105469
+      },
+      {
+        "word": "summer",
+        "start": 68.58000183105469,
+        "end": 68.81999969482422
+      },
+      {
+        "word": "I've",
+        "start": 68.91999816894531,
+        "end": 69.13999938964844
+      },
+      {
+        "word": "been",
+        "start": 69.13999938964844,
+        "end": 69.22000122070312
+      },
+      {
+        "word": "building",
+        "start": 69.22000122070312,
+        "end": 69.62000274658203
+      },
+      {
+        "word": "startups",
+        "start": 69.62000274658203,
+        "end": 70.12000274658203
+      },
+      {
+        "word": "talking",
+        "start": 70.5199966430664,
+        "end": 70.55999755859375
+      },
+      {
+        "word": "to",
+        "start": 70.55999755859375,
+        "end": 71.0999984741211
+      },
+      {
+        "word": "founders",
+        "start": 71.0999984741211,
+        "end": 71.0999984741211
+      },
+      {
+        "word": "and",
+        "start": 71.19999694824219,
+        "end": 71.5
+      },
+      {
+        "word": "meeting",
+        "start": 71.5,
+        "end": 71.66000366210938
+      },
+      {
+        "word": "exceptional",
+        "start": 71.66000366210938,
+        "end": 72.13999938964844
+      },
+      {
+        "word": "people",
+        "start": 72.13999938964844,
+        "end": 72.4800033569336
+      },
+      {
+        "word": "in",
+        "start": 72.4800033569336,
+        "end": 72.80000305175781
+      },
+      {
+        "word": "the",
+        "start": 72.80000305175781,
+        "end": 73.05999755859375
+      },
+      {
+        "word": "San",
+        "start": 73.05999755859375,
+        "end": 73.13999938964844
+      },
+      {
+        "word": "Francisco",
+        "start": 73.13999938964844,
+        "end": 73.41999816894531
+      },
+      {
+        "word": "area",
+        "start": 73.41999816894531,
+        "end": 73.81999969482422
+      },
+      {
+        "word": "And",
+        "start": 75.30000305175781,
+        "end": 75.5
+      },
+      {
+        "word": "these",
+        "start": 75.5,
+        "end": 75.72000122070312
+      },
+      {
+        "word": "are",
+        "start": 75.72000122070312,
+        "end": 76.18000030517578
+      },
+      {
+        "word": "the",
+        "start": 76.18000030517578,
+        "end": 76.22000122070312
+      },
+      {
+        "word": "top",
+        "start": 76.22000122070312,
+        "end": 76.37999725341797
+      },
+      {
+        "word": "three",
+        "start": 76.37999725341797,
+        "end": 76.66000366210938
+      },
+      {
+        "word": "trends",
+        "start": 76.66000366210938,
+        "end": 76.77999877929688
+      },
+      {
+        "word": "that",
+        "start": 76.77999877929688,
+        "end": 76.95999908447266
+      },
+      {
+        "word": "I've",
+        "start": 76.95999908447266,
+        "end": 77.08000183105469
+      },
+      {
+        "word": "been",
+        "start": 77.08000183105469,
+        "end": 77.22000122070312
+      },
+      {
+        "word": "seeing",
+        "start": 77.22000122070312,
+        "end": 77.45999908447266
+      },
+      {
+        "word": "And",
+        "start": 79.22000122070312,
+        "end": 79.69999694824219
+      },
+      {
+        "word": "these",
+        "start": 79.69999694824219,
+        "end": 79.86000061035156
+      },
+      {
+        "word": "are",
+        "start": 79.86000061035156,
+        "end": 80
+      },
+      {
+        "word": "the",
+        "start": 80,
+        "end": 80.12000274658203
+      },
+      {
+        "word": "top",
+        "start": 80.12000274658203,
+        "end": 80.26000213623047
+      },
+      {
+        "word": "three",
+        "start": 80.26000213623047,
+        "end": 80.66000366210938
+      },
+      {
+        "word": "trends",
+        "start": 80.66000366210938,
+        "end": 80.66000366210938
+      },
+      {
+        "word": "that",
+        "start": 80.66000366210938,
+        "end": 80.83999633789062
+      },
+      {
+        "word": "I",
+        "start": 80.83999633789062,
+        "end": 80.9800033569336
+      },
+      {
+        "word": "keep",
+        "start": 80.9800033569336,
+        "end": 81.08000183105469
+      },
+      {
+        "word": "seeing",
+        "start": 81.08000183105469,
+        "end": 81.44000244140625
+      },
+      {
+        "word": "Number",
+        "start": 82.37999725341797,
+        "end": 82.9800033569336
+      },
+      {
+        "word": "one",
+        "start": 82.9800033569336,
+        "end": 83.30000305175781
+      },
+      {
+        "word": "is",
+        "start": 83.30000305175781,
+        "end": 83.66000366210938
+      },
+      {
+        "word": "physical",
+        "start": 83.66000366210938,
+        "end": 83.86000061035156
+      },
+      {
+        "word": "AI",
+        "start": 83.86000061035156,
+        "end": 84.16000366210938
+      },
+      {
+        "word": "When",
+        "start": 84.86000061035156,
+        "end": 84.87999725341797
+      },
+      {
+        "word": "we",
+        "start": 84.87999725341797,
+        "end": 85.05999755859375
+      },
+      {
+        "word": "think",
+        "start": 85.05999755859375,
+        "end": 85.22000122070312
+      },
+      {
+        "word": "of",
+        "start": 85.22000122070312,
+        "end": 85.44000244140625
+      },
+      {
+        "word": "AI",
+        "start": 85.44000244140625,
+        "end": 85.66000366210938
+      },
+      {
+        "word": "we",
+        "start": 85.95999908447266,
+        "end": 85.95999908447266
+      },
+      {
+        "word": "think",
+        "start": 85.95999908447266,
+        "end": 86.0999984741211
+      },
+      {
+        "word": "of",
+        "start": 86.0999984741211,
+        "end": 86.33999633789062
+      },
+      {
+        "word": "like",
+        "start": 86.33999633789062,
+        "end": 86.45999908447266
+      },
+      {
+        "word": "a",
+        "start": 86.45999908447266,
+        "end": 86.73999786376953
+      },
+      {
+        "word": "chatbot",
+        "start": 86.73999786376953,
+        "end": 87.08000183105469
+      },
+      {
+        "word": "It's",
+        "start": 87.62000274658203,
+        "end": 87.69999694824219
+      },
+      {
+        "word": "moving",
+        "start": 87.69999694824219,
+        "end": 87.91999816894531
+      },
+      {
+        "word": "way",
+        "start": 87.91999816894531,
+        "end": 88.4000015258789
+      },
+      {
+        "word": "beyond",
+        "start": 88.4000015258789,
+        "end": 88.58000183105469
+      },
+      {
+        "word": "that",
+        "start": 88.58000183105469,
+        "end": 89.08000183105469
+      },
+      {
+        "word": "People",
+        "start": 89.36000061035156,
+        "end": 89.36000061035156
+      },
+      {
+        "word": "are",
+        "start": 89.36000061035156,
+        "end": 89.66000366210938
+      },
+      {
+        "word": "working",
+        "start": 89.66000366210938,
+        "end": 89.66000366210938
+      },
+      {
+        "word": "on",
+        "start": 89.66000366210938,
+        "end": 89.83999633789062
+      },
+      {
+        "word": "creating",
+        "start": 89.83999633789062,
+        "end": 90.12000274658203
+      },
+      {
+        "word": "autonomous",
+        "start": 90.12000274658203,
+        "end": 90.63999938964844
+      },
+      {
+        "word": "drones",
+        "start": 90.63999938964844,
+        "end": 91
+      },
+      {
+        "word": "physical",
+        "start": 91.63999938964844,
+        "end": 91.91999816894531
+      },
+      {
+        "word": "robots",
+        "start": 91.91999816894531,
+        "end": 92.33999633789062
+      },
+      {
+        "word": "being",
+        "start": 92.54000091552734,
+        "end": 92.66000366210938
+      },
+      {
+        "word": "able",
+        "start": 92.66000366210938,
+        "end": 92.76000213623047
+      },
+      {
+        "word": "to",
+        "start": 92.76000213623047,
+        "end": 93.30000305175781
+      },
+      {
+        "word": "manufacture",
+        "start": 93.30000305175781,
+        "end": 93.63999938964844
+      },
+      {
+        "word": "products",
+        "start": 93.63999938964844,
+        "end": 94.19999694824219
+      },
+      {
+        "word": "speak",
+        "start": 94.5999984741211,
+        "end": 94.5999984741211
+      },
+      {
+        "word": "with",
+        "start": 94.5999984741211,
+        "end": 94.80000305175781
+      },
+      {
+        "word": "people",
+        "start": 94.80000305175781,
+        "end": 95.12000274658203
+      },
+      {
+        "word": "AI",
+        "start": 95.87999725341797,
+        "end": 95.9800033569336
+      },
+      {
+        "word": "is",
+        "start": 95.9800033569336,
+        "end": 96.22000122070312
+      },
+      {
+        "word": "moving",
+        "start": 96.22000122070312,
+        "end": 96.44000244140625
+      },
+      {
+        "word": "from",
+        "start": 96.44000244140625,
+        "end": 96.77999877929688
+      },
+      {
+        "word": "a",
+        "start": 96.77999877929688,
+        "end": 97.41999816894531
+      },
+      {
+        "word": "simple",
+        "start": 97.41999816894531,
+        "end": 97.41999816894531
+      },
+      {
+        "word": "text",
+        "start": 97.41999816894531,
+        "end": 97.94000244140625
+      },
+      {
+        "word": "interface",
+        "start": 97.94000244140625,
+        "end": 98.45999908447266
+      },
+      {
+        "word": "to",
+        "start": 98.45999908447266,
+        "end": 98.95999908447266
+      },
+      {
+        "word": "something",
+        "start": 98.95999908447266,
+        "end": 99.16000366210938
+      },
+      {
+        "word": "that",
+        "start": 99.16000366210938,
+        "end": 99.33999633789062
+      },
+      {
+        "word": "can",
+        "start": 99.33999633789062,
+        "end": 99.5199966430664
+      },
+      {
+        "word": "fully",
+        "start": 99.5199966430664,
+        "end": 99.9000015258789
+      },
+      {
+        "word": "replicate",
+        "start": 99.9000015258789,
+        "end": 100.33999633789062
+      },
+      {
+        "word": "human",
+        "start": 100.33999633789062,
+        "end": 100.73999786376953
+      },
+      {
+        "word": "abilities",
+        "start": 100.73999786376953,
+        "end": 101.16000366210938
+      },
+      {
+        "word": "Now",
+        "start": 102.41999816894531,
+        "end": 103.0199966430664
+      },
+      {
+        "word": "there's",
+        "start": 103.0199966430664,
+        "end": 103.22000122070312
+      },
+      {
+        "word": "obviously",
+        "start": 103.22000122070312,
+        "end": 103.4800033569336
+      },
+      {
+        "word": "different",
+        "start": 103.4800033569336,
+        "end": 103.73999786376953
+      },
+      {
+        "word": "applications",
+        "start": 103.73999786376953,
+        "end": 104.16000366210938
+      },
+      {
+        "word": "of",
+        "start": 104.16000366210938,
+        "end": 104.44000244140625
+      },
+      {
+        "word": "it",
+        "start": 104.44000244140625,
+        "end": 104.5199966430664
+      },
+      {
+        "word": "There's",
+        "start": 104.5199966430664,
+        "end": 105.04000091552734
+      },
+      {
+        "word": "defense",
+        "start": 105.04000091552734,
+        "end": 105.44000244140625
+      },
+      {
+        "word": "there's",
+        "start": 105.9000015258789,
+        "end": 106.08000183105469
+      },
+      {
+        "word": "manufacturing",
+        "start": 106.08000183105469,
+        "end": 106.5199966430664
+      },
+      {
+        "word": "there's",
+        "start": 107.23999786376953,
+        "end": 107.4800033569336
+      },
+      {
+        "word": "productivity",
+        "start": 107.4800033569336,
+        "end": 108.13999938964844
+      },
+      {
+        "word": "just",
+        "start": 108.4800033569336,
+        "end": 108.76000213623047
+      },
+      {
+        "word": "being",
+        "start": 108.76000213623047,
+        "end": 108.95999908447266
+      },
+      {
+        "word": "able",
+        "start": 108.95999908447266,
+        "end": 109.16000366210938
+      },
+      {
+        "word": "to",
+        "start": 109.16000366210938,
+        "end": 109.86000061035156
+      },
+      {
+        "word": "include",
+        "start": 109.86000061035156,
+        "end": 110.19999694824219
+      },
+      {
+        "word": "AI",
+        "start": 110.19999694824219,
+        "end": 110.66000366210938
+      },
+      {
+        "word": "into",
+        "start": 110.66000366210938,
+        "end": 111.08000183105469
+      },
+      {
+        "word": "humanoid",
+        "start": 111.08000183105469,
+        "end": 111.63999938964844
+      },
+      {
+        "word": "slash",
+        "start": 111.63999938964844,
+        "end": 112
+      },
+      {
+        "word": "robotic",
+        "start": 112,
+        "end": 112.23999786376953
+      },
+      {
+        "word": "implications",
+        "start": 112.23999786376953,
+        "end": 112.9800033569336
+      },
+      {
+        "word": "That",
+        "start": 114.30000305175781,
+        "end": 114.86000061035156
+      },
+      {
+        "word": "means",
+        "start": 114.86000061035156,
+        "end": 114.9800033569336
+      },
+      {
+        "word": "a",
+        "start": 114.9800033569336,
+        "end": 115.26000213623047
+      },
+      {
+        "word": "lot",
+        "start": 115.26000213623047,
+        "end": 115.30000305175781
+      },
+      {
+        "word": "of",
+        "start": 115.30000305175781,
+        "end": 115.4800033569336
+      },
+      {
+        "word": "the",
+        "start": 115.4800033569336,
+        "end": 115.77999877929688
+      },
+      {
+        "word": "physical",
+        "start": 115.77999877929688,
+        "end": 116.05999755859375
+      },
+      {
+        "word": "work",
+        "start": 116.05999755859375,
+        "end": 116.4000015258789
+      },
+      {
+        "word": "that",
+        "start": 116.4000015258789,
+        "end": 116.72000122070312
+      },
+      {
+        "word": "may",
+        "start": 116.72000122070312,
+        "end": 117.12000274658203
+      },
+      {
+        "word": "sound",
+        "start": 117.12000274658203,
+        "end": 117.33999633789062
+      },
+      {
+        "word": "repetitive",
+        "start": 117.33999633789062,
+        "end": 117.68000030517578
+      },
+      {
+        "word": "but",
+        "start": 117.81999969482422,
+        "end": 117.91999816894531
+      },
+      {
+        "word": "a",
+        "start": 117.91999816894531,
+        "end": 118.05999755859375
+      },
+      {
+        "word": "little",
+        "start": 118.05999755859375,
+        "end": 118.05999755859375
+      },
+      {
+        "word": "bit",
+        "start": 118.05999755859375,
+        "end": 118.31999969482422
+      },
+      {
+        "word": "complex",
+        "start": 118.31999969482422,
+        "end": 118.62000274658203
+      },
+      {
+        "word": "will",
+        "start": 119.16000366210938,
+        "end": 119.33999633789062
+      },
+      {
+        "word": "be",
+        "start": 119.33999633789062,
+        "end": 119.55999755859375
+      },
+      {
+        "word": "solved",
+        "start": 119.55999755859375,
+        "end": 119.73999786376953
+      },
+      {
+        "word": "with",
+        "start": 119.73999786376953,
+        "end": 119.9800033569336
+      },
+      {
+        "word": "AI",
+        "start": 119.9800033569336,
+        "end": 120.22000122070312
+      },
+      {
+        "word": "within",
+        "start": 120.22000122070312,
+        "end": 120.4000015258789
+      },
+      {
+        "word": "the",
+        "start": 120.4000015258789,
+        "end": 120.5999984741211
+      },
+      {
+        "word": "next",
+        "start": 120.5999984741211,
+        "end": 120.76000213623047
+      },
+      {
+        "word": "couple",
+        "start": 120.76000213623047,
+        "end": 120.94000244140625
+      },
+      {
+        "word": "of",
+        "start": 120.94000244140625,
+        "end": 121.36000061035156
+      },
+      {
+        "word": "years",
+        "start": 121.36000061035156,
+        "end": 121.36000061035156
+      },
+      {
+        "word": "Second",
+        "start": 122.4000015258789,
+        "end": 122.95999908447266
+      },
+      {
+        "word": "my",
+        "start": 123.23999786376953,
+        "end": 123.36000061035156
+      },
+      {
+        "word": "favorite",
+        "start": 123.36000061035156,
+        "end": 123.4800033569336
+      },
+      {
+        "word": "one",
+        "start": 123.4800033569336,
+        "end": 123.83999633789062
+      },
+      {
+        "word": "is",
+        "start": 123.83999633789062,
+        "end": 124.18000030517578
+      },
+      {
+        "word": "data",
+        "start": 124.18000030517578,
+        "end": 124.41999816894531
+      },
+      {
+        "word": "Data",
+        "start": 125.30000305175781,
+        "end": 125.30000305175781
+      },
+      {
+        "word": "is",
+        "start": 125.30000305175781,
+        "end": 125.5999984741211
+      },
+      {
+        "word": "truly",
+        "start": 125.5999984741211,
+        "end": 125.76000213623047
+      },
+      {
+        "word": "king",
+        "start": 125.76000213623047,
+        "end": 126.16000366210938
+      },
+      {
+        "word": "Now",
+        "start": 126.77999877929688,
+        "end": 127.19999694824219
+      },
+      {
+        "word": "models",
+        "start": 127.19999694824219,
+        "end": 127.4800033569336
+      },
+      {
+        "word": "are",
+        "start": 127.4800033569336,
+        "end": 127.76000213623047
+      },
+      {
+        "word": "getting",
+        "start": 127.76000213623047,
+        "end": 128
+      },
+      {
+        "word": "really",
+        "start": 128,
+        "end": 128.4199981689453
+      },
+      {
+        "word": "really",
+        "start": 128.74000549316406,
+        "end": 128.74000549316406
+      },
+      {
+        "word": "good",
+        "start": 128.74000549316406,
+        "end": 128.83999633789062
+      },
+      {
+        "word": "but",
+        "start": 129.13999938964844,
+        "end": 129.3000030517578
+      },
+      {
+        "word": "they're",
+        "start": 129.3000030517578,
+        "end": 129.4199981689453
+      },
+      {
+        "word": "only",
+        "start": 129.4199981689453,
+        "end": 129.66000366210938
+      },
+      {
+        "word": "able",
+        "start": 129.66000366210938,
+        "end": 129.83999633789062
+      },
+      {
+        "word": "to",
+        "start": 129.83999633789062,
+        "end": 130.10000610351562
+      },
+      {
+        "word": "work",
+        "start": 130.10000610351562,
+        "end": 130.24000549316406
+      },
+      {
+        "word": "with",
+        "start": 130.24000549316406,
+        "end": 130.39999389648438
+      },
+      {
+        "word": "what",
+        "start": 130.39999389648438,
+        "end": 130.52000427246094
+      },
+      {
+        "word": "they've",
+        "start": 130.52000427246094,
+        "end": 130.8000030517578
+      },
+      {
+        "word": "got",
+        "start": 130.8000030517578,
+        "end": 131
+      },
+      {
+        "word": "Being",
+        "start": 131,
+        "end": 131.9600067138672
+      },
+      {
+        "word": "able",
+        "start": 131.9600067138672,
+        "end": 132.16000366210938
+      },
+      {
+        "word": "to",
+        "start": 132.16000366210938,
+        "end": 132.44000244140625
+      },
+      {
+        "word": "source",
+        "start": 132.44000244140625,
+        "end": 132.6999969482422
+      },
+      {
+        "word": "complex",
+        "start": 132.6999969482422,
+        "end": 133.1199951171875
+      },
+      {
+        "word": "data",
+        "start": 133.1199951171875,
+        "end": 133.39999389648438
+      },
+      {
+        "word": "and",
+        "start": 133.39999389648438,
+        "end": 133.6199951171875
+      },
+      {
+        "word": "categorize",
+        "start": 133.6199951171875,
+        "end": 134.0800018310547
+      },
+      {
+        "word": "it",
+        "start": 134.0800018310547,
+        "end": 134.27999877929688
+      },
+      {
+        "word": "in",
+        "start": 134.27999877929688,
+        "end": 134.33999633789062
+      },
+      {
+        "word": "a",
+        "start": 134.33999633789062,
+        "end": 134.52000427246094
+      },
+      {
+        "word": "way",
+        "start": 134.52000427246094,
+        "end": 134.52000427246094
+      },
+      {
+        "word": "that",
+        "start": 134.52000427246094,
+        "end": 134.89999389648438
+      },
+      {
+        "word": "agents",
+        "start": 134.89999389648438,
+        "end": 134.89999389648438
+      },
+      {
+        "word": "can",
+        "start": 134.89999389648438,
+        "end": 135.17999267578125
+      },
+      {
+        "word": "understand",
+        "start": 135.17999267578125,
+        "end": 135.52000427246094
+      },
+      {
+        "word": "is",
+        "start": 135.52000427246094,
+        "end": 136.02000427246094
+      },
+      {
+        "word": "truly",
+        "start": 136.02000427246094,
+        "end": 136.47999572753906
+      },
+      {
+        "word": "important",
+        "start": 136.47999572753906,
+        "end": 136.9600067138672
+      },
+      {
+        "word": "Whether",
+        "start": 137.4600067138672,
+        "end": 137.55999755859375
+      },
+      {
+        "word": "that's",
+        "start": 137.55999755859375,
+        "end": 137.83999633789062
+      },
+      {
+        "word": "financial",
+        "start": 137.83999633789062,
+        "end": 138.17999267578125
+      },
+      {
+        "word": "data",
+        "start": 138.17999267578125,
+        "end": 138.5399932861328
+      },
+      {
+        "word": "or",
+        "start": 138.5399932861328,
+        "end": 138.86000061035156
+      },
+      {
+        "word": "even",
+        "start": 138.86000061035156,
+        "end": 139.36000061035156
+      },
+      {
+        "word": "robotic",
+        "start": 139.36000061035156,
+        "end": 139.36000061035156
+      },
+      {
+        "word": "data",
+        "start": 139.36000061035156,
+        "end": 139.67999267578125
+      },
+      {
+        "word": "I've",
+        "start": 140.1999969482422,
+        "end": 140.32000732421875
+      },
+      {
+        "word": "been",
+        "start": 140.32000732421875,
+        "end": 140.39999389648438
+      },
+      {
+        "word": "seeing",
+        "start": 140.39999389648438,
+        "end": 140.6199951171875
+      },
+      {
+        "word": "companies",
+        "start": 140.6199951171875,
+        "end": 141.0399932861328
+      },
+      {
+        "word": "paying",
+        "start": 141.0399932861328,
+        "end": 141.86000061035156
+      },
+      {
+        "word": "people",
+        "start": 141.86000061035156,
+        "end": 142.33999633789062
+      },
+      {
+        "word": "to",
+        "start": 142.33999633789062,
+        "end": 142.86000061035156
+      },
+      {
+        "word": "record",
+        "start": 142.86000061035156,
+        "end": 143.0800018310547
+      },
+      {
+        "word": "their",
+        "start": 143.0800018310547,
+        "end": 143.32000732421875
+      },
+      {
+        "word": "dash",
+        "start": 143.32000732421875,
+        "end": 143.5800018310547
+      },
+      {
+        "word": "cams",
+        "start": 143.5800018310547,
+        "end": 144.0800018310547
+      },
+      {
+        "word": "record",
+        "start": 144.22000122070312,
+        "end": 144.36000061035156
+      },
+      {
+        "word": "their",
+        "start": 144.36000061035156,
+        "end": 144.5800018310547
+      },
+      {
+        "word": "daily",
+        "start": 144.5800018310547,
+        "end": 144.8000030517578
+      },
+      {
+        "word": "tasks",
+        "start": 144.8000030517578,
+        "end": 145.24000549316406
+      },
+      {
+        "word": "Basically",
+        "start": 146.05999755859375,
+        "end": 146.05999755859375
+      },
+      {
+        "word": "whatever",
+        "start": 146.4600067138672,
+        "end": 146.66000366210938
+      },
+      {
+        "word": "they're",
+        "start": 146.66000366210938,
+        "end": 146.94000244140625
+      },
+      {
+        "word": "doing",
+        "start": 146.94000244140625,
+        "end": 147.24000549316406
+      },
+      {
+        "word": "being",
+        "start": 147.5800018310547,
+        "end": 147.63999938964844
+      },
+      {
+        "word": "able",
+        "start": 147.63999938964844,
+        "end": 147.75999450683594
+      },
+      {
+        "word": "to",
+        "start": 147.75999450683594,
+        "end": 148.05999755859375
+      },
+      {
+        "word": "upload",
+        "start": 148.05999755859375,
+        "end": 148.22000122070312
+      },
+      {
+        "word": "that",
+        "start": 148.22000122070312,
+        "end": 148.67999267578125
+      },
+      {
+        "word": "to",
+        "start": 148.67999267578125,
+        "end": 148.97999572753906
+      },
+      {
+        "word": "train",
+        "start": 148.97999572753906,
+        "end": 149.27999877929688
+      },
+      {
+        "word": "a",
+        "start": 149.27999877929688,
+        "end": 149.74000549316406
+      },
+      {
+        "word": "model",
+        "start": 149.74000549316406,
+        "end": 149.74000549316406
+      },
+      {
+        "word": "or",
+        "start": 149.74000549316406,
+        "end": 149.9199981689453
+      },
+      {
+        "word": "train",
+        "start": 149.9199981689453,
+        "end": 150.17999267578125
+      },
+      {
+        "word": "an",
+        "start": 150.17999267578125,
+        "end": 150.5800018310547
+      },
+      {
+        "word": "agent",
+        "start": 150.5800018310547,
+        "end": 150.5800018310547
+      },
+      {
+        "word": "for",
+        "start": 150.5800018310547,
+        "end": 151.1199951171875
+      },
+      {
+        "word": "purposes",
+        "start": 151.1199951171875,
+        "end": 151.5800018310547
+      },
+      {
+        "word": "like",
+        "start": 151.5800018310547,
+        "end": 151.9600067138672
+      },
+      {
+        "word": "robots",
+        "start": 151.9600067138672,
+        "end": 152.25999450683594
+      },
+      {
+        "word": "or",
+        "start": 152.25999450683594,
+        "end": 152.6199951171875
+      },
+      {
+        "word": "even",
+        "start": 152.6199951171875,
+        "end": 153.05999755859375
+      },
+      {
+        "word": "normal",
+        "start": 153.05999755859375,
+        "end": 153.6999969482422
+      },
+      {
+        "word": "agent",
+        "start": 153.6999969482422,
+        "end": 154.0399932861328
+      },
+      {
+        "word": "work",
+        "start": 154.0399932861328,
+        "end": 154.77999877929688
+      },
+      {
+        "word": "And",
+        "start": 155.6999969482422,
+        "end": 156.3000030517578
+      },
+      {
+        "word": "even",
+        "start": 156.3000030517578,
+        "end": 156.75999450683594
+      },
+      {
+        "word": "normal",
+        "start": 156.75999450683594,
+        "end": 157.47999572753906
+      },
+      {
+        "word": "integrations",
+        "start": 157.47999572753906,
+        "end": 158.32000732421875
+      },
+      {
+        "word": "that",
+        "start": 158.32000732421875,
+        "end": 158.6199951171875
+      },
+      {
+        "word": "developers",
+        "start": 158.6199951171875,
+        "end": 158.94000244140625
+      },
+      {
+        "word": "use",
+        "start": 158.94000244140625,
+        "end": 159.36000061035156
+      },
+      {
+        "word": "like",
+        "start": 160.02000427246094,
+        "end": 160.10000610351562
+      },
+      {
+        "word": "Stripe",
+        "start": 160.10000610351562,
+        "end": 160.3800048828125
+      },
+      {
+        "word": "Clerk",
+        "start": 161.02000427246094,
+        "end": 161.02000427246094
+      },
+      {
+        "word": "any",
+        "start": 161.55999755859375,
+        "end": 161.8000030517578
+      },
+      {
+        "word": "authentication",
+        "start": 161.8000030517578,
+        "end": 162.5
+      },
+      {
+        "word": "Tools",
+        "start": 163.36000061035156,
+        "end": 163.36000061035156
+      },
+      {
+        "word": "that",
+        "start": 163.36000061035156,
+        "end": 163.75999450683594
+      },
+      {
+        "word": "can",
+        "start": 163.75999450683594,
+        "end": 163.94000244140625
+      },
+      {
+        "word": "be",
+        "start": 163.94000244140625,
+        "end": 164.0800018310547
+      },
+      {
+        "word": "easily",
+        "start": 164.0800018310547,
+        "end": 164.39999389648438
+      },
+      {
+        "word": "replicated",
+        "start": 164.39999389648438,
+        "end": 164.6999969482422
+      },
+      {
+        "word": "but",
+        "start": 164.9600067138672,
+        "end": 164.9600067138672
+      },
+      {
+        "word": "take",
+        "start": 164.9600067138672,
+        "end": 165.13999938964844
+      },
+      {
+        "word": "a",
+        "start": 165.13999938964844,
+        "end": 165.25999450683594
+      },
+      {
+        "word": "lot",
+        "start": 165.25999450683594,
+        "end": 165.3800048828125
+      },
+      {
+        "word": "of",
+        "start": 165.3800048828125,
+        "end": 165.74000549316406
+      },
+      {
+        "word": "time",
+        "start": 165.74000549316406,
+        "end": 165.77999877929688
+      },
+      {
+        "word": "for",
+        "start": 165.77999877929688,
+        "end": 166.32000732421875
+      },
+      {
+        "word": "simple",
+        "start": 166.32000732421875,
+        "end": 166.86000061035156
+      },
+      {
+        "word": "startups",
+        "start": 166.86000061035156,
+        "end": 167.17999267578125
+      },
+      {
+        "word": "to",
+        "start": 167.17999267578125,
+        "end": 167.9600067138672
+      },
+      {
+        "word": "replicate",
+        "start": 167.9600067138672,
+        "end": 167.9600067138672
+      },
+      {
+        "word": "on",
+        "start": 167.9600067138672,
+        "end": 168.1199951171875
+      },
+      {
+        "word": "their",
+        "start": 168.1199951171875,
+        "end": 168.36000061035156
+      },
+      {
+        "word": "own",
+        "start": 168.36000061035156,
+        "end": 168.5800018310547
+      },
+      {
+        "word": "And",
+        "start": 170.97999572753906,
+        "end": 171.5800018310547
+      },
+      {
+        "word": "even",
+        "start": 171.5800018310547,
+        "end": 171.89999389648438
+      },
+      {
+        "word": "infrastructure",
+        "start": 171.89999389648438,
+        "end": 172.4199981689453
+      },
+      {
+        "word": "data",
+        "start": 172.4199981689453,
+        "end": 172.72000122070312
+      },
+      {
+        "word": "for",
+        "start": 172.72000122070312,
+        "end": 173.1999969482422
+      },
+      {
+        "word": "developers",
+        "start": 173.1999969482422,
+        "end": 173.60000610351562
+      },
+      {
+        "word": "like",
+        "start": 174.02000427246094,
+        "end": 174.60000610351562
+      },
+      {
+        "word": "Clerk",
+        "start": 174.60000610351562,
+        "end": 174.60000610351562
+      },
+      {
+        "word": "Stripe",
+        "start": 175.13999938964844,
+        "end": 175.27999877929688
+      },
+      {
+        "word": "Natural",
+        "start": 175.6199951171875,
+        "end": 176.05999755859375
+      },
+      {
+        "word": "Tools",
+        "start": 176.86000061035156,
+        "end": 176.86000061035156
+      },
+      {
+        "word": "that",
+        "start": 176.86000061035156,
+        "end": 177.32000732421875
+      },
+      {
+        "word": "will",
+        "start": 177.32000732421875,
+        "end": 177.6199951171875
+      },
+      {
+        "word": "take",
+        "start": 177.6199951171875,
+        "end": 177.6999969482422
+      },
+      {
+        "word": "a",
+        "start": 177.6999969482422,
+        "end": 177.8800048828125
+      },
+      {
+        "word": "long",
+        "start": 177.8800048828125,
+        "end": 178.02000427246094
+      },
+      {
+        "word": "time",
+        "start": 178.02000427246094,
+        "end": 178.32000732421875
+      },
+      {
+        "word": "for",
+        "start": 178.32000732421875,
+        "end": 178.55999755859375
+      },
+      {
+        "word": "people",
+        "start": 178.55999755859375,
+        "end": 178.74000549316406
+      },
+      {
+        "word": "to",
+        "start": 178.74000549316406,
+        "end": 179.32000732421875
+      },
+      {
+        "word": "build",
+        "start": 179.32000732421875,
+        "end": 179.33999633789062
+      },
+      {
+        "word": "on",
+        "start": 179.33999633789062,
+        "end": 179.4600067138672
+      },
+      {
+        "word": "their",
+        "start": 179.4600067138672,
+        "end": 179.6199951171875
+      },
+      {
+        "word": "own",
+        "start": 179.6199951171875,
+        "end": 179.82000732421875
+      },
+      {
+        "word": "but",
+        "start": 180.1199951171875,
+        "end": 180.17999267578125
+      },
+      {
+        "word": "it's",
+        "start": 180.17999267578125,
+        "end": 180.32000732421875
+      },
+      {
+        "word": "something",
+        "start": 180.32000732421875,
+        "end": 180.44000244140625
+      },
+      {
+        "word": "that",
+        "start": 180.44000244140625,
+        "end": 180.5800018310547
+      },
+      {
+        "word": "can",
+        "start": 180.5800018310547,
+        "end": 180.74000549316406
+      },
+      {
+        "word": "be",
+        "start": 180.74000549316406,
+        "end": 180.86000061035156
+      },
+      {
+        "word": "easily",
+        "start": 180.86000061035156,
+        "end": 181.13999938964844
+      },
+      {
+        "word": "replicated",
+        "start": 181.13999938964844,
+        "end": 181.52000427246094
+      },
+      {
+        "word": "And",
+        "start": 181.52000427246094,
+        "end": 181.77999877929688
+      },
+      {
+        "word": "being",
+        "start": 181.77999877929688,
+        "end": 182.1199951171875
+      },
+      {
+        "word": "able",
+        "start": 182.1199951171875,
+        "end": 182.36000061035156
+      },
+      {
+        "word": "to",
+        "start": 182.36000061035156,
+        "end": 182.55999755859375
+      },
+      {
+        "word": "build",
+        "start": 182.55999755859375,
+        "end": 182.74000549316406
+      },
+      {
+        "word": "a",
+        "start": 182.74000549316406,
+        "end": 183.17999267578125
+      },
+      {
+        "word": "company",
+        "start": 183.17999267578125,
+        "end": 183.17999267578125
+      },
+      {
+        "word": "around",
+        "start": 183.17999267578125,
+        "end": 183.52000427246094
+      },
+      {
+        "word": "that",
+        "start": 183.52000427246094,
+        "end": 183.75999450683594
+      },
+      {
+        "word": "is",
+        "start": 183.75999450683594,
+        "end": 184.27999877929688
+      },
+      {
+        "word": "truly",
+        "start": 184.27999877929688,
+        "end": 184.5
+      },
+      {
+        "word": "massive",
+        "start": 184.5,
+        "end": 184.89999389648438
+      },
+      {
+        "word": "And",
+        "start": 186.5,
+        "end": 186.5
+      },
+      {
+        "word": "companies",
+        "start": 186.5,
+        "end": 186.52000427246094
+      },
+      {
+        "word": "like",
+        "start": 186.52000427246094,
+        "end": 186.86000061035156
+      },
+      {
+        "word": "Mercor",
+        "start": 186.86000061035156,
+        "end": 187.02000427246094
+      },
+      {
+        "word": "are",
+        "start": 187.02000427246094,
+        "end": 187.5
+      },
+      {
+        "word": "betting",
+        "start": 187.5,
+        "end": 187.67999267578125
+      },
+      {
+        "word": "on",
+        "start": 187.67999267578125,
+        "end": 187.9199981689453
+      },
+      {
+        "word": "that",
+        "start": 187.9199981689453,
+        "end": 188.0399932861328
+      },
+      {
+        "word": "data",
+        "start": 188.0399932861328,
+        "end": 188.24000549316406
+      },
+      {
+        "word": "They",
+        "start": 188.6999969482422,
+        "end": 188.6999969482422
+      },
+      {
+        "word": "are",
+        "start": 188.6999969482422,
+        "end": 188.89999389648438
+      },
+      {
+        "word": "taking",
+        "start": 188.89999389648438,
+        "end": 189.17999267578125
+      },
+      {
+        "word": "data",
+        "start": 189.17999267578125,
+        "end": 189.60000610351562
+      },
+      {
+        "word": "from",
+        "start": 189.60000610351562,
+        "end": 190.13999938964844
+      },
+      {
+        "word": "experts",
+        "start": 190.13999938964844,
+        "end": 190.52000427246094
+      },
+      {
+        "word": "every",
+        "start": 190.52000427246094,
+        "end": 190.94000244140625
+      },
+      {
+        "word": "single",
+        "start": 190.94000244140625,
+        "end": 191.17999267578125
+      },
+      {
+        "word": "day",
+        "start": 191.17999267578125,
+        "end": 191.44000244140625
+      },
+      {
+        "word": "and",
+        "start": 191.44000244140625,
+        "end": 191.8800048828125
+      },
+      {
+        "word": "creating",
+        "start": 191.8800048828125,
+        "end": 192.13999938964844
+      },
+      {
+        "word": "this",
+        "start": 192.13999938964844,
+        "end": 193.0399932861328
+      },
+      {
+        "word": "massive",
+        "start": 193.0399932861328,
+        "end": 193.52000427246094
+      },
+      {
+        "word": "database",
+        "start": 193.52000427246094,
+        "end": 194
+      },
+      {
+        "word": "that",
+        "start": 194,
+        "end": 194.32000732421875
+      },
+      {
+        "word": "agents",
+        "start": 194.32000732421875,
+        "end": 194.5
+      },
+      {
+        "word": "can",
+        "start": 194.5,
+        "end": 194.82000732421875
+      },
+      {
+        "word": "use",
+        "start": 194.82000732421875,
+        "end": 195.0800018310547
+      },
+      {
+        "word": "to",
+        "start": 195.0800018310547,
+        "end": 195.55999755859375
+      },
+      {
+        "word": "essentially",
+        "start": 195.55999755859375,
+        "end": 196.1199951171875
+      },
+      {
+        "word": "replicate",
+        "start": 196.1199951171875,
+        "end": 196.52000427246094
+      },
+      {
+        "word": "these",
+        "start": 196.52000427246094,
+        "end": 197.55999755859375
+      },
+      {
+        "word": "experts",
+        "start": 197.55999755859375,
+        "end": 197.55999755859375
+      },
+      {
+        "word": "And",
+        "start": 198.83999633789062,
+        "end": 198.9600067138672
+      },
+      {
+        "word": "companies",
+        "start": 198.9600067138672,
+        "end": 199.16000366210938
+      },
+      {
+        "word": "like",
+        "start": 199.16000366210938,
+        "end": 199.4600067138672
+      },
+      {
+        "word": "Mercor",
+        "start": 199.4600067138672,
+        "end": 199.8000030517578
+      },
+      {
+        "word": "are",
+        "start": 199.8000030517578,
+        "end": 200.24000549316406
+      },
+      {
+        "word": "betting",
+        "start": 200.24000549316406,
+        "end": 200.24000549316406
+      },
+      {
+        "word": "on",
+        "start": 200.24000549316406,
+        "end": 200.39999389648438
+      },
+      {
+        "word": "that",
+        "start": 200.39999389648438,
+        "end": 200.5399932861328
+      },
+      {
+        "word": "same",
+        "start": 200.5399932861328,
+        "end": 200.75999450683594
+      },
+      {
+        "word": "exact",
+        "start": 200.75999450683594,
+        "end": 201.1199951171875
+      },
+      {
+        "word": "idea",
+        "start": 201.1199951171875,
+        "end": 201.32000732421875
+      },
+      {
+        "word": "They're",
+        "start": 201.89999389648438,
+        "end": 202.0399932861328
+      },
+      {
+        "word": "literally",
+        "start": 202.0399932861328,
+        "end": 202.39999389648438
+      },
+      {
+        "word": "hiring",
+        "start": 202.39999389648438,
+        "end": 202.74000549316406
+      },
+      {
+        "word": "experts",
+        "start": 202.74000549316406,
+        "end": 203.16000366210938
+      },
+      {
+        "word": "to",
+        "start": 203.16000366210938,
+        "end": 203.4600067138672
+      },
+      {
+        "word": "simply",
+        "start": 203.4600067138672,
+        "end": 203.67999267578125
+      },
+      {
+        "word": "give",
+        "start": 203.67999267578125,
+        "end": 203.8800048828125
+      },
+      {
+        "word": "their",
+        "start": 203.8800048828125,
+        "end": 204.1199951171875
+      },
+      {
+        "word": "information",
+        "start": 204.1199951171875,
+        "end": 204.5800018310547
+      },
+      {
+        "word": "And",
+        "start": 207.13999938964844,
+        "end": 207.77999877929688
+      },
+      {
+        "word": "companies",
+        "start": 207.77999877929688,
+        "end": 208.0800018310547
+      },
+      {
+        "word": "like",
+        "start": 208.0800018310547,
+        "end": 208.47999572753906
+      },
+      {
+        "word": "Mercor",
+        "start": 208.47999572753906,
+        "end": 208.72000122070312
+      },
+      {
+        "word": "are",
+        "start": 208.72000122070312,
+        "end": 209.83999633789062
+      },
+      {
+        "word": "betting",
+        "start": 209.83999633789062,
+        "end": 209.83999633789062
+      },
+      {
+        "word": "on",
+        "start": 209.83999633789062,
+        "end": 210.0800018310547
+      },
+      {
+        "word": "this",
+        "start": 210.0800018310547,
+        "end": 210.3000030517578
+      },
+      {
+        "word": "idea",
+        "start": 210.3000030517578,
+        "end": 210.47999572753906
+      },
+      {
+        "word": "What",
+        "start": 210.47999572753906,
+        "end": 210.75999450683594
+      },
+      {
+        "word": "they're",
+        "start": 210.75999450683594,
+        "end": 211.10000610351562
+      },
+      {
+        "word": "doing",
+        "start": 211.10000610351562,
+        "end": 211.27999877929688
+      },
+      {
+        "word": "is",
+        "start": 211.27999877929688,
+        "end": 211.47999572753906
+      },
+      {
+        "word": "they're",
+        "start": 211.47999572753906,
+        "end": 211.5800018310547
+      },
+      {
+        "word": "literally",
+        "start": 211.5800018310547,
+        "end": 211.8800048828125
+      },
+      {
+        "word": "hiring",
+        "start": 211.8800048828125,
+        "end": 212.4600067138672
+      },
+      {
+        "word": "experts",
+        "start": 212.4600067138672,
+        "end": 212.94000244140625
+      },
+      {
+        "word": "to",
+        "start": 212.94000244140625,
+        "end": 213.27999877929688
+      },
+      {
+        "word": "give",
+        "start": 213.27999877929688,
+        "end": 213.4600067138672
+      },
+      {
+        "word": "up",
+        "start": 213.4600067138672,
+        "end": 213.60000610351562
+      },
+      {
+        "word": "their",
+        "start": 213.60000610351562,
+        "end": 213.83999633789062
+      },
+      {
+        "word": "information",
+        "start": 213.83999633789062,
+        "end": 214.33999633789062
+      },
+      {
+        "word": "And",
+        "start": 216.24000549316406,
+        "end": 216.33999633789062
+      },
+      {
+        "word": "companies",
+        "start": 216.33999633789062,
+        "end": 216.5800018310547
+      },
+      {
+        "word": "like",
+        "start": 216.5800018310547,
+        "end": 216.9600067138672
+      },
+      {
+        "word": "Mercor",
+        "start": 216.9600067138672,
+        "end": 217.05999755859375
+      },
+      {
+        "word": "are",
+        "start": 217.05999755859375,
+        "end": 217.72000122070312
+      },
+      {
+        "word": "betting",
+        "start": 217.72000122070312,
+        "end": 217.86000061035156
+      },
+      {
+        "word": "on",
+        "start": 217.86000061035156,
+        "end": 218.10000610351562
+      },
+      {
+        "word": "this",
+        "start": 218.10000610351562,
+        "end": 218.3800048828125
+      },
+      {
+        "word": "idea",
+        "start": 218.3800048828125,
+        "end": 218.47999572753906
+      },
+      {
+        "word": "They're",
+        "start": 219.0399932861328,
+        "end": 219.16000366210938
+      },
+      {
+        "word": "literally",
+        "start": 219.16000366210938,
+        "end": 219.47999572753906
+      },
+      {
+        "word": "hiring",
+        "start": 219.47999572753906,
+        "end": 219.74000549316406
+      },
+      {
+        "word": "experts",
+        "start": 219.74000549316406,
+        "end": 220.24000549316406
+      },
+      {
+        "word": "to",
+        "start": 220.24000549316406,
+        "end": 221.0800018310547
+      },
+      {
+        "word": "train",
+        "start": 221.0800018310547,
+        "end": 221.5
+      },
+      {
+        "word": "these",
+        "start": 221.5,
+        "end": 221.86000061035156
+      },
+      {
+        "word": "models",
+        "start": 221.86000061035156,
+        "end": 222.10000610351562
+      },
+      {
+        "word": "that",
+        "start": 222.10000610351562,
+        "end": 222.63999938964844
+      },
+      {
+        "word": "were",
+        "start": 222.63999938964844,
+        "end": 222.77999877929688
+      },
+      {
+        "word": "basically",
+        "start": 222.77999877929688,
+        "end": 223.3000030517578
+      },
+      {
+        "word": "able",
+        "start": 223.3000030517578,
+        "end": 223.63999938964844
+      },
+      {
+        "word": "to",
+        "start": 223.63999938964844,
+        "end": 224.52000427246094
+      },
+      {
+        "word": "replicate",
+        "start": 224.52000427246094,
+        "end": 224.52000427246094
+      },
+      {
+        "word": "some",
+        "start": 224.52000427246094,
+        "end": 224.75999450683594
+      },
+      {
+        "word": "of",
+        "start": 224.75999450683594,
+        "end": 224.94000244140625
+      },
+      {
+        "word": "the",
+        "start": 224.94000244140625,
+        "end": 225.13999938964844
+      },
+      {
+        "word": "thinking",
+        "start": 225.13999938964844,
+        "end": 225.24000549316406
+      },
+      {
+        "word": "that",
+        "start": 225.24000549316406,
+        "end": 225.47999572753906
+      },
+      {
+        "word": "these",
+        "start": 225.47999572753906,
+        "end": 225.74000549316406
+      },
+      {
+        "word": "experts",
+        "start": 225.74000549316406,
+        "end": 225.8800048828125
+      },
+      {
+        "word": "have",
+        "start": 225.8800048828125,
+        "end": 226.22000122070312
+      },
+      {
+        "word": "Companies",
+        "start": 227.77999877929688,
+        "end": 227.89999389648438
+      },
+      {
+        "word": "like",
+        "start": 227.89999389648438,
+        "end": 228.16000366210938
+      },
+      {
+        "word": "Mercor",
+        "start": 228.16000366210938,
+        "end": 228.5
+      },
+      {
+        "word": "are",
+        "start": 228.5,
+        "end": 229.10000610351562
+      },
+      {
+        "word": "betting",
+        "start": 229.10000610351562,
+        "end": 229.10000610351562
+      },
+      {
+        "word": "on",
+        "start": 229.10000610351562,
+        "end": 229.27999877929688
+      },
+      {
+        "word": "the",
+        "start": 229.27999877929688,
+        "end": 229.4199981689453
+      },
+      {
+        "word": "same",
+        "start": 229.4199981689453,
+        "end": 229.67999267578125
+      },
+      {
+        "word": "idea",
+        "start": 229.67999267578125,
+        "end": 229.86000061035156
+      },
+      {
+        "word": "They're",
+        "start": 230.32000732421875,
+        "end": 230.52000427246094
+      },
+      {
+        "word": "using",
+        "start": 230.52000427246094,
+        "end": 230.86000061035156
+      },
+      {
+        "word": "experts",
+        "start": 230.86000061035156,
+        "end": 231.25999450683594
+      },
+      {
+        "word": "they're",
+        "start": 231.4600067138672,
+        "end": 231.77999877929688
+      },
+      {
+        "word": "hiring",
+        "start": 231.77999877929688,
+        "end": 231.77999877929688
+      },
+      {
+        "word": "them",
+        "start": 231.77999877929688,
+        "end": 232.02000427246094
+      },
+      {
+        "word": "for",
+        "start": 232.02000427246094,
+        "end": 232.25999450683594
+      },
+      {
+        "word": "their",
+        "start": 232.25999450683594,
+        "end": 232.6199951171875
+      },
+      {
+        "word": "knowledge",
+        "start": 232.6199951171875,
+        "end": 232.8000030517578
+      },
+      {
+        "word": "to",
+        "start": 232.8000030517578,
+        "end": 233.1999969482422
+      },
+      {
+        "word": "be",
+        "start": 233.1999969482422,
+        "end": 233.3800048828125
+      },
+      {
+        "word": "able",
+        "start": 233.3800048828125,
+        "end": 233.4199981689453
+      },
+      {
+        "word": "to",
+        "start": 233.4199981689453,
+        "end": 233.8800048828125
+      },
+      {
+        "word": "train",
+        "start": 233.8800048828125,
+        "end": 233.8800048828125
+      },
+      {
+        "word": "models",
+        "start": 233.8800048828125,
+        "end": 234.17999267578125
+      },
+      {
+        "word": "to",
+        "start": 234.17999267578125,
+        "end": 234.74000549316406
+      },
+      {
+        "word": "replicate",
+        "start": 234.74000549316406,
+        "end": 234.74000549316406
+      },
+      {
+        "word": "some",
+        "start": 234.74000549316406,
+        "end": 234.97999572753906
+      },
+      {
+        "word": "of",
+        "start": 234.97999572753906,
+        "end": 235.10000610351562
+      },
+      {
+        "word": "their",
+        "start": 235.10000610351562,
+        "end": 235.24000549316406
+      },
+      {
+        "word": "thinking",
+        "start": 235.24000549316406,
+        "end": 235.5
+      },
+      {
+        "word": "And",
+        "start": 237.05999755859375,
+        "end": 237.39999389648438
+      },
+      {
+        "word": "companies",
+        "start": 237.39999389648438,
+        "end": 237.5800018310547
+      },
+      {
+        "word": "like",
+        "start": 237.5800018310547,
+        "end": 237.97999572753906
+      },
+      {
+        "word": "Mercor",
+        "start": 237.97999572753906,
+        "end": 238.17999267578125
+      },
+      {
+        "word": "are",
+        "start": 238.17999267578125,
+        "end": 238.67999267578125
+      },
+      {
+        "word": "betting",
+        "start": 238.67999267578125,
+        "end": 238.67999267578125
+      },
+      {
+        "word": "on",
+        "start": 238.67999267578125,
+        "end": 238.86000061035156
+      },
+      {
+        "word": "this",
+        "start": 238.86000061035156,
+        "end": 239.25999450683594
+      },
+      {
+        "word": "idea",
+        "start": 239.25999450683594,
+        "end": 239.25999450683594
+      },
+      {
+        "word": "They're",
+        "start": 239.25999450683594,
+        "end": 239.82000732421875
+      },
+      {
+        "word": "literally",
+        "start": 239.82000732421875,
+        "end": 240.22000122070312
+      },
+      {
+        "word": "hiring",
+        "start": 240.22000122070312,
+        "end": 240.52000427246094
+      },
+      {
+        "word": "experts",
+        "start": 240.52000427246094,
+        "end": 241
+      },
+      {
+        "word": "for",
+        "start": 241,
+        "end": 241.25999450683594
+      },
+      {
+        "word": "their",
+        "start": 241.25999450683594,
+        "end": 241.55999755859375
+      },
+      {
+        "word": "knowledge",
+        "start": 241.55999755859375,
+        "end": 241.72000122070312
+      },
+      {
+        "word": "to",
+        "start": 241.72000122070312,
+        "end": 242.1199951171875
+      },
+      {
+        "word": "be",
+        "start": 242.1199951171875,
+        "end": 242.25999450683594
+      },
+      {
+        "word": "able",
+        "start": 242.25999450683594,
+        "end": 242.32000732421875
+      },
+      {
+        "word": "to",
+        "start": 242.32000732421875,
+        "end": 242.55999755859375
+      },
+      {
+        "word": "train",
+        "start": 242.55999755859375,
+        "end": 242.86000061035156
+      },
+      {
+        "word": "models",
+        "start": 242.86000061035156,
+        "end": 243.24000549316406
+      },
+      {
+        "word": "to",
+        "start": 243.24000549316406,
+        "end": 243.66000366210938
+      },
+      {
+        "word": "be",
+        "start": 243.66000366210938,
+        "end": 243.77999877929688
+      },
+      {
+        "word": "able",
+        "start": 243.77999877929688,
+        "end": 243.8800048828125
+      },
+      {
+        "word": "to",
+        "start": 243.8800048828125,
+        "end": 244.05999755859375
+      },
+      {
+        "word": "think",
+        "start": 244.05999755859375,
+        "end": 244.3000030517578
+      },
+      {
+        "word": "as",
+        "start": 244.3000030517578,
+        "end": 244.8000030517578
+      },
+      {
+        "word": "good",
+        "start": 244.8000030517578,
+        "end": 244.97999572753906
+      },
+      {
+        "word": "as",
+        "start": 244.97999572753906,
+        "end": 245.25999450683594
+      },
+      {
+        "word": "them",
+        "start": 245.25999450683594,
+        "end": 245.86000061035156
+      },
+      {
+        "word": "The",
+        "start": 246.33999633789062,
+        "end": 246.94000244140625
+      },
+      {
+        "word": "third",
+        "start": 246.94000244140625,
+        "end": 247.1999969482422
+      },
+      {
+        "word": "one",
+        "start": 247.1999969482422,
+        "end": 247.5
+      },
+      {
+        "word": "is",
+        "start": 247.5,
+        "end": 247.9600067138672
+      },
+      {
+        "word": "infrastructure",
+        "start": 247.9600067138672,
+        "end": 248.52000427246094
+      },
+      {
+        "word": "You",
+        "start": 249.10000610351562,
+        "end": 249.33999633789062
+      },
+      {
+        "word": "know",
+        "start": 249.33999633789062,
+        "end": 249.44000244140625
+      },
+      {
+        "word": "the",
+        "start": 249.44000244140625,
+        "end": 249.60000610351562
+      },
+      {
+        "word": "saying",
+        "start": 249.60000610351562,
+        "end": 249.86000061035156
+      },
+      {
+        "word": "that's",
+        "start": 249.86000061035156,
+        "end": 250.1999969482422
+      },
+      {
+        "word": "like",
+        "start": 250.1999969482422,
+        "end": 250.55999755859375
+      },
+      {
+        "word": "don't",
+        "start": 250.67999267578125,
+        "end": 250.75999450683594
+      },
+      {
+        "word": "dig",
+        "start": 250.75999450683594,
+        "end": 250.9600067138672
+      },
+      {
+        "word": "for",
+        "start": 250.9600067138672,
+        "end": 251.25999450683594
+      },
+      {
+        "word": "gold",
+        "start": 251.25999450683594,
+        "end": 251.55999755859375
+      },
+      {
+        "word": "sell",
+        "start": 251.8800048828125,
+        "end": 251.8800048828125
+      },
+      {
+        "word": "the",
+        "start": 251.8800048828125,
+        "end": 252.25999450683594
+      },
+      {
+        "word": "shovels",
+        "start": 252.25999450683594,
+        "end": 252.74000549316406
+      },
+      {
+        "word": "instead",
+        "start": 252.74000549316406,
+        "end": 252.74000549316406
+      },
+      {
+        "word": "There's",
+        "start": 253.0399932861328,
+        "end": 253.63999938964844
+      },
+      {
+        "word": "been",
+        "start": 253.63999938964844,
+        "end": 253.75999450683594
+      },
+      {
+        "word": "a",
+        "start": 253.75999450683594,
+        "end": 254.25999450683594
+      },
+      {
+        "word": "massive",
+        "start": 254.25999450683594,
+        "end": 254.25999450683594
+      },
+      {
+        "word": "wave",
+        "start": 254.25999450683594,
+        "end": 254.6999969482422
+      },
+      {
+        "word": "of",
+        "start": 254.6999969482422,
+        "end": 255
+      },
+      {
+        "word": "infrastructure",
+        "start": 255,
+        "end": 255.5
+      },
+      {
+        "word": "especially",
+        "start": 255.74000549316406,
+        "end": 255.97999572753906
+      },
+      {
+        "word": "in",
+        "start": 255.97999572753906,
+        "end": 256.2799987792969
+      },
+      {
+        "word": "the",
+        "start": 256.2799987792969,
+        "end": 256.5199890136719
+      },
+      {
+        "word": "age",
+        "start": 256.5199890136719,
+        "end": 256.5400085449219
+      },
+      {
+        "word": "of",
+        "start": 256.5400085449219,
+        "end": 256.70001220703125
+      },
+      {
+        "word": "AI",
+        "start": 256.70001220703125,
+        "end": 256.9200134277344
+      },
+      {
+        "word": "For",
+        "start": 257.6600036621094,
+        "end": 257.82000732421875
+      },
+      {
+        "word": "example",
+        "start": 257.82000732421875,
+        "end": 258.1400146484375
+      },
+      {
+        "word": "Clerk",
+        "start": 258.9800109863281,
+        "end": 258.9800109863281
+      },
+      {
+        "word": "was",
+        "start": 258.9800109863281,
+        "end": 259.3399963378906
+      },
+      {
+        "word": "created",
+        "start": 259.3399963378906,
+        "end": 259.6400146484375
+      },
+      {
+        "word": "to",
+        "start": 259.6400146484375,
+        "end": 260.1199951171875
+      },
+      {
+        "word": "essentially",
+        "start": 260.1199951171875,
+        "end": 260.44000244140625
+      },
+      {
+        "word": "ease",
+        "start": 260.44000244140625,
+        "end": 260.79998779296875
+      },
+      {
+        "word": "authentication",
+        "start": 260.79998779296875,
+        "end": 261.29998779296875
+      },
+      {
+        "word": "for",
+        "start": 261.29998779296875,
+        "end": 261.6199951171875
+      },
+      {
+        "word": "people",
+        "start": 261.6199951171875,
+        "end": 261.9800109863281
+      },
+      {
+        "word": "who",
+        "start": 261.9800109863281,
+        "end": 262.1199951171875
+      },
+      {
+        "word": "are",
+        "start": 262.1199951171875,
+        "end": 262.2200012207031
+      },
+      {
+        "word": "just",
+        "start": 262.2200012207031,
+        "end": 262.4800109863281
+      },
+      {
+        "word": "starting",
+        "start": 262.4800109863281,
+        "end": 262.6400146484375
+      },
+      {
+        "word": "out",
+        "start": 262.6400146484375,
+        "end": 262.9200134277344
+      },
+      {
+        "word": "Instead",
+        "start": 262.9200134277344,
+        "end": 263.20001220703125
+      },
+      {
+        "word": "of",
+        "start": 263.20001220703125,
+        "end": 263.3399963378906
+      },
+      {
+        "word": "creating",
+        "start": 263.3399963378906,
+        "end": 263.55999755859375
+      },
+      {
+        "word": "your",
+        "start": 263.55999755859375,
+        "end": 263.760009765625
+      },
+      {
+        "word": "own",
+        "start": 263.760009765625,
+        "end": 264.0199890136719
+      },
+      {
+        "word": "authentication",
+        "start": 264.0199890136719,
+        "end": 264.55999755859375
+      },
+      {
+        "word": "where",
+        "start": 265.0199890136719,
+        "end": 265.1000061035156
+      },
+      {
+        "word": "you",
+        "start": 265.1000061035156,
+        "end": 265.1400146484375
+      },
+      {
+        "word": "have",
+        "start": 265.1400146484375,
+        "end": 265.3599853515625
+      },
+      {
+        "word": "to",
+        "start": 265.3599853515625,
+        "end": 265.4200134277344
+      },
+      {
+        "word": "have",
+        "start": 265.4200134277344,
+        "end": 265.760009765625
+      },
+      {
+        "word": "security",
+        "start": 265.760009765625,
+        "end": 266.29998779296875
+      },
+      {
+        "word": "password",
+        "start": 266.9800109863281,
+        "end": 267.0199890136719
+      },
+      {
+        "word": "management",
+        "start": 267.0199890136719,
+        "end": 267.3999938964844
+      },
+      {
+        "word": "recovery",
+        "start": 267.8800048828125,
+        "end": 268
+      },
+      {
+        "word": "emails",
+        "start": 268,
+        "end": 268.4599914550781
+      },
+      {
+        "word": "Clerk",
+        "start": 269.0400085449219,
+        "end": 269.0400085449219
+      },
+      {
+        "word": "handles",
+        "start": 269.0400085449219,
+        "end": 269.32000732421875
+      },
+      {
+        "word": "all",
+        "start": 269.32000732421875,
+        "end": 269.6600036621094
+      },
+      {
+        "word": "of",
+        "start": 269.6600036621094,
+        "end": 269.7799987792969
+      },
+      {
+        "word": "that",
+        "start": 269.7799987792969,
+        "end": 270.17999267578125
+      },
+      {
+        "word": "Similarly",
+        "start": 270.70001220703125,
+        "end": 270.8399963378906
+      },
+      {
+        "word": "with",
+        "start": 270.8399963378906,
+        "end": 271.5199890136719
+      },
+      {
+        "word": "Stripe",
+        "start": 271.5199890136719,
+        "end": 271.5199890136719
+      },
+      {
+        "word": "instead",
+        "start": 272,
+        "end": 272.05999755859375
+      },
+      {
+        "word": "of",
+        "start": 272.05999755859375,
+        "end": 272.17999267578125
+      },
+      {
+        "word": "creating",
+        "start": 272.17999267578125,
+        "end": 272.3999938964844
+      },
+      {
+        "word": "your",
+        "start": 272.3999938964844,
+        "end": 272.5799865722656
+      },
+      {
+        "word": "own",
+        "start": 272.5799865722656,
+        "end": 272.8800048828125
+      },
+      {
+        "word": "entire",
+        "start": 272.8800048828125,
+        "end": 273.3599853515625
+      },
+      {
+        "word": "bank",
+        "start": 273.3599853515625,
+        "end": 273.760009765625
+      },
+      {
+        "word": "and",
+        "start": 273.760009765625,
+        "end": 274.5199890136719
+      },
+      {
+        "word": "finances",
+        "start": 274.5199890136719,
+        "end": 274.5199890136719
+      },
+      {
+        "word": "Stripe",
+        "start": 279.6600036621094,
+        "end": 280.2200012207031
+      },
+      {
+        "word": "has",
+        "start": 280.2200012207031,
+        "end": 280.7799987792969
+      },
+      {
+        "word": "a",
+        "start": 280.7799987792969,
+        "end": 281.0199890136719
+      },
+      {
+        "word": "similar",
+        "start": 281.0199890136719,
+        "end": 281.1600036621094
+      },
+      {
+        "word": "idea",
+        "start": 281.1600036621094,
+        "end": 281.5
+      },
+      {
+        "word": "Instead",
+        "start": 285.0799865722656,
+        "end": 285.239990234375
+      },
+      {
+        "word": "of",
+        "start": 285.239990234375,
+        "end": 285.82000732421875
+      },
+      {
+        "word": "handling",
+        "start": 285.82000732421875,
+        "end": 285.82000732421875
+      },
+      {
+        "word": "all",
+        "start": 285.82000732421875,
+        "end": 286.1000061035156
+      },
+      {
+        "word": "of",
+        "start": 286.1000061035156,
+        "end": 286.17999267578125
+      },
+      {
+        "word": "your",
+        "start": 286.17999267578125,
+        "end": 286.3399963378906
+      },
+      {
+        "word": "finances",
+        "start": 286.3399963378906,
+        "end": 286.6000061035156
+      },
+      {
+        "word": "on",
+        "start": 286.6000061035156,
+        "end": 286.82000732421875
+      },
+      {
+        "word": "your",
+        "start": 286.82000732421875,
+        "end": 287.0799865722656
+      },
+      {
+        "word": "own",
+        "start": 287.0799865722656,
+        "end": 287.3399963378906
+      },
+      {
+        "word": "Stripe",
+        "start": 288.0400085449219,
+        "end": 288.0400085449219
+      },
+      {
+        "word": "has",
+        "start": 288.0400085449219,
+        "end": 288.20001220703125
+      },
+      {
+        "word": "a",
+        "start": 288.20001220703125,
+        "end": 288.9800109863281
+      },
+      {
+        "word": "simple",
+        "start": 288.9800109863281,
+        "end": 288.9800109863281
+      },
+      {
+        "word": "web",
+        "start": 288.9800109863281,
+        "end": 289.5400085449219
+      },
+      {
+        "word": "API",
+        "start": 289.5400085449219,
+        "end": 290.6600036621094
+      },
+      {
+        "word": "that",
+        "start": 290.6600036621094,
+        "end": 290.8800048828125
+      },
+      {
+        "word": "you",
+        "start": 290.8800048828125,
+        "end": 290.9800109863281
+      },
+      {
+        "word": "can",
+        "start": 290.9800109863281,
+        "end": 291.17999267578125
+      },
+      {
+        "word": "use",
+        "start": 291.17999267578125,
+        "end": 291.4800109863281
+      },
+      {
+        "word": "The",
+        "start": 293.6600036621094,
+        "end": 294.260009765625
+      },
+      {
+        "word": "third",
+        "start": 294.260009765625,
+        "end": 294.55999755859375
+      },
+      {
+        "word": "one",
+        "start": 294.55999755859375,
+        "end": 304.5799865722656
+      },
+      {
+        "word": "is",
+        "start": 304.5799865722656,
+        "end": 304.8599853515625
+      },
+      {
+        "word": "infrastructure",
+        "start": 304.8599853515625,
+        "end": 305.44000244140625
+      },
+      {
+        "word": "You",
+        "start": 305.5799865722656,
+        "end": 305.5799865722656
+      },
+      {
+        "word": "know",
+        "start": 305.5799865722656,
+        "end": 306.20001220703125
+      },
+      {
+        "word": "the",
+        "start": 306.20001220703125,
+        "end": 306.3599853515625
+      },
+      {
+        "word": "old",
+        "start": 306.3599853515625,
+        "end": 306.67999267578125
+      },
+      {
+        "word": "saying",
+        "start": 306.67999267578125,
+        "end": 306.8999938964844
+      },
+      {
+        "word": "instead",
+        "start": 307.32000732421875,
+        "end": 307.3599853515625
+      },
+      {
+        "word": "of",
+        "start": 307.3599853515625,
+        "end": 307.7200012207031
+      },
+      {
+        "word": "digging",
+        "start": 307.7200012207031,
+        "end": 307.7200012207031
+      },
+      {
+        "word": "for",
+        "start": 307.7200012207031,
+        "end": 308.0400085449219
+      },
+      {
+        "word": "gold",
+        "start": 308.0400085449219,
+        "end": 308.260009765625
+      },
+      {
+        "word": "sell",
+        "start": 308.4200134277344,
+        "end": 308.5199890136719
+      },
+      {
+        "word": "the",
+        "start": 308.5199890136719,
+        "end": 308.8599853515625
+      },
+      {
+        "word": "shovels",
+        "start": 308.8599853515625,
+        "end": 309.1000061035156
+      },
+      {
+        "word": "instead",
+        "start": 309.1000061035156,
+        "end": 309.2799987792969
+      },
+      {
+        "word": "That's",
+        "start": 309.79998779296875,
+        "end": 310
+      },
+      {
+        "word": "basically",
+        "start": 310,
+        "end": 310.2799987792969
+      },
+      {
+        "word": "what",
+        "start": 310.2799987792969,
+        "end": 310.5199890136719
+      },
+      {
+        "word": "some",
+        "start": 310.5199890136719,
+        "end": 310.6600036621094
+      },
+      {
+        "word": "of",
+        "start": 310.6600036621094,
+        "end": 310.9800109863281
+      },
+      {
+        "word": "these",
+        "start": 310.9800109863281,
+        "end": 310.9800109863281
+      },
+      {
+        "word": "companies",
+        "start": 310.9800109863281,
+        "end": 311.1600036621094
+      },
+      {
+        "word": "are",
+        "start": 311.1600036621094,
+        "end": 311.4200134277344
+      },
+      {
+        "word": "doing",
+        "start": 311.4200134277344,
+        "end": 311.7200012207031
+      },
+      {
+        "word": "Every",
+        "start": 312.5799865722656,
+        "end": 312.5799865722656
+      },
+      {
+        "word": "startup",
+        "start": 312.5799865722656,
+        "end": 312.8800048828125
+      },
+      {
+        "word": "needs",
+        "start": 312.8800048828125,
+        "end": 313.3599853515625
+      },
+      {
+        "word": "security",
+        "start": 313.3599853515625,
+        "end": 313.8599853515625
+      },
+      {
+        "word": "authentication",
+        "start": 314.0799865722656,
+        "end": 314.5799865722656
+      },
+      {
+        "word": "payment",
+        "start": 315.05999755859375,
+        "end": 315.2799987792969
+      },
+      {
+        "word": "management",
+        "start": 315.2799987792969,
+        "end": 315.6400146484375
+      },
+      {
+        "word": "compute",
+        "start": 315.9800109863281,
+        "end": 316.17999267578125
+      },
+      {
+        "word": "power",
+        "start": 316.17999267578125,
+        "end": 316.5
+      },
+      {
+        "word": "So",
+        "start": 316.9200134277344,
+        "end": 317.2200012207031
+      },
+      {
+        "word": "each",
+        "start": 317.2200012207031,
+        "end": 317.55999755859375
+      },
+      {
+        "word": "startup",
+        "start": 317.55999755859375,
+        "end": 317.8599853515625
+      },
+      {
+        "word": "is",
+        "start": 317.8599853515625,
+        "end": 318.3399963378906
+      },
+      {
+        "word": "focused",
+        "start": 318.3399963378906,
+        "end": 318.3399963378906
+      },
+      {
+        "word": "on",
+        "start": 318.3399963378906,
+        "end": 318.5
+      },
+      {
+        "word": "that",
+        "start": 318.5,
+        "end": 318.94000244140625
+      },
+      {
+        "word": "For",
+        "start": 318.94000244140625,
+        "end": 319.1400146484375
+      },
+      {
+        "word": "example",
+        "start": 319.1400146484375,
+        "end": 319.5400085449219
+      },
+      {
+        "word": "Clerk",
+        "start": 320.0799865722656,
+        "end": 320.1600036621094
+      },
+      {
+        "word": "handles",
+        "start": 320.1600036621094,
+        "end": 320.4800109863281
+      },
+      {
+        "word": "authentication",
+        "start": 320.4800109863281,
+        "end": 321.1199951171875
+      },
+      {
+        "word": "Instead",
+        "start": 321.67999267578125,
+        "end": 321.67999267578125
+      },
+      {
+        "word": "of",
+        "start": 321.67999267578125,
+        "end": 321.8399963378906
+      },
+      {
+        "word": "creating",
+        "start": 321.8399963378906,
+        "end": 322.0799865722656
+      },
+      {
+        "word": "your",
+        "start": 322.0799865722656,
+        "end": 322.239990234375
+      },
+      {
+        "word": "own",
+        "start": 322.239990234375,
+        "end": 322.5400085449219
+      },
+      {
+        "word": "password",
+        "start": 322.5400085449219,
+        "end": 322.9200134277344
+      },
+      {
+        "word": "management",
+        "start": 322.9200134277344,
+        "end": 323.29998779296875
+      },
+      {
+        "word": "recovery",
+        "start": 323.6400146484375,
+        "end": 323.79998779296875
+      },
+      {
+        "word": "management",
+        "start": 323.79998779296875,
+        "end": 324.20001220703125
+      },
+      {
+        "word": "emails",
+        "start": 324.8800048828125,
+        "end": 324.8800048828125
+      },
+      {
+        "word": "Clerk",
+        "start": 325.5,
+        "end": 325.5
+      },
+      {
+        "word": "handles",
+        "start": 325.5,
+        "end": 325.79998779296875
+      },
+      {
+        "word": "all",
+        "start": 325.79998779296875,
+        "end": 326.0400085449219
+      },
+      {
+        "word": "of",
+        "start": 326.0400085449219,
+        "end": 326.1199951171875
+      },
+      {
+        "word": "that",
+        "start": 326.1199951171875,
+        "end": 326.29998779296875
+      },
+      {
+        "word": "Similarly",
+        "start": 327.1199951171875,
+        "end": 327.1199951171875
+      },
+      {
+        "word": "Stripe",
+        "start": 327.760009765625,
+        "end": 327.760009765625
+      },
+      {
+        "word": "is",
+        "start": 327.760009765625,
+        "end": 328.3599853515625
+      },
+      {
+        "word": "the",
+        "start": 328.3599853515625,
+        "end": 328.3599853515625
+      },
+      {
+        "word": "most",
+        "start": 328.3599853515625,
+        "end": 328.6400146484375
+      },
+      {
+        "word": "well",
+        "start": 328.6400146484375,
+        "end": 329.260009765625
+      },
+      {
+        "word": "known",
+        "start": 329.260009765625,
+        "end": 329.32000732421875
+      },
+      {
+        "word": "payment",
+        "start": 329.32000732421875,
+        "end": 330.4599914550781
+      },
+      {
+        "word": "platform",
+        "start": 330.4599914550781,
+        "end": 330.8800048828125
+      },
+      {
+        "word": "that",
+        "start": 330.8800048828125,
+        "end": 331.3999938964844
+      },
+      {
+        "word": "allows",
+        "start": 331.3999938964844,
+        "end": 331.5799865722656
+      },
+      {
+        "word": "finances",
+        "start": 331.5799865722656,
+        "end": 332.05999755859375
+      },
+      {
+        "word": "to",
+        "start": 332.05999755859375,
+        "end": 332.29998779296875
+      },
+      {
+        "word": "go",
+        "start": 332.29998779296875,
+        "end": 332.4599914550781
+      },
+      {
+        "word": "through",
+        "start": 332.4599914550781,
+        "end": 332.7200012207031
+      },
+      {
+        "word": "super",
+        "start": 332.7200012207031,
+        "end": 333.05999755859375
+      },
+      {
+        "word": "easily",
+        "start": 333.05999755859375,
+        "end": 333.29998779296875
+      },
+      {
+        "word": "so",
+        "start": 333.44000244140625,
+        "end": 333.5400085449219
+      },
+      {
+        "word": "that",
+        "start": 333.5400085449219,
+        "end": 333.7200012207031
+      },
+      {
+        "word": "when",
+        "start": 333.7200012207031,
+        "end": 333.82000732421875
+      },
+      {
+        "word": "you're",
+        "start": 333.82000732421875,
+        "end": 333.9200134277344
+      },
+      {
+        "word": "just",
+        "start": 333.9200134277344,
+        "end": 334.29998779296875
+      },
+      {
+        "word": "creating",
+        "start": 334.29998779296875,
+        "end": 334.3999938964844
+      },
+      {
+        "word": "a",
+        "start": 334.3999938964844,
+        "end": 334.82000732421875
+      },
+      {
+        "word": "startup",
+        "start": 334.82000732421875,
+        "end": 334.82000732421875
+      },
+      {
+        "word": "you",
+        "start": 335,
+        "end": 335.0799865722656
+      },
+      {
+        "word": "can",
+        "start": 335.0799865722656,
+        "end": 335.29998779296875
+      },
+      {
+        "word": "simply",
+        "start": 335.29998779296875,
+        "end": 335.6000061035156
+      },
+      {
+        "word": "focus",
+        "start": 335.6000061035156,
+        "end": 335.9200134277344
+      },
+      {
+        "word": "on",
+        "start": 335.9200134277344,
+        "end": 336.260009765625
+      },
+      {
+        "word": "your",
+        "start": 336.260009765625,
+        "end": 336.44000244140625
+      },
+      {
+        "word": "work",
+        "start": 336.44000244140625,
+        "end": 336.760009765625
+      },
+      {
+        "word": "instead",
+        "start": 336.9599914550781,
+        "end": 337.20001220703125
+      },
+      {
+        "word": "of",
+        "start": 337.20001220703125,
+        "end": 337.3599853515625
+      },
+      {
+        "word": "creating",
+        "start": 337.3599853515625,
+        "end": 337.5799865722656
+      },
+      {
+        "word": "all",
+        "start": 337.5799865722656,
+        "end": 337.8599853515625
+      },
+      {
+        "word": "of",
+        "start": 337.8599853515625,
+        "end": 337.9599914550781
+      },
+      {
+        "word": "these",
+        "start": 337.9599914550781,
+        "end": 338.4200134277344
+      },
+      {
+        "word": "replicable",
+        "start": 338.4200134277344,
+        "end": 338.9599914550781
+      },
+      {
+        "word": "but",
+        "start": 339.3999938964844,
+        "end": 339.6199951171875
+      },
+      {
+        "word": "very",
+        "start": 339.6199951171875,
+        "end": 339.82000732421875
+      },
+      {
+        "word": "difficult",
+        "start": 339.82000732421875,
+        "end": 340
+      },
+      {
+        "word": "to",
+        "start": 340,
+        "end": 340.260009765625
+      },
+      {
+        "word": "create",
+        "start": 340.260009765625,
+        "end": 340.4200134277344
+      },
+      {
+        "word": "on",
+        "start": 340.4200134277344,
+        "end": 340.5199890136719
+      },
+      {
+        "word": "your",
+        "start": 340.5199890136719,
+        "end": 340.6199951171875
+      },
+      {
+        "word": "own",
+        "start": 340.6199951171875,
+        "end": 340.9800109863281
+      },
+      {
+        "word": "tasks",
+        "start": 340.9800109863281,
+        "end": 341.3999938964844
+      },
+      {
+        "word": "There's",
+        "start": 342,
+        "end": 342.5199890136719
+      },
+      {
+        "word": "going",
+        "start": 342.5199890136719,
+        "end": 342.5799865722656
+      },
+      {
+        "word": "to",
+        "start": 342.5799865722656,
+        "end": 342.67999267578125
+      },
+      {
+        "word": "be",
+        "start": 342.67999267578125,
+        "end": 342.7200012207031
+      },
+      {
+        "word": "a",
+        "start": 342.7200012207031,
+        "end": 342.8599853515625
+      },
+      {
+        "word": "new",
+        "start": 342.8599853515625,
+        "end": 343.1000061035156
+      },
+      {
+        "word": "wave",
+        "start": 343.1000061035156,
+        "end": 343.4200134277344
+      },
+      {
+        "word": "of",
+        "start": 343.4200134277344,
+        "end": 343.8399963378906
+      },
+      {
+        "word": "AI",
+        "start": 343.8399963378906,
+        "end": 344.1000061035156
+      },
+      {
+        "word": "native",
+        "start": 344.1000061035156,
+        "end": 344.739990234375
+      },
+      {
+        "word": "infrastructure",
+        "start": 344.739990234375,
+        "end": 345.3399963378906
+      },
+      {
+        "word": "companies",
+        "start": 345.3399963378906,
+        "end": 345.8399963378906
+      },
+      {
+        "word": "that",
+        "start": 345.8399963378906,
+        "end": 346.29998779296875
+      },
+      {
+        "word": "are",
+        "start": 346.29998779296875,
+        "end": 346.44000244140625
+      },
+      {
+        "word": "taking",
+        "start": 346.44000244140625,
+        "end": 346.67999267578125
+      },
+      {
+        "word": "on",
+        "start": 346.67999267578125,
+        "end": 347.1199951171875
+      },
+      {
+        "word": "the",
+        "start": 347.1199951171875,
+        "end": 347.3599853515625
+      },
+      {
+        "word": "legacy",
+        "start": 347.3599853515625,
+        "end": 347.5799865722656
+      },
+      {
+        "word": "companies",
+        "start": 347.5799865722656,
+        "end": 348.0199890136719
+      },
+      {
+        "word": "Similarly",
+        "start": 351.3999938964844,
+        "end": 351.9200134277344
+      },
+      {
+        "word": "there's",
+        "start": 352.4599914550781,
+        "end": 352.5199890136719
+      },
+      {
+        "word": "been",
+        "start": 352.5199890136719,
+        "end": 352.6400146484375
+      },
+      {
+        "word": "a",
+        "start": 352.6400146484375,
+        "end": 352.739990234375
+      },
+      {
+        "word": "new",
+        "start": 352.739990234375,
+        "end": 352.9599914550781
+      },
+      {
+        "word": "wave",
+        "start": 352.9599914550781,
+        "end": 353.239990234375
+      },
+      {
+        "word": "of",
+        "start": 353.239990234375,
+        "end": 353.5400085449219
+      },
+      {
+        "word": "compute",
+        "start": 353.5400085449219,
+        "end": 353.8999938964844
+      },
+      {
+        "word": "infrastructure",
+        "start": 353.8999938964844,
+        "end": 354.4800109863281
+      },
+      {
+        "word": "whether",
+        "start": 354.9800109863281,
+        "end": 355
+      },
+      {
+        "word": "that's",
+        "start": 355,
+        "end": 355.4200134277344
+      },
+      {
+        "word": "renting",
+        "start": 355.4200134277344,
+        "end": 355.7799987792969
+      },
+      {
+        "word": "out",
+        "start": 355.7799987792969,
+        "end": 356.0199890136719
+      },
+      {
+        "word": "GPU",
+        "start": 356.0199890136719,
+        "end": 356.32000732421875
+      },
+      {
+        "word": "selling",
+        "start": 356.9599914550781,
+        "end": 357
+      },
+      {
+        "word": "them",
+        "start": 357,
+        "end": 357.17999267578125
+      },
+      {
+        "word": "like",
+        "start": 357.17999267578125,
+        "end": 357.3999938964844
+      },
+      {
+        "word": "little",
+        "start": 357.3999938964844,
+        "end": 357.6600036621094
+      },
+      {
+        "word": "stock",
+        "start": 357.6600036621094,
+        "end": 357.8800048828125
+      },
+      {
+        "word": "bits",
+        "start": 357.8800048828125,
+        "end": 358.2200012207031
+      },
+      {
+        "word": "For",
+        "start": 359.9800109863281,
+        "end": 360.05999755859375
+      },
+      {
+        "word": "example",
+        "start": 360.05999755859375,
+        "end": 360.2799987792969
+      },
+      {
+        "word": "there's",
+        "start": 360.6199951171875,
+        "end": 360.70001220703125
+      },
+      {
+        "word": "been",
+        "start": 360.70001220703125,
+        "end": 360.8999938964844
+      },
+      {
+        "word": "AI",
+        "start": 360.8999938964844,
+        "end": 361.1600036621094
+      },
+      {
+        "word": "native",
+        "start": 361.1600036621094,
+        "end": 361.3399963378906
+      },
+      {
+        "word": "versions",
+        "start": 361.3399963378906,
+        "end": 361.6600036621094
+      },
+      {
+        "word": "of",
+        "start": 361.6600036621094,
+        "end": 362.17999267578125
+      },
+      {
+        "word": "Superbase",
+        "start": 362.17999267578125,
+        "end": 362.79998779296875
+      },
+      {
+        "word": "Stripe",
+        "start": 363.8399963378906,
+        "end": 363.94000244140625
+      },
+      {
+        "word": "Vercel",
+        "start": 365.4800109863281,
+        "end": 365.4800109863281
+      },
+      {
+        "word": "basically",
+        "start": 366.739990234375,
+        "end": 366.739990234375
+      },
+      {
+        "word": "replicating",
+        "start": 366.739990234375,
+        "end": 367.239990234375
+      },
+      {
+        "word": "each",
+        "start": 367.239990234375,
+        "end": 367.82000732421875
+      },
+      {
+        "word": "of",
+        "start": 367.82000732421875,
+        "end": 368
+      },
+      {
+        "word": "their",
+        "start": 368,
+        "end": 368.2200012207031
+      },
+      {
+        "word": "abilities",
+        "start": 368.2200012207031,
+        "end": 368.760009765625
+      },
+      {
+        "word": "but",
+        "start": 369.20001220703125,
+        "end": 369.3999938964844
+      },
+      {
+        "word": "allowing",
+        "start": 369.3999938964844,
+        "end": 369.7200012207031
+      },
+      {
+        "word": "it",
+        "start": 369.7200012207031,
+        "end": 369.9200134277344
+      },
+      {
+        "word": "to",
+        "start": 369.9200134277344,
+        "end": 370.17999267578125
+      },
+      {
+        "word": "work",
+        "start": 370.17999267578125,
+        "end": 370.239990234375
+      },
+      {
+        "word": "in",
+        "start": 370.239990234375,
+        "end": 370.4800109863281
+      },
+      {
+        "word": "a",
+        "start": 370.4800109863281,
+        "end": 370.5799865722656
+      },
+      {
+        "word": "much",
+        "start": 370.5799865722656,
+        "end": 370.79998779296875
+      },
+      {
+        "word": "more",
+        "start": 370.79998779296875,
+        "end": 371.2200012207031
+      },
+      {
+        "word": "AI",
+        "start": 371.2200012207031,
+        "end": 371.5799865722656
+      },
+      {
+        "word": "native",
+        "start": 371.5799865722656,
+        "end": 371.82000732421875
+      },
+      {
+        "word": "way",
+        "start": 371.82000732421875,
+        "end": 372.29998779296875
+      },
+      {
+        "word": "Companies",
+        "start": 373.9200134277344,
+        "end": 373.9200134277344
+      },
+      {
+        "word": "that",
+        "start": 373.9200134277344,
+        "end": 374.1199951171875
+      },
+      {
+        "word": "are",
+        "start": 374.1199951171875,
+        "end": 374.260009765625
+      },
+      {
+        "word": "building",
+        "start": 374.260009765625,
+        "end": 374.5400085449219
+      },
+      {
+        "word": "in",
+        "start": 374.5400085449219,
+        "end": 374.8999938964844
+      },
+      {
+        "word": "the",
+        "start": 374.8999938964844,
+        "end": 375.05999755859375
+      },
+      {
+        "word": "space",
+        "start": 375.05999755859375,
+        "end": 375.2799987792969
+      },
+      {
+        "word": "of",
+        "start": 375.2799987792969,
+        "end": 375.4800109863281
+      },
+      {
+        "word": "physical",
+        "start": 375.4800109863281,
+        "end": 375.7200012207031
+      },
+      {
+        "word": "AI",
+        "start": 375.7200012207031,
+        "end": 375.9800109863281
+      },
+      {
+        "word": "for",
+        "start": 376.20001220703125,
+        "end": 376.2200012207031
+      },
+      {
+        "word": "example",
+        "start": 376.2200012207031,
+        "end": 376.4800109863281
+      },
+      {
+        "word": "will",
+        "start": 376.4800109863281,
+        "end": 376.9800109863281
+      },
+      {
+        "word": "pay",
+        "start": 376.9800109863281,
+        "end": 377.20001220703125
+      },
+      {
+        "word": "massive",
+        "start": 377.20001220703125,
+        "end": 377.5799865722656
+      },
+      {
+        "word": "amounts",
+        "start": 377.5799865722656,
+        "end": 377.79998779296875
+      },
+      {
+        "word": "of",
+        "start": 377.79998779296875,
+        "end": 378.1400146484375
+      },
+      {
+        "word": "money",
+        "start": 378.1400146484375,
+        "end": 378.1400146484375
+      },
+      {
+        "word": "to",
+        "start": 378.1400146484375,
+        "end": 378.32000732421875
+      },
+      {
+        "word": "be",
+        "start": 378.32000732421875,
+        "end": 378.5
+      },
+      {
+        "word": "able",
+        "start": 378.5,
+        "end": 378.6199951171875
+      },
+      {
+        "word": "to",
+        "start": 378.6199951171875,
+        "end": 378.8800048828125
+      },
+      {
+        "word": "collect",
+        "start": 378.8800048828125,
+        "end": 379.1199951171875
+      },
+      {
+        "word": "this",
+        "start": 379.1199951171875,
+        "end": 379.4800109863281
+      },
+      {
+        "word": "data",
+        "start": 379.4800109863281,
+        "end": 379.6199951171875
+      },
+      {
+        "word": "instead",
+        "start": 379.6199951171875,
+        "end": 379.94000244140625
+      },
+      {
+        "word": "of",
+        "start": 379.94000244140625,
+        "end": 380.0799865722656
+      },
+      {
+        "word": "doing",
+        "start": 380.0799865722656,
+        "end": 380.29998779296875
+      },
+      {
+        "word": "it",
+        "start": 380.29998779296875,
+        "end": 380.55999755859375
+      },
+      {
+        "word": "on",
+        "start": 380.55999755859375,
+        "end": 380.55999755859375
+      },
+      {
+        "word": "their",
+        "start": 380.55999755859375,
+        "end": 380.739990234375
+      },
+      {
+        "word": "own",
+        "start": 380.739990234375,
+        "end": 381.0799865722656
+      },
+      {
+        "word": "Companies",
+        "start": 382.1400146484375,
+        "end": 382.1400146484375
+      },
+      {
+        "word": "that",
+        "start": 382.1400146484375,
+        "end": 382.6000061035156
+      },
+      {
+        "word": "are",
+        "start": 382.6000061035156,
+        "end": 382.739990234375
+      },
+      {
+        "word": "able",
+        "start": 382.739990234375,
+        "end": 382.8800048828125
+      },
+      {
+        "word": "to",
+        "start": 382.8800048828125,
+        "end": 383.7799987792969
+      },
+      {
+        "word": "organize",
+        "start": 383.7799987792969,
+        "end": 383.7799987792969
+      },
+      {
+        "word": "label",
+        "start": 384.32000732421875,
+        "end": 384.32000732421875
+      },
+      {
+        "word": "and",
+        "start": 384.5400085449219,
+        "end": 384.7200012207031
+      },
+      {
+        "word": "make",
+        "start": 384.7200012207031,
+        "end": 384.8399963378906
+      },
+      {
+        "word": "their",
+        "start": 384.8399963378906,
+        "end": 385.05999755859375
+      },
+      {
+        "word": "data",
+        "start": 385.05999755859375,
+        "end": 385.29998779296875
+      },
+      {
+        "word": "very",
+        "start": 385.29998779296875,
+        "end": 385.9599914550781
+      },
+      {
+        "word": "accessible",
+        "start": 385.9599914550781,
+        "end": 386.29998779296875
+      },
+      {
+        "word": "are",
+        "start": 386.29998779296875,
+        "end": 386.8999938964844
+      },
+      {
+        "word": "the",
+        "start": 386.8999938964844,
+        "end": 387.0400085449219
+      },
+      {
+        "word": "ones",
+        "start": 387.0400085449219,
+        "end": 387.1199951171875
+      },
+      {
+        "word": "that",
+        "start": 387.1199951171875,
+        "end": 387.29998779296875
+      },
+      {
+        "word": "will",
+        "start": 387.29998779296875,
+        "end": 387.44000244140625
+      },
+      {
+        "word": "win",
+        "start": 387.44000244140625,
+        "end": 387.5199890136719
+      },
+      {
+        "word": "in",
+        "start": 387.5199890136719,
+        "end": 387.70001220703125
+      },
+      {
+        "word": "this",
+        "start": 387.70001220703125,
+        "end": 387.79998779296875
+      },
+      {
+        "word": "space",
+        "start": 387.79998779296875,
+        "end": 388.239990234375
+      },
+      {
+        "word": "Across",
+        "start": 389.6000061035156,
+        "end": 389.8399963378906
+      },
+      {
+        "word": "all",
+        "start": 389.8399963378906,
+        "end": 390.2200012207031
+      },
+      {
+        "word": "three",
+        "start": 390.2200012207031,
+        "end": 390.5
+      },
+      {
+        "word": "markets",
+        "start": 390.5,
+        "end": 390.82000732421875
+      },
+      {
+        "word": "there's",
+        "start": 390.9800109863281,
+        "end": 391.4599914550781
+      },
+      {
+        "word": "one",
+        "start": 391.4599914550781,
+        "end": 391.70001220703125
+      },
+      {
+        "word": "thing",
+        "start": 391.70001220703125,
+        "end": 391.8599853515625
+      },
+      {
+        "word": "that's",
+        "start": 391.8599853515625,
+        "end": 392.17999267578125
+      },
+      {
+        "word": "clear",
+        "start": 392.17999267578125,
+        "end": 392.3399963378906
+      },
+      {
+        "word": "There's",
+        "start": 396.67999267578125,
+        "end": 397.20001220703125
+      },
+      {
+        "word": "a",
+        "start": 397.20001220703125,
+        "end": 397.29998779296875
+      },
+      {
+        "word": "massive",
+        "start": 397.29998779296875,
+        "end": 397.739990234375
+      },
+      {
+        "word": "shift",
+        "start": 397.739990234375,
+        "end": 398.32000732421875
+      },
+      {
+        "word": "towards",
+        "start": 398.32000732421875,
+        "end": 399.20001220703125
+      },
+      {
+        "word": "automating",
+        "start": 399.20001220703125,
+        "end": 399.8999938964844
+      },
+      {
+        "word": "a",
+        "start": 399.8999938964844,
+        "end": 400.260009765625
+      },
+      {
+        "word": "lot",
+        "start": 400.260009765625,
+        "end": 400.3599853515625
+      },
+      {
+        "word": "of",
+        "start": 400.3599853515625,
+        "end": 400.5199890136719
+      },
+      {
+        "word": "work",
+        "start": 400.5199890136719,
+        "end": 400.760009765625
+      },
+      {
+        "word": "that",
+        "start": 400.760009765625,
+        "end": 401.20001220703125
+      },
+      {
+        "word": "used",
+        "start": 401.20001220703125,
+        "end": 401.5
+      },
+      {
+        "word": "to",
+        "start": 401.5,
+        "end": 401.67999267578125
+      },
+      {
+        "word": "be",
+        "start": 401.67999267578125,
+        "end": 402.20001220703125
+      },
+      {
+        "word": "seemingly",
+        "start": 402.20001220703125,
+        "end": 402.55999755859375
+      },
+      {
+        "word": "impossible",
+        "start": 402.55999755859375,
+        "end": 403.0400085449219
+      },
+      {
+        "word": "to",
+        "start": 403.0400085449219,
+        "end": 403.3399963378906
+      },
+      {
+        "word": "do",
+        "start": 403.3399963378906,
+        "end": 403.5799865722656
+      },
+      {
+        "word": "with",
+        "start": 403.5799865722656,
+        "end": 404.1000061035156
+      },
+      {
+        "word": "just",
+        "start": 404.1000061035156,
+        "end": 404.4200134277344
+      },
+      {
+        "word": "code",
+        "start": 404.4200134277344,
+        "end": 404.79998779296875
+      },
+      {
+        "word": "And",
+        "start": 404.79998779296875,
+        "end": 404.79998779296875
+      },
+      {
+        "word": "now",
+        "start": 404.79998779296875,
+        "end": 412.0199890136719
+      },
+      {
+        "word": "at",
+        "start": 412.44000244140625,
+        "end": 415.1199951171875
+      },
+      {
+        "word": "the",
+        "start": 415.1199951171875,
+        "end": 415.2799987792969
+      },
+      {
+        "word": "same",
+        "start": 415.2799987792969,
+        "end": 415.5199890136719
+      },
+      {
+        "word": "time",
+        "start": 415.5199890136719,
+        "end": 415.8800048828125
+      },
+      {
+        "word": "these",
+        "start": 416.239990234375,
+        "end": 416.29998779296875
+      },
+      {
+        "word": "companies",
+        "start": 416.29998779296875,
+        "end": 416.7200012207031
+      },
+      {
+        "word": "reduce",
+        "start": 416.7200012207031,
+        "end": 417.3399963378906
+      },
+      {
+        "word": "massive",
+        "start": 417.3399963378906,
+        "end": 418.0400085449219
+      },
+      {
+        "word": "pains",
+        "start": 418.0400085449219,
+        "end": 418.5199890136719
+      },
+      {
+        "word": "and",
+        "start": 418.5199890136719,
+        "end": 418.8399963378906
+      },
+      {
+        "word": "problems",
+        "start": 418.8399963378906,
+        "end": 419.1199951171875
+      },
+      {
+        "word": "whether",
+        "start": 419.239990234375,
+        "end": 419.3800048828125
+      },
+      {
+        "word": "that's",
+        "start": 419.3800048828125,
+        "end": 419.5799865722656
+      },
+      {
+        "word": "for",
+        "start": 419.5799865722656,
+        "end": 419.7799987792969
+      },
+      {
+        "word": "developers",
+        "start": 419.7799987792969,
+        "end": 420.0799865722656
+      },
+      {
+        "word": "for",
+        "start": 420.4599914550781,
+        "end": 421.05999755859375
+      },
+      {
+        "word": "customers",
+        "start": 421.05999755859375,
+        "end": 421.05999755859375
+      },
+      {
+        "word": "manufacturers",
+        "start": 421.44000244140625,
+        "end": 422.0799865722656
+      },
+      {
+        "word": "For",
+        "start": 422.5199890136719,
+        "end": 422.8399963378906
+      },
+      {
+        "word": "example",
+        "start": 422.8399963378906,
+        "end": 423.05999755859375
+      },
+      {
+        "word": "I",
+        "start": 423.3800048828125,
+        "end": 423.6000061035156
+      },
+      {
+        "word": "use",
+        "start": 423.6000061035156,
+        "end": 423.760009765625
+      },
+      {
+        "word": "Stripe",
+        "start": 423.760009765625,
+        "end": 424.05999755859375
+      },
+      {
+        "word": "Clerk",
+        "start": 424.5400085449219,
+        "end": 424.5400085449219
+      },
+      {
+        "word": "Vercel",
+        "start": 425.20001220703125,
+        "end": 425.20001220703125
+      },
+      {
+        "word": "Superbase",
+        "start": 425.6400146484375,
+        "end": 426
+      },
+      {
+        "word": "because",
+        "start": 426.17999267578125,
+        "end": 426.5
+      },
+      {
+        "word": "they",
+        "start": 426.5,
+        "end": 426.67999267578125
+      },
+      {
+        "word": "all",
+        "start": 426.67999267578125,
+        "end": 427.05999755859375
+      },
+      {
+        "word": "ease",
+        "start": 427.05999755859375,
+        "end": 427.20001220703125
+      },
+      {
+        "word": "a",
+        "start": 427.20001220703125,
+        "end": 427.44000244140625
+      },
+      {
+        "word": "specific",
+        "start": 427.44000244140625,
+        "end": 427.79998779296875
+      },
+      {
+        "word": "problem",
+        "start": 427.79998779296875,
+        "end": 428.1400146484375
+      },
+      {
+        "word": "that",
+        "start": 428.1400146484375,
+        "end": 428.29998779296875
+      },
+      {
+        "word": "I",
+        "start": 428.29998779296875,
+        "end": 428.4800109863281
+      },
+      {
+        "word": "use",
+        "start": 428.4800109863281,
+        "end": 428.55999755859375
+      },
+      {
+        "word": "when",
+        "start": 428.55999755859375,
+        "end": 428.739990234375
+      },
+      {
+        "word": "I'm",
+        "start": 428.739990234375,
+        "end": 428.8599853515625
+      },
+      {
+        "word": "creating",
+        "start": 428.8599853515625,
+        "end": 429.1000061035156
+      },
+      {
+        "word": "so",
+        "start": 429.1000061035156,
+        "end": 429.1000061035156
+      },
+      {
+        "word": "that",
+        "start": 429.1000061035156,
+        "end": 429.5799865722656
+      },
+      {
+        "word": "I",
+        "start": 429.5799865722656,
+        "end": 429.6600036621094
+      },
+      {
+        "word": "can",
+        "start": 429.6600036621094,
+        "end": 429.79998779296875
+      },
+      {
+        "word": "simply",
+        "start": 429.79998779296875,
+        "end": 430.1199951171875
+      },
+      {
+        "word": "focus",
+        "start": 430.1199951171875,
+        "end": 430.44000244140625
+      },
+      {
+        "word": "on",
+        "start": 430.44000244140625,
+        "end": 430.79998779296875
+      },
+      {
+        "word": "my",
+        "start": 430.79998779296875,
+        "end": 431.05999755859375
+      },
+      {
+        "word": "startup",
+        "start": 431.05999755859375,
+        "end": 431.3800048828125
+      },
+      {
+        "word": "instead",
+        "start": 431.3800048828125,
+        "end": 432.0199890136719
+      },
+      {
+        "word": "of",
+        "start": 432.0199890136719,
+        "end": 432.239990234375
+      },
+      {
+        "word": "focusing",
+        "start": 432.239990234375,
+        "end": 432.5199890136719
+      },
+      {
+        "word": "on",
+        "start": 432.5199890136719,
+        "end": 433.0400085449219
+      },
+      {
+        "word": "creating",
+        "start": 433.0400085449219,
+        "end": 433.2799987792969
+      },
+      {
+        "word": "these",
+        "start": 433.2799987792969,
+        "end": 433.5400085449219
+      },
+      {
+        "word": "tasks",
+        "start": 433.5400085449219,
+        "end": 433.8399963378906
+      },
+      {
+        "word": "or",
+        "start": 433.8399963378906,
+        "end": 434.5
+      },
+      {
+        "word": "creating",
+        "start": 434.5,
+        "end": 434.739990234375
+      },
+      {
+        "word": "these",
+        "start": 434.739990234375,
+        "end": 435.0400085449219
+      },
+      {
+        "word": "infrastructures",
+        "start": 435.0400085449219,
+        "end": 435.5799865722656
+      },
+      {
+        "word": "that",
+        "start": 435.5799865722656,
+        "end": 436.1400146484375
+      },
+      {
+        "word": "are",
+        "start": 436.1400146484375,
+        "end": 436.2799987792969
+      },
+      {
+        "word": "already",
+        "start": 436.2799987792969,
+        "end": 436.5799865722656
+      },
+      {
+        "word": "made",
+        "start": 436.5799865722656,
+        "end": 437.17999267578125
+      },
+      {
+        "word": "that",
+        "start": 437.5,
+        "end": 437.55999755859375
+      },
+      {
+        "word": "are",
+        "start": 437.55999755859375,
+        "end": 437.739990234375
+      },
+      {
+        "word": "easier",
+        "start": 437.739990234375,
+        "end": 438.3599853515625
+      },
+      {
+        "word": "For",
+        "start": 443.2799987792969,
+        "end": 443.9200134277344
+      },
+      {
+        "word": "example",
+        "start": 443.9200134277344,
+        "end": 444.17999267578125
+      },
+      {
+        "word": "I",
+        "start": 444.67999267578125,
+        "end": 444.8399963378906
+      },
+      {
+        "word": "use",
+        "start": 444.8399963378906,
+        "end": 445.05999755859375
+      },
+      {
+        "word": "Vercel",
+        "start": 445.05999755859375,
+        "end": 445.3999938964844
+      },
+      {
+        "word": "Superbase",
+        "start": 445.70001220703125,
+        "end": 446.17999267578125
+      },
+      {
+        "word": "and",
+        "start": 447.1000061035156,
+        "end": 453.7200012207031
+      },
+      {
+        "word": "Stripe",
+        "start": 453.7200012207031,
+        "end": 453.9200134277344
+      },
+      {
+        "word": "because",
+        "start": 453.9200134277344,
+        "end": 454.2799987792969
+      },
+      {
+        "word": "they",
+        "start": 454.2799987792969,
+        "end": 454.6199951171875
+      },
+      {
+        "word": "ease",
+        "start": 454.6199951171875,
+        "end": 454.79998779296875
+      },
+      {
+        "word": "a",
+        "start": 454.79998779296875,
+        "end": 454.94000244140625
+      },
+      {
+        "word": "specific",
+        "start": 454.94000244140625,
+        "end": 455.3599853515625
+      },
+      {
+        "word": "type",
+        "start": 455.3599853515625,
+        "end": 455.6199951171875
+      },
+      {
+        "word": "of",
+        "start": 455.6199951171875,
+        "end": 455.9599914550781
+      },
+      {
+        "word": "problem",
+        "start": 455.9599914550781,
+        "end": 456.05999755859375
+      },
+      {
+        "word": "for",
+        "start": 456.05999755859375,
+        "end": 456.4200134277344
+      },
+      {
+        "word": "me",
+        "start": 456.4200134277344,
+        "end": 456.6000061035156
+      },
+      {
+        "word": "that",
+        "start": 456.6000061035156,
+        "end": 457.1199951171875
+      },
+      {
+        "word": "I",
+        "start": 457.1199951171875,
+        "end": 457.739990234375
+      },
+      {
+        "word": "don't",
+        "start": 457.739990234375,
+        "end": 457.94000244140625
+      },
+      {
+        "word": "need",
+        "start": 457.94000244140625,
+        "end": 458.1600036621094
+      },
+      {
+        "word": "to",
+        "start": 458.1600036621094,
+        "end": 458.5
+      },
+      {
+        "word": "spend",
+        "start": 458.5,
+        "end": 458.5
+      },
+      {
+        "word": "a",
+        "start": 458.5,
+        "end": 458.7200012207031
+      },
+      {
+        "word": "lot",
+        "start": 458.7200012207031,
+        "end": 458.7200012207031
+      },
+      {
+        "word": "of",
+        "start": 458.7200012207031,
+        "end": 458.94000244140625
+      },
+      {
+        "word": "time",
+        "start": 458.94000244140625,
+        "end": 459
+      },
+      {
+        "word": "doing",
+        "start": 459,
+        "end": 459.260009765625
+      },
+      {
+        "word": "and",
+        "start": 459.260009765625,
+        "end": 459.6199951171875
+      },
+      {
+        "word": "can",
+        "start": 459.6199951171875,
+        "end": 459.8800048828125
+      },
+      {
+        "word": "simply",
+        "start": 459.8800048828125,
+        "end": 460.1600036621094
+      },
+      {
+        "word": "focus",
+        "start": 460.1600036621094,
+        "end": 460.4599914550781
+      },
+      {
+        "word": "on",
+        "start": 460.4599914550781,
+        "end": 460.739990234375
+      },
+      {
+        "word": "the",
+        "start": 460.739990234375,
+        "end": 460.8800048828125
+      },
+      {
+        "word": "bigger",
+        "start": 460.8800048828125,
+        "end": 461.0400085449219
+      },
+      {
+        "word": "problem",
+        "start": 461.0400085449219,
+        "end": 461.32000732421875
+      },
+      {
+        "word": "at",
+        "start": 461.32000732421875,
+        "end": 461.6600036621094
+      },
+      {
+        "word": "hand",
+        "start": 461.6600036621094,
+        "end": 461.760009765625
+      },
+      {
+        "word": "working",
+        "start": 462.1000061035156,
+        "end": 462.32000732421875
+      },
+      {
+        "word": "on",
+        "start": 462.32000732421875,
+        "end": 462.3999938964844
+      },
+      {
+        "word": "my",
+        "start": 462.3999938964844,
+        "end": 462.5199890136719
+      },
+      {
+        "word": "actual",
+        "start": 462.5199890136719,
+        "end": 462.8800048828125
+      },
+      {
+        "word": "startup",
+        "start": 462.8800048828125,
+        "end": 463.0400085449219
+      },
+      {
+        "word": "For",
+        "start": 467.7200012207031,
+        "end": 468.20001220703125
+      },
+      {
+        "word": "example",
+        "start": 468.20001220703125,
+        "end": 468.4599914550781
+      },
+      {
+        "word": "I",
+        "start": 468.9599914550781,
+        "end": 469.0799865722656
+      },
+      {
+        "word": "use",
+        "start": 469.0799865722656,
+        "end": 469.32000732421875
+      },
+      {
+        "word": "Superbase",
+        "start": 469.32000732421875,
+        "end": 469.8399963378906
+      },
+      {
+        "word": "Stripe",
+        "start": 470.3599853515625,
+        "end": 470.3800048828125
+      },
+      {
+        "word": "Clerk",
+        "start": 471.0400085449219,
+        "end": 471.0400085449219
+      },
+      {
+        "word": "and",
+        "start": 471.5400085449219,
+        "end": 471.8999938964844
+      },
+      {
+        "word": "Vercel",
+        "start": 471.8999938964844,
+        "end": 471.8999938964844
+      },
+      {
+        "word": "because",
+        "start": 471.8999938964844,
+        "end": 472.5
+      },
+      {
+        "word": "they",
+        "start": 472.5,
+        "end": 472.8800048828125
+      },
+      {
+        "word": "ease",
+        "start": 472.8800048828125,
+        "end": 472.9200134277344
+      },
+      {
+        "word": "a",
+        "start": 472.9200134277344,
+        "end": 473.0799865722656
+      },
+      {
+        "word": "specific",
+        "start": 473.0799865722656,
+        "end": 473.3399963378906
+      },
+      {
+        "word": "type",
+        "start": 473.3399963378906,
+        "end": 473.5799865722656
+      },
+      {
+        "word": "of",
+        "start": 473.5799865722656,
+        "end": 473.82000732421875
+      },
+      {
+        "word": "infrastructure",
+        "start": 473.82000732421875,
+        "end": 474.1600036621094
+      },
+      {
+        "word": "problem",
+        "start": 474.1600036621094,
+        "end": 474.5400085449219
+      },
+      {
+        "word": "for",
+        "start": 474.5400085449219,
+        "end": 474.8399963378906
+      },
+      {
+        "word": "me",
+        "start": 474.8399963378906,
+        "end": 475.260009765625
+      },
+      {
+        "word": "Instead",
+        "start": 475.3399963378906,
+        "end": 475.4599914550781
+      },
+      {
+        "word": "of",
+        "start": 475.4599914550781,
+        "end": 475.6199951171875
+      },
+      {
+        "word": "having",
+        "start": 475.6199951171875,
+        "end": 475.79998779296875
+      },
+      {
+        "word": "to",
+        "start": 475.79998779296875,
+        "end": 476.0799865722656
+      },
+      {
+        "word": "create",
+        "start": 476.0799865722656,
+        "end": 476.239990234375
+      },
+      {
+        "word": "it",
+        "start": 476.239990234375,
+        "end": 476.4599914550781
+      },
+      {
+        "word": "on",
+        "start": 476.4599914550781,
+        "end": 476.5400085449219
+      },
+      {
+        "word": "my",
+        "start": 476.5400085449219,
+        "end": 476.7799987792969
+      },
+      {
+        "word": "own",
+        "start": 476.7799987792969,
+        "end": 476.94000244140625
+      },
+      {
+        "word": "I'm",
+        "start": 477.0199890136719,
+        "end": 477.4800109863281
+      },
+      {
+        "word": "able",
+        "start": 477.4800109863281,
+        "end": 477.4800109863281
+      },
+      {
+        "word": "to",
+        "start": 477.4800109863281,
+        "end": 478.0799865722656
+      },
+      {
+        "word": "outsource",
+        "start": 478.0799865722656,
+        "end": 478.0799865722656
+      },
+      {
+        "word": "it",
+        "start": 478.0799865722656,
+        "end": 478.4800109863281
+      },
+      {
+        "word": "which",
+        "start": 478.4800109863281,
+        "end": 478.8800048828125
+      },
+      {
+        "word": "saves",
+        "start": 478.8800048828125,
+        "end": 479.0400085449219
+      },
+      {
+        "word": "me",
+        "start": 479.0400085449219,
+        "end": 479.1600036621094
+      },
+      {
+        "word": "a",
+        "start": 479.1600036621094,
+        "end": 479.3399963378906
+      },
+      {
+        "word": "lot",
+        "start": 479.3399963378906,
+        "end": 479.3399963378906
+      },
+      {
+        "word": "of",
+        "start": 479.3399963378906,
+        "end": 479.5199890136719
+      },
+      {
+        "word": "time",
+        "start": 479.5199890136719,
+        "end": 479.739990234375
+      },
+      {
+        "word": "and",
+        "start": 479.739990234375,
+        "end": 480.05999755859375
+      },
+      {
+        "word": "money",
+        "start": 480.05999755859375,
+        "end": 480.20001220703125
+      },
+      {
+        "word": "These",
+        "start": 481.3399963378906,
+        "end": 481.82000732421875
+      },
+      {
+        "word": "are",
+        "start": 481.82000732421875,
+        "end": 482
+      },
+      {
+        "word": "the",
+        "start": 482,
+        "end": 482.1400146484375
+      },
+      {
+        "word": "three",
+        "start": 482.1400146484375,
+        "end": 482.3800048828125
+      },
+      {
+        "word": "markets",
+        "start": 482.3800048828125,
+        "end": 482.5400085449219
+      },
+      {
+        "word": "that",
+        "start": 482.5400085449219,
+        "end": 482.760009765625
+      },
+      {
+        "word": "I'm",
+        "start": 482.760009765625,
+        "end": 483.0400085449219
+      },
+      {
+        "word": "betting",
+        "start": 483.0400085449219,
+        "end": 483.0400085449219
+      },
+      {
+        "word": "on",
+        "start": 483.0400085449219,
+        "end": 483.3999938964844
+      },
+      {
+        "word": "showing",
+        "start": 483.3999938964844,
+        "end": 483.5400085449219
+      },
+      {
+        "word": "up",
+        "start": 483.5400085449219,
+        "end": 483.70001220703125
+      },
+      {
+        "word": "the",
+        "start": 483.70001220703125,
+        "end": 483.8999938964844
+      },
+      {
+        "word": "most",
+        "start": 483.8999938964844,
+        "end": 484.3800048828125
+      },
+      {
+        "word": "in",
+        "start": 484.3800048828125,
+        "end": 484.7799987792969
+      },
+      {
+        "word": "YC",
+        "start": 484.7799987792969,
+        "end": 485.0799865722656
+      },
+      {
+        "word": "and",
+        "start": 485.0799865722656,
+        "end": 485.3399963378906
+      },
+      {
+        "word": "YC",
+        "start": 485.3399963378906,
+        "end": 485.6600036621094
+      },
+      {
+        "word": "Startup",
+        "start": 485.6600036621094,
+        "end": 485.8999938964844
+      },
+      {
+        "word": "School",
+        "start": 485.8999938964844,
+        "end": 486.1000061035156
+      },
+      {
+        "word": "If",
+        "start": 486.6000061035156,
+        "end": 486.760009765625
+      },
+      {
+        "word": "you're",
+        "start": 486.760009765625,
+        "end": 486.8800048828125
+      },
+      {
+        "word": "building",
+        "start": 486.8800048828125,
+        "end": 487.1000061035156
+      },
+      {
+        "word": "something",
+        "start": 487.1000061035156,
+        "end": 487.4599914550781
+      },
+      {
+        "word": "great",
+        "start": 487.4599914550781,
+        "end": 492.5799865722656
+      },
+      {
+        "word": "please",
+        "start": 493.0400085449219,
+        "end": 493.05999755859375
+      },
+      {
+        "word": "feel",
+        "start": 493.05999755859375,
+        "end": 493.2799987792969
+      },
+      {
+        "word": "free",
+        "start": 493.2799987792969,
+        "end": 493.3599853515625
+      },
+      {
+        "word": "to",
+        "start": 493.3599853515625,
+        "end": 493.5799865722656
+      },
+      {
+        "word": "reach",
+        "start": 493.5799865722656,
+        "end": 493.6400146484375
+      },
+      {
+        "word": "out",
+        "start": 493.6400146484375,
+        "end": 494.260009765625
+      },
+      {
+        "word": "And",
+        "start": 501.7200012207031,
+        "end": 502.0799865722656
+      },
+      {
+        "word": "if",
+        "start": 502.0799865722656,
+        "end": 502.44000244140625
+      },
+      {
+        "word": "you",
+        "start": 502.44000244140625,
+        "end": 502.5799865722656
+      },
+      {
+        "word": "think",
+        "start": 502.5799865722656,
+        "end": 502.7200012207031
+      },
+      {
+        "word": "there's",
+        "start": 502.7200012207031,
+        "end": 502.8999938964844
+      },
+      {
+        "word": "other",
+        "start": 502.8999938964844,
+        "end": 503.1600036621094
+      },
+      {
+        "word": "markets",
+        "start": 503.1600036621094,
+        "end": 503.32000732421875
+      },
+      {
+        "word": "that",
+        "start": 503.32000732421875,
+        "end": 503.5400085449219
+      },
+      {
+        "word": "we're",
+        "start": 503.5400085449219,
+        "end": 503.6400146484375
+      },
+      {
+        "word": "heading",
+        "start": 503.6400146484375,
+        "end": 503.82000732421875
+      },
+      {
+        "word": "towards",
+        "start": 503.82000732421875,
+        "end": 504.239990234375
+      },
+      {
+        "word": "please",
+        "start": 504.3599853515625,
+        "end": 504.6600036621094
+      },
+      {
+        "word": "leave",
+        "start": 504.6600036621094,
+        "end": 504.739990234375
+      },
+      {
+        "word": "them",
+        "start": 504.739990234375,
+        "end": 504.8800048828125
+      },
+      {
+        "word": "in",
+        "start": 504.8800048828125,
+        "end": 504.9800109863281
+      },
+      {
+        "word": "the",
+        "start": 504.9800109863281,
+        "end": 505.3399963378906
+      },
+      {
+        "word": "comments",
+        "start": 505.3399963378906,
+        "end": 505.3399963378906
+      },
+      {
+        "word": "Thank",
+        "start": 505.70001220703125,
+        "end": 506
+      },
+      {
+        "word": "you",
+        "start": 506,
+        "end": 506.4800109863281
+      },
+      {
+        "word": "Where",
+        "start": 507.44000244140625,
+        "end": 507.7799987792969
+      },
+      {
+        "word": "do",
+        "start": 507.7799987792969,
+        "end": 507.8999938964844
+      },
+      {
+        "word": "you",
+        "start": 507.8999938964844,
+        "end": 508.0799865722656
+      },
+      {
+        "word": "think",
+        "start": 508.0799865722656,
+        "end": 508.239990234375
+      },
+      {
+        "word": "the",
+        "start": 508.239990234375,
+        "end": 508.4599914550781
+      },
+      {
+        "word": "market",
+        "start": 508.4599914550781,
+        "end": 508.5400085449219
+      },
+      {
+        "word": "is",
+        "start": 508.5400085449219,
+        "end": 508.9200134277344
+      },
+      {
+        "word": "heading",
+        "start": 508.9200134277344,
+        "end": 508.9200134277344
+      },
+      {
+        "word": "and",
+        "start": 509.1400146484375,
+        "end": 509.2799987792969
+      },
+      {
+        "word": "where",
+        "start": 509.2799987792969,
+        "end": 509.3999938964844
+      },
+      {
+        "word": "are",
+        "start": 509.3999938964844,
+        "end": 509.5
+      },
+      {
+        "word": "you",
+        "start": 509.5,
+        "end": 509.67999267578125
+      },
+      {
+        "word": "building",
+        "start": 509.67999267578125,
+        "end": 509.8999938964844
+      },
+      {
+        "word": "Let",
+        "start": 510.0799865722656,
+        "end": 510.44000244140625
+      },
+      {
+        "word": "me",
+        "start": 510.44000244140625,
+        "end": 510.5400085449219
+      },
+      {
+        "word": "know",
+        "start": 510.5400085449219,
+        "end": 510.6400146484375
+      },
+      {
+        "word": "in",
+        "start": 510.6400146484375,
+        "end": 510.70001220703125
+      },
+      {
+        "word": "the",
+        "start": 510.70001220703125,
+        "end": 511.1400146484375
+      },
+      {
+        "word": "comments",
+        "start": 511.1400146484375,
+        "end": 511.1400146484375
+      },
+      {
+        "word": "Let",
+        "start": 512.1199951171875,
+        "end": 512.47998046875
+      },
+      {
+        "word": "me",
+        "start": 512.47998046875,
+        "end": 512.5999755859375
+      },
+      {
+        "word": "know",
+        "start": 512.5999755859375,
+        "end": 512.719970703125
+      },
+      {
+        "word": "in",
+        "start": 512.719970703125,
+        "end": 512.8200073242188
+      },
+      {
+        "word": "the",
+        "start": 512.8200073242188,
+        "end": 513.260009765625
+      },
+      {
+        "word": "comments",
+        "start": 513.260009765625,
+        "end": 513.260009765625
+      },
+      {
+        "word": "and",
+        "start": 513.3200073242188,
+        "end": 513.52001953125
+      },
+      {
+        "word": "I'll",
+        "start": 513.52001953125,
+        "end": 513.6599731445312
+      },
+      {
+        "word": "see",
+        "start": 513.6599731445312,
+        "end": 513.8200073242188
+      },
+      {
+        "word": "you",
+        "start": 513.8200073242188,
+        "end": 514.02001953125
+      },
+      {
+        "word": "at",
+        "start": 514.02001953125,
+        "end": 514.2000122070312
+      },
+      {
+        "word": "Startup",
+        "start": 514.2000122070312,
+        "end": 514.3800048828125
+      },
+      {
+        "word": "School",
+        "start": 514.3800048828125,
+        "end": 514.5800170898438
+      },
+      {
+        "word": "As",
+        "start": 515.719970703125,
+        "end": 516.1599731445312
+      },
+      {
+        "word": "AI",
+        "start": 516.1599731445312,
+        "end": 516.47998046875
+      },
+      {
+        "word": "has",
+        "start": 516.47998046875,
+        "end": 516.6799926757812
+      },
+      {
+        "word": "been",
+        "start": 516.6799926757812,
+        "end": 516.8400268554688
+      },
+      {
+        "word": "continuously",
+        "start": 516.8400268554688,
+        "end": 517.239990234375
+      },
+      {
+        "word": "entering",
+        "start": 517.239990234375,
+        "end": 517.7000122070312
+      },
+      {
+        "word": "important",
+        "start": 517.7000122070312,
+        "end": 518.1599731445312
+      },
+      {
+        "word": "workflows",
+        "start": 518.1599731445312,
+        "end": 518.5800170898438
+      },
+      {
+        "word": "that",
+        "start": 519.1599731445312,
+        "end": 519.1599731445312
+      },
+      {
+        "word": "also",
+        "start": 519.1599731445312,
+        "end": 519.4199829101562
+      },
+      {
+        "word": "means",
+        "start": 519.4199829101562,
+        "end": 519.5800170898438
+      },
+      {
+        "word": "that",
+        "start": 519.5800170898438,
+        "end": 519.719970703125
+      },
+      {
+        "word": "AI",
+        "start": 519.719970703125,
+        "end": 519.8800048828125
+      },
+      {
+        "word": "is",
+        "start": 519.8800048828125,
+        "end": 520.0599975585938
+      },
+      {
+        "word": "entering",
+        "start": 520.0599975585938,
+        "end": 520.1799926757812
+      },
+      {
+        "word": "the",
+        "start": 520.1799926757812,
+        "end": 520.4199829101562
+      },
+      {
+        "word": "physical",
+        "start": 520.4199829101562,
+        "end": 520.719970703125
+      },
+      {
+        "word": "world",
+        "start": 520.719970703125,
+        "end": 521.0599975585938
+      },
+      {
+        "word": "whether",
+        "start": 521.5,
+        "end": 521.6199951171875
+      },
+      {
+        "word": "that's",
+        "start": 521.6199951171875,
+        "end": 522.0800170898438
+      },
+      {
+        "word": "drones",
+        "start": 522.0800170898438,
+        "end": 522.4199829101562
+      },
+      {
+        "word": "manufacturing",
+        "start": 522.760009765625,
+        "end": 523.239990234375
+      },
+      {
+        "word": "healthcare",
+        "start": 523.6400146484375,
+        "end": 523.8599853515625
+      },
+      {
+        "word": "and",
+        "start": 523.97998046875,
+        "end": 524.280029296875
+      },
+      {
+        "word": "defense",
+        "start": 524.280029296875,
+        "end": 524.6799926757812
+      },
+      {
+        "word": "Now",
+        "start": 525.9199829101562,
+        "end": 526.3599853515625
+      },
+      {
+        "word": "AI",
+        "start": 526.5599975585938,
+        "end": 526.6799926757812
+      },
+      {
+        "word": "is",
+        "start": 526.6799926757812,
+        "end": 526.8400268554688
+      },
+      {
+        "word": "able",
+        "start": 526.8400268554688,
+        "end": 526.9199829101562
+      },
+      {
+        "word": "to",
+        "start": 526.9199829101562,
+        "end": 527.3599853515625
+      },
+      {
+        "word": "automate",
+        "start": 527.3599853515625,
+        "end": 527.3599853515625
+      },
+      {
+        "word": "a",
+        "start": 527.3599853515625,
+        "end": 527.52001953125
+      },
+      {
+        "word": "lot",
+        "start": 527.52001953125,
+        "end": 527.5800170898438
+      },
+      {
+        "word": "of",
+        "start": 527.5800170898438,
+        "end": 527.719970703125
+      },
+      {
+        "word": "the",
+        "start": 527.719970703125,
+        "end": 527.8400268554688
+      },
+      {
+        "word": "physical",
+        "start": 527.8400268554688,
+        "end": 528.0599975585938
+      },
+      {
+        "word": "work",
+        "start": 528.0599975585938,
+        "end": 528.280029296875
+      },
+      {
+        "word": "that",
+        "start": 528.280029296875,
+        "end": 528.47998046875
+      },
+      {
+        "word": "could",
+        "start": 528.47998046875,
+        "end": 528.5999755859375
+      },
+      {
+        "word": "not",
+        "start": 528.5999755859375,
+        "end": 528.719970703125
+      },
+      {
+        "word": "have",
+        "start": 528.719970703125,
+        "end": 528.8800048828125
+      },
+      {
+        "word": "been",
+        "start": 528.8800048828125,
+        "end": 529.02001953125
+      },
+      {
+        "word": "done",
+        "start": 529.02001953125,
+        "end": 529.1599731445312
+      },
+      {
+        "word": "otherwise",
+        "start": 529.1599731445312,
+        "end": 529.5399780273438
+      },
+      {
+        "word": "in",
+        "start": 529.5399780273438,
+        "end": 529.719970703125
+      },
+      {
+        "word": "the",
+        "start": 529.719970703125,
+        "end": 529.97998046875
+      },
+      {
+        "word": "past",
+        "start": 529.97998046875,
+        "end": 530.1400146484375
+      },
+      {
+        "word": "Companies",
+        "start": 531.6400146484375,
+        "end": 531.8599853515625
+      },
+      {
+        "word": "are",
+        "start": 531.8599853515625,
+        "end": 532.0800170898438
+      },
+      {
+        "word": "literally",
+        "start": 532.0800170898438,
+        "end": 532.4199829101562
+      },
+      {
+        "word": "paying",
+        "start": 532.4199829101562,
+        "end": 532.7000122070312
+      },
+      {
+        "word": "people",
+        "start": 532.7000122070312,
+        "end": 532.97998046875
+      },
+      {
+        "word": "to",
+        "start": 532.97998046875,
+        "end": 532.97998046875
+      },
+      {
+        "word": "automate",
+        "start": 532.97998046875,
+        "end": 532.97998046875
+      },
+      {
+        "word": "their",
+        "start": 532.97998046875,
+        "end": 532.97998046875
+      },
+      {
+        "word": "work",
+        "start": 532.97998046875,
+        "end": 532.97998046875
+      }
+    ],
+    "segments": [
+      {
+        "id": 0,
+        "start": 0,
+        "end": 7.099999904632568,
+        "text": "With just four days until YC Startup School, if you're creating a startup from scratch, here are the three markets that I would bet on showing up the most."
+      },
+      {
+        "id": 1,
+        "start": 8.079999923706055,
+        "end": 16.799999237060547,
+        "text": "With just four days before YC Startup School, if you're just entering the market, here's three markets that I would bet on showing up the most in the next batch."
+      },
+      {
+        "id": 2,
+        "start": 17.639999389648438,
+        "end": 34.119998931884766,
+        "text": "With just four days until YC Startup School, if you're just entering the market, here's three markets that I would bet on showing up the most in the next batch."
+      },
+      {
+        "id": 3,
+        "start": 34.119998931884766,
+        "end": 43.15999984741211,
+        "text": "With just four days until YC Startup School, if you're creating a startup from scratch, here's three markets that I'm betting on that will show up the most."
+      },
+      {
+        "id": 4,
+        "start": 44.34000015258789,
+        "end": 51.02000045776367,
+        "text": "With just four days until YC Startup School, if you're creating a startup from scratch, here's three markets that I bet will show up the most."
+      },
+      {
+        "id": 5,
+        "start": 52.2599983215332,
+        "end": 59.31999969482422,
+        "text": "With just four days until YC Startup School, if you're creating a startup from scratch, here's the top three markets that I bet will show up the most."
+      },
+      {
+        "id": 6,
+        "start": 59.31999969482422,
+        "end": 63.81999969482422,
+        "text": "Hi, I'm Kiro. I'm an MIT student founder here in SF."
+      },
+      {
+        "id": 7,
+        "start": 66.4000015258789,
+        "end": 73.81999969482422,
+        "text": "Hi, I'm Kiro. And over the past summer, I've been building startups, talking to founders, and meeting exceptional people in the San Francisco area."
+      },
+      {
+        "id": 8,
+        "start": 75.30000305175781,
+        "end": 77.31999969482422,
+        "text": "And these are the top three trends that I've been seeing."
+      },
+      {
+        "id": 9,
+        "start": 79.22000122070312,
+        "end": 81.44000244140625,
+        "text": "And these are the top three trends that I keep seeing."
+      },
+      {
+        "id": 10,
+        "start": 82.37999725341797,
+        "end": 84.16000366210938,
+        "text": "Number one is physical AI."
+      },
+      {
+        "id": 11,
+        "start": 84.86000061035156,
+        "end": 87.08000183105469,
+        "text": "When we think of AI, we think of like a chatbot."
+      },
+      {
+        "id": 12,
+        "start": 87.62000274658203,
+        "end": 89.08000183105469,
+        "text": "It's moving way beyond that."
+      },
+      {
+        "id": 13,
+        "start": 89.36000061035156,
+        "end": 95.12000274658203,
+        "text": "People are working on creating autonomous drones, physical robots, being able to manufacture products, speak with people."
+      },
+      {
+        "id": 14,
+        "start": 95.87999725341797,
+        "end": 101.16000366210938,
+        "text": "AI is moving from a simple text interface to something that can fully replicate human abilities."
+      },
+      {
+        "id": 15,
+        "start": 102.41999816894531,
+        "end": 104.5199966430664,
+        "text": "Now, there's obviously different applications of it."
+      },
+      {
+        "id": 16,
+        "start": 104.5199966430664,
+        "end": 112.9800033569336,
+        "text": "There's defense, there's manufacturing, there's productivity, just being able to include AI into humanoid slash robotic implications."
+      },
+      {
+        "id": 17,
+        "start": 114.30000305175781,
+        "end": 121.36000061035156,
+        "text": "That means a lot of the physical work that may sound repetitive, but a little bit complex, will be solved with AI within the next couple of years."
+      },
+      {
+        "id": 18,
+        "start": 122.4000015258789,
+        "end": 124.41999816894531,
+        "text": "Second, my favorite one is data."
+      },
+      {
+        "id": 19,
+        "start": 125.30000305175781,
+        "end": 126.16000366210938,
+        "text": "Data is truly king."
+      },
+      {
+        "id": 20,
+        "start": 126.77999877929688,
+        "end": 131,
+        "text": "Now, models are getting really, really good, but they're only able to work with what they've got."
+      },
+      {
+        "id": 21,
+        "start": 131,
+        "end": 136.9600067138672,
+        "text": "Being able to source complex data and categorize it in a way that agents can understand is truly important."
+      },
+      {
+        "id": 22,
+        "start": 137.4600067138672,
+        "end": 139.67999267578125,
+        "text": "Whether that's financial data or even robotic data."
+      },
+      {
+        "id": 23,
+        "start": 140.1999969482422,
+        "end": 145.24000549316406,
+        "text": "I've been seeing companies paying people to record their dash cams, record their daily tasks."
+      },
+      {
+        "id": 24,
+        "start": 146.05999755859375,
+        "end": 154.77999877929688,
+        "text": "Basically, whatever they're doing, being able to upload that to train a model or train an agent for purposes like robots or even normal agent work."
+      },
+      {
+        "id": 25,
+        "start": 155.6999969482422,
+        "end": 162.5,
+        "text": "And even normal integrations that developers use, like Stripe, Clerk, any authentication."
+      },
+      {
+        "id": 26,
+        "start": 163.36000061035156,
+        "end": 168.5800018310547,
+        "text": "Tools that can be easily replicated, but take a lot of time for simple startups to replicate on their own."
+      },
+      {
+        "id": 27,
+        "start": 170.97999572753906,
+        "end": 176.05999755859375,
+        "text": "And even infrastructure data for developers, like Clerk, Stripe, Natural."
+      },
+      {
+        "id": 28,
+        "start": 176.86000061035156,
+        "end": 181.52000427246094,
+        "text": "Tools that will take a long time for people to build on their own, but it's something that can be easily replicated."
+      },
+      {
+        "id": 29,
+        "start": 181.52000427246094,
+        "end": 184.89999389648438,
+        "text": "And being able to build a company around that is truly massive."
+      },
+      {
+        "id": 30,
+        "start": 186.5,
+        "end": 188.24000549316406,
+        "text": "And companies like Mercor are betting on that data."
+      },
+      {
+        "id": 31,
+        "start": 188.6999969482422,
+        "end": 197.55999755859375,
+        "text": "They are taking data from experts every single day and creating this massive database that agents can use to essentially replicate these experts."
+      },
+      {
+        "id": 32,
+        "start": 198.83999633789062,
+        "end": 201.32000732421875,
+        "text": "And companies like Mercor are betting on that same exact idea."
+      },
+      {
+        "id": 33,
+        "start": 201.89999389648438,
+        "end": 204.5800018310547,
+        "text": "They're literally hiring experts to simply give their information."
+      },
+      {
+        "id": 34,
+        "start": 207.13999938964844,
+        "end": 210.47999572753906,
+        "text": "And companies like Mercor are betting on this idea."
+      },
+      {
+        "id": 35,
+        "start": 210.47999572753906,
+        "end": 214.33999633789062,
+        "text": "What they're doing is they're literally hiring experts to give up their information."
+      },
+      {
+        "id": 36,
+        "start": 216.24000549316406,
+        "end": 218.47999572753906,
+        "text": "And companies like Mercor are betting on this idea."
+      },
+      {
+        "id": 37,
+        "start": 219.0399932861328,
+        "end": 226.22000122070312,
+        "text": "They're literally hiring experts to train these models that were basically able to replicate some of the thinking that these experts have."
+      },
+      {
+        "id": 38,
+        "start": 227.77999877929688,
+        "end": 229.86000061035156,
+        "text": "Companies like Mercor are betting on the same idea."
+      },
+      {
+        "id": 39,
+        "start": 230.32000732421875,
+        "end": 235.5,
+        "text": "They're using experts, they're hiring them for their knowledge to be able to train models to replicate some of their thinking."
+      },
+      {
+        "id": 40,
+        "start": 237.05999755859375,
+        "end": 239.25999450683594,
+        "text": "And companies like Mercor are betting on this idea."
+      },
+      {
+        "id": 41,
+        "start": 239.25999450683594,
+        "end": 245.86000061035156,
+        "text": "They're literally hiring experts for their knowledge to be able to train models to be able to think as good as them."
+      },
+      {
+        "id": 42,
+        "start": 246.33999633789062,
+        "end": 248.52000427246094,
+        "text": "The third one is infrastructure."
+      },
+      {
+        "id": 43,
+        "start": 249.10000610351562,
+        "end": 252.74000549316406,
+        "text": "You know the saying that's like, don't dig for gold, sell the shovels instead."
+      },
+      {
+        "id": 44,
+        "start": 253.0399932861328,
+        "end": 256.9200134277344,
+        "text": "There's been a massive wave of infrastructure, especially in the age of AI."
+      },
+      {
+        "id": 45,
+        "start": 257.6600036621094,
+        "end": 262.9200134277344,
+        "text": "For example, Clerk was created to essentially ease authentication for people who are just starting out."
+      },
+      {
+        "id": 46,
+        "start": 262.9200134277344,
+        "end": 270.17999267578125,
+        "text": "Instead of creating your own authentication, where you have to have security, password management, recovery emails, Clerk handles all of that."
+      },
+      {
+        "id": 47,
+        "start": 270.70001220703125,
+        "end": 274.5199890136719,
+        "text": "Similarly with Stripe, instead of creating your own entire bank and finances,"
+      },
+      {
+        "id": 48,
+        "start": 279.6600036621094,
+        "end": 281.5,
+        "text": "Stripe has a similar idea."
+      },
+      {
+        "id": 49,
+        "start": 285.0799865722656,
+        "end": 291.4800109863281,
+        "text": "Instead of handling all of your finances on your own, Stripe has a simple web API that you can use."
+      },
+      {
+        "id": 50,
+        "start": 293.6600036621094,
+        "end": 305.44000244140625,
+        "text": "The third one is infrastructure."
+      },
+      {
+        "id": 51,
+        "start": 305.5799865722656,
+        "end": 309.2799987792969,
+        "text": "You know the old saying, instead of digging for gold, sell the shovels instead."
+      },
+      {
+        "id": 52,
+        "start": 309.79998779296875,
+        "end": 311.7200012207031,
+        "text": "That's basically what some of these companies are doing."
+      },
+      {
+        "id": 53,
+        "start": 312.5799865722656,
+        "end": 316.5,
+        "text": "Every startup needs security, authentication, payment management, compute power."
+      },
+      {
+        "id": 54,
+        "start": 316.9200134277344,
+        "end": 318.94000244140625,
+        "text": "So each startup is focused on that."
+      },
+      {
+        "id": 55,
+        "start": 318.94000244140625,
+        "end": 321.1199951171875,
+        "text": "For example, Clerk handles authentication."
+      },
+      {
+        "id": 56,
+        "start": 321.67999267578125,
+        "end": 326.29998779296875,
+        "text": "Instead of creating your own password management, recovery management, emails, Clerk handles all of that."
+      },
+      {
+        "id": 57,
+        "start": 327.1199951171875,
+        "end": 333.29998779296875,
+        "text": "Similarly, Stripe is the most well-known payment platform that allows finances to go through super easily,"
+      },
+      {
+        "id": 58,
+        "start": 333.44000244140625,
+        "end": 336.760009765625,
+        "text": "so that when you're just creating a startup, you can simply focus on your work,"
+      },
+      {
+        "id": 59,
+        "start": 336.9599914550781,
+        "end": 341.3999938964844,
+        "text": "instead of creating all of these replicable, but very difficult to create on your own tasks."
+      },
+      {
+        "id": 60,
+        "start": 342,
+        "end": 348.0199890136719,
+        "text": "There's going to be a new wave of AI native infrastructure companies that are taking on the legacy companies,"
+      },
+      {
+        "id": 61,
+        "start": 351.3999938964844,
+        "end": 358.2200012207031,
+        "text": "Similarly, there's been a new wave of compute infrastructure, whether that's renting out GPU, selling them like little stock bits."
+      },
+      {
+        "id": 62,
+        "start": 359.9800109863281,
+        "end": 365.4800109863281,
+        "text": "For example, there's been AI native versions of Superbase, Stripe, Vercel,"
+      },
+      {
+        "id": 63,
+        "start": 366.739990234375,
+        "end": 372.29998779296875,
+        "text": "basically replicating each of their abilities, but allowing it to work in a much more AI native way."
+      },
+      {
+        "id": 64,
+        "start": 373.9200134277344,
+        "end": 376.4800109863281,
+        "text": "Companies that are building in the space of physical AI, for example,"
+      },
+      {
+        "id": 65,
+        "start": 376.4800109863281,
+        "end": 381.0799865722656,
+        "text": "will pay massive amounts of money to be able to collect this data instead of doing it on their own."
+      },
+      {
+        "id": 66,
+        "start": 382.1400146484375,
+        "end": 388.239990234375,
+        "text": "Companies that are able to organize, label, and make their data very accessible are the ones that will win in this space."
+      },
+      {
+        "id": 67,
+        "start": 389.6000061035156,
+        "end": 392.3399963378906,
+        "text": "Across all three markets, there's one thing that's clear."
+      },
+      {
+        "id": 68,
+        "start": 396.67999267578125,
+        "end": 404.79998779296875,
+        "text": "There's a massive shift towards automating a lot of work that used to be seemingly impossible to do with just code."
+      },
+      {
+        "id": 69,
+        "start": 404.79998779296875,
+        "end": 422.0799865722656,
+        "text": "And now, at the same time, these companies reduce massive pains and problems, whether that's for developers, for customers, manufacturers."
+      },
+      {
+        "id": 70,
+        "start": 422.5199890136719,
+        "end": 429.1000061035156,
+        "text": "For example, I use Stripe, Clerk, Vercel, Superbase, because they all ease a specific problem that I use when I'm creating,"
+      },
+      {
+        "id": 71,
+        "start": 429.1000061035156,
+        "end": 438.3599853515625,
+        "text": "so that I can simply focus on my startup instead of focusing on creating these tasks or creating these infrastructures that are already made, that are easier."
+      },
+      {
+        "id": 72,
+        "start": 443.2799987792969,
+        "end": 456.6000061035156,
+        "text": "For example, I use Vercel, Superbase, and Stripe because they ease a specific type of problem for me"
+      },
+      {
+        "id": 73,
+        "start": 456.6000061035156,
+        "end": 463.0400085449219,
+        "text": "that I don't need to spend a lot of time doing and can simply focus on the bigger problem at hand, working on my actual startup."
+      },
+      {
+        "id": 74,
+        "start": 467.7200012207031,
+        "end": 475.260009765625,
+        "text": "For example, I use Superbase, Stripe, Clerk, and Vercel because they ease a specific type of infrastructure problem for me."
+      },
+      {
+        "id": 75,
+        "start": 475.3399963378906,
+        "end": 480.20001220703125,
+        "text": "Instead of having to create it on my own, I'm able to outsource it, which saves me a lot of time and money."
+      },
+      {
+        "id": 76,
+        "start": 481.3399963378906,
+        "end": 486.1000061035156,
+        "text": "These are the three markets that I'm betting on showing up the most in YC and YC Startup School."
+      },
+      {
+        "id": 77,
+        "start": 486.6000061035156,
+        "end": 494.260009765625,
+        "text": "If you're building something great, please feel free to reach out."
+      },
+      {
+        "id": 78,
+        "start": 501.7200012207031,
+        "end": 506.4800109863281,
+        "text": "And if you think there's other markets that we're heading towards, please leave them in the comments. Thank you."
+      },
+      {
+        "id": 79,
+        "start": 507.44000244140625,
+        "end": 511.1400146484375,
+        "text": "Where do you think the market is heading, and where are you building? Let me know in the comments."
+      },
+      {
+        "id": 80,
+        "start": 512.1199951171875,
+        "end": 514.5800170898438,
+        "text": "Let me know in the comments, and I'll see you at Startup School."
+      },
+      {
+        "id": 81,
+        "start": 515.719970703125,
+        "end": 521.0599975585938,
+        "text": "As AI has been continuously entering important workflows, that also means that AI is entering the physical world,"
+      },
+      {
+        "id": 82,
+        "start": 521.5,
+        "end": 524.6799926757812,
+        "text": "whether that's drones, manufacturing, healthcare, and defense."
+      },
+      {
+        "id": 83,
+        "start": 525.9199829101562,
+        "end": 530.1400146484375,
+        "text": "Now, AI is able to automate a lot of the physical work that could not have been done otherwise in the past."
+      },
+      {
+        "id": 84,
+        "start": 531.6400146484375,
+        "end": 532.97998046875,
+        "text": "Companies are literally paying people to automate their work."
+      }
+    ]
+  },
+  "usage": {
+    "transcriptionModel": "whisper-1",
+    "analysisModel": "gpt-5.6-luna",
+    "inputTokens": 6359,
+    "outputTokens": 2818,
+    "estimatedCostUsd": 0.0766
+  }
+}
