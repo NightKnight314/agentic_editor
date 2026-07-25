@@ -38,6 +38,8 @@ node skills/test-nightcut-app/scripts/test-nightcut.mjs \
   --allow-paid-analysis
 ```
 
+For a local render/download check that does not call OpenAI, add `--test-export`.
+
 Use `--skip-static` only when lint and type checks were already run against the same working tree. Use `--artifacts <directory>` to retain evidence somewhere other than `/tmp`.
 
 ## Guardrails

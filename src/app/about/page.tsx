@@ -141,6 +141,154 @@ const improvements = [
 
 const artifacts = ["AnalysisEnvelope", "EvidenceCatalog", "EditScript", "ResolutionLock", "CompiledProposal", "TimelineRevision", "RenderPlan"];
 
+function Arrow({ direction = "right", label }: { direction?: "right" | "down"; label?: string }) {
+  return (
+    <div className={`diagram-arrow diagram-arrow-${direction}`} aria-hidden="true">
+      {label && <small>{label}</small>}
+      <span>{direction === "right" ? "→" : "↓"}</span>
+    </div>
+  );
+}
+
+function Node({ eyebrow, title, detail, tone = "neutral", className = "" }: {
+  eyebrow?: string;
+  title: string;
+  detail?: string;
+  tone?: "neutral" | "red" | "amber" | "violet" | "blue" | "green" | "cyan";
+  className?: string;
+}) {
+  return (
+    <div className={`diagram-node diagram-tone-${tone} ${className}`}>
+      {eyebrow && <small>{eyebrow}</small>}
+      <strong>{title}</strong>
+      {detail && <p>{detail}</p>}
+    </div>
+  );
+}
+
+function CleanRedraws() {
+  return (
+    <div className="redraw-grid">
+      <article className="redraw-card">
+        <div className="redraw-card-head">
+          <span>01</span>
+          <div><small>GENERATION LOOP</small><h3>From source dump to reviewed clip</h3></div>
+        </div>
+        <div className="redraw-canvas redraw-pipeline">
+          <div className="redraw-prompt"><span>CREATIVE INPUT</span><strong>Prompt</strong><i>↘</i></div>
+          <div className="diagram-row redraw-source-row">
+            <Node eyebrow="INGEST" title="Source dump" detail="Raw media + project context" tone="red" />
+            <Arrow label="analyze" />
+            <div className="diagram-node diagram-tone-amber redraw-analysis-node">
+              <small>MULTIMODAL ANALYSIS</small><strong>Understand the source</strong>
+              <div className="diagram-chip-row"><span>video</span><span>audio</span><span>text</span><span>vision</span><span>images</span></div>
+            </div>
+            <Arrow />
+            <Node eyebrow="AUTHOR" title="Edit script" detail="Narrative intent + constraints" tone="violet" />
+          </div>
+          <Arrow direction="down" label="compile" />
+          <div className="diagram-row redraw-build-row">
+            <Node eyebrow="PLAN" title="Timeline events" tone="blue" />
+            <Arrow />
+            <Node eyebrow="EXECUTE" title="Builder" tone="cyan" />
+            <Arrow />
+            <Node eyebrow="OUTPUT" title="Clip" tone="green" />
+            <Arrow />
+            <Node eyebrow="VERIFY" title="Review" detail="Spec matching" tone="amber" />
+          </div>
+          <div className="redraw-review-loop">
+            <span><b>✓</b> Match → ship</span>
+            <span><b>↺</b> Mismatch → replay with discrepancy → Builder</span>
+          </div>
+        </div>
+      </article>
+
+      <article className="redraw-card">
+        <div className="redraw-card-head">
+          <span>02</span>
+          <div><small>PATTERN SYSTEM</small><h3>Build the editing language layer by layer</h3></div>
+        </div>
+        <div className="redraw-canvas redraw-patterns">
+          <div className="redraw-ingredients">
+            <small>PATTERN INGREDIENTS</small>
+            <div><span>Fonts</span><span>Effects</span><span>Transitions</span><span>Example timelines</span></div>
+          </div>
+          <Arrow direction="down" />
+          <div className="redraw-pattern-steps">
+            <div><i>1</i><strong>Decompose</strong><small>Break the edit into observable steps</small></div>
+            <div><i>2</i><strong>Layer</strong><small>Build composition over time</small></div>
+            <div><i>3</i><strong>Stack</strong><small>Combine effects with explicit order</small></div>
+            <div><i>4</i><strong>Encode</strong><small>Save the recipe as a reusable pattern</small></div>
+          </div>
+          <div className="redraw-pattern-support">
+            <div><small>AGENT VIEW</small><strong>Visible clip state + named operations</strong></div>
+            <div><small>EXPERIMENTS</small><strong>Shaders · animation · timing</strong></div>
+          </div>
+          <div className="redraw-learning-loop">
+            <span>Examples</span><b>→</b><span>Pattern attempt</span><b>→</b><span>Human / AI feedback</span><b>↺</b>
+            <small>RLHF · RLAIF · iterative self-improvement</small>
+          </div>
+        </div>
+      </article>
+
+      <article className="redraw-card">
+        <div className="redraw-card-head">
+          <span>03</span>
+          <div><small>MULTIMODAL TIMELINE</small><h3>Parallel media tracks become shared events</h3></div>
+        </div>
+        <div className="redraw-canvas redraw-timeline">
+          <div className="redraw-tracks" aria-label="Synchronized media tracks">
+            <div><strong>VIDEO</strong><span className="track-block track-a" /><span className="track-block track-b" /><span className="track-block track-c" /><small>V0 … Vn−1</small></div>
+            <div><strong>IMAGE</strong><span className="track-block track-d" /><span className="track-block track-e" /><span className="track-block track-f" /><small>I0 … In−1</small></div>
+            <div><strong>AUDIO</strong><span className="track-wave">▁▃▇▅▂▆▃▁▅▇▂▃</span><small>A0 … An−1</small></div>
+          </div>
+          <div className="redraw-time-axis"><span>00:00</span><i /><span>source time</span><i /><span>end</span></div>
+          <div className="redraw-analysis-branches">
+            <div><span className="branch-source">IMAGES</span><b>→</b><Node title="Multimodal descriptions" tone="violet" /></div>
+            <div><span className="branch-source">AUDIO</span><b>→</b><Node title="Transcript + speech spans" tone="amber" /></div>
+            <div><span className="branch-source">VIDEO</span><b>→</b><Node title="Audio event timeline" tone="cyan" /></div>
+            <div><span className="branch-source">VIDEO</span><b>→</b><Node title="Image split + scene changes" tone="blue" /></div>
+          </div>
+          <div className="redraw-converge"><span>↘</span><span>↙</span></div>
+          <Node eyebrow="SHARED OUTPUT" title="Evidence-backed event catalog" detail="Every observation keeps its source-time range and modality." tone="green" className="redraw-event-node" />
+        </div>
+      </article>
+
+      <article className="redraw-card">
+        <div className="redraw-card-head">
+          <span>04</span>
+          <div><small>HUMAN FEEDBACK LOOP</small><h3>Every discrepancy becomes the next revision</h3></div>
+        </div>
+        <div className="redraw-canvas redraw-feedback">
+          <div className="diagram-row redraw-story-row">
+            <Node title="Event list" tone="red" />
+            <Arrow />
+            <Node title="Story / narrative" tone="violet" />
+            <Arrow />
+            <Node title="Timeline" tone="blue" />
+            <Arrow />
+            <Node title="Draft" tone="cyan" />
+          </div>
+          <Arrow direction="down" label="stylistic layering" />
+          <div className="redraw-version-row">
+            <Node eyebrow="REVISION" title="V1" detail="A rendered, inspectable proposal" tone="green" />
+            <Arrow />
+            <Node eyebrow="DECISION" title="Present to human" detail="Preview · compare · comment" tone="amber" />
+          </div>
+          <div className="redraw-decision-branch">
+            <div className="redraw-good"><small>GOOD?</small><strong>Done</strong><span>✓</span></div>
+            <div className="redraw-change-path">
+              <small>CHANGE REQUESTED</small>
+              <div><span>Feedback Δ</span><b>→</b><span>Find discrepancies</span><b>→</b><span>Resolve</span><b>→</b><span>V(n+1)</span></div>
+            </div>
+          </div>
+          <div className="redraw-return-loop"><span>↖</span> New revision returns to human review</div>
+        </div>
+      </article>
+    </div>
+  );
+}
+
 export default function AboutPage() {
   return (
     <main className="about-page">
@@ -153,6 +301,7 @@ export default function AboutPage() {
         <nav aria-label="About page navigation">
           <a href="#system">System map</a>
           <a href="#notes">Field notes</a>
+          <a href="#redraws">Clean redraws</a>
           <a href="#evolution">Evolution</a>
         </nav>
         <Link className="about-back" href="/">
@@ -253,9 +402,17 @@ export default function AboutPage() {
           </div>
         </section>
 
+        <section className="about-section" id="redraws">
+          <div className="about-section-heading">
+            <div><span>03 / CLEAN REDRAWS</span><h2>The sketches, made precise</h2></div>
+            <p>Faithful recreations of the four original notes—clean enough to explain, while preserving the ideas and loops that made them useful.</p>
+          </div>
+          <CleanRedraws />
+        </section>
+
         <section className="about-section" id="evolution">
           <div className="about-section-heading">
-            <div><span>03 / AGENT SESSION EVOLUTION</span><h2>What became sharper</h2></div>
+            <div><span>04 / AGENT SESSION EVOLUTION</span><h2>What became sharper</h2></div>
             <p>The sketches supplied the direction. Research, implementation design, and executable fixtures supplied the boundaries.</p>
           </div>
           <div className="about-improvement-grid">
@@ -273,7 +430,7 @@ export default function AboutPage() {
 
         <section className="about-effects-proof">
           <div className="about-effects-copy">
-            <span>04 / EFFECTS AS DATA</span>
+            <span>05 / EFFECTS AS DATA</span>
             <h2>Impact without effect soup.</h2>
             <p>Speed changes own time. Transitions own boundaries. Visual effects own pixels. Audio processors own buses. Every expressive choice names a motivation, a budget, a fallback, and its preview fidelity.</p>
             <div className="about-effect-tags">

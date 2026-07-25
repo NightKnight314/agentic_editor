@@ -9,6 +9,8 @@
 | Editor shell | DOM assertions | media panel, preview, agent panel, and timeline exist |
 | Runtime worker | HTTP response | `/ffmpeg-worker.js` returns 200 JavaScript |
 | Import | DOM plus screenshot | selected filename and source preview appear |
+| Persistence | reload plus DOM | imported source and playable preview restore after refresh |
+| Global library | DOM assertions | fonts, SFX, and VFX catalog renders |
 | Browser health | CDP events | no uncaught exception or failed same-origin request |
 
 ## Paid analysis
@@ -31,7 +33,7 @@ The live model may produce variable editorial output. Test schema validity, sour
 |---|---|---|
 | Download | filesystem artifact | nonempty `.mp4` is downloaded |
 | Container | `ffprobe` JSON | readable MP4 with H.264 video and AAC audio |
-| Format | `ffprobe` JSON | 1080x1920, 30 fps, duration 30–60 seconds |
+| Format | `ffprobe` JSON | vertical H.264/AAC, 30 fps, duration 30–60 seconds |
 | Playback | browser/manual evidence | no obvious black/frozen output or missing dialogue |
 
 Until the Export MP4 control creates a file, mark export QC `blocked: renderer not implemented`.

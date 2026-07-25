@@ -10,6 +10,57 @@ const beatColors: Record<string, string> = {
   callback_cta: "#805fe6"
 };
 
+const beatEffects: Record<string, string[]> = {
+  pattern_interrupt: ["filter.blur@1", "transform.punch@1", "color.basic@1"],
+  identity_authority: ["transform.push@1", "color.basic@1"],
+  ambition_conflict: ["transform.punch@1", "color.basic@1"],
+  proof_escalation: ["transform.push@1", "color.basic@1"],
+  human_record_scratch: ["raw-cut"],
+  callback_cta: ["transform.push@1", "color.basic@1", "look.vignette@1"]
+};
+
+function alignedSourceEnd(sourceStart: number, sourceEnd: number, transcript: AnalysisResponse["transcript"]["segments"]) {
+  const completing = transcript
+    .filter((segment) => segment.start <= sourceStart + 0.18 && segment.end >= sourceEnd - 0.12 && segment.end <= sourceStart + 8.08)
+    .sort((left, right) => left.end - right.end);
+  return completing[0]?.end ?? sourceEnd;
+}
+
+function editorialTitle(storyBeat: string, title: string | null, ambitionIndex: number) {
+  if (storyBeat === "pattern_interrupt") return "3 MARKETS I'D BET ON";
+  if (storyBeat === "identity_authority") return "KIRO / FOUNDER";
+  if (storyBeat === "human_record_scratch") return "WHAT I ACTUALLY USE";
+  if (storyBeat === "callback_cta") return "WHAT ARE YOU BUILDING?";
+  const cleaned = (title ?? "")
+    .replace(/MIT\s+STUDENT\s*/gi, "")
+    .replace(/\s+/g, " ")
+    .trim();
+  if (cleaned) return cleaned.split(" ").slice(0, 7).join(" ").toUpperCase();
+  return storyBeat === "ambition_conflict" ? `${String(ambitionIndex).padStart(2, "0")} / THE BET` : null;
+}
+
+function sourceSlices(storyBeat: string, sourceStart: number, sourceEnd: number, words: TranscriptWord[], allWords: TranscriptWord[]) {
+  if (storyBeat === "identity_authority") {
+    for (const [index, word] of allWords.entries()) {
+      if (word.word.toLowerCase().replace(/[^a-z]/g, "") !== "kiro") continue;
+      const nearbyBefore = allWords.slice(Math.max(0, index - 4), index + 1);
+      const nearbyAfter = allWords.slice(index + 1, index + 18);
+      const hi = nearbyBefore.find((item) => item.word.toLowerCase().replace(/[^a-z]/g, "") === "hi");
+      const experienceStart = nearbyAfter.find((item) => ["ive", "i"].includes(item.word.toLowerCase().replace(/[^a-z]/g, "")));
+      const founders = nearbyAfter.find((item) => item.word.toLowerCase().replace(/[^a-z]/g, "") === "founders");
+      if (hi && experienceStart && founders && founders.end - experienceStart.start <= 4) {
+        return [{ start: hi.start, end: word.end }, { start: experienceStart.start, end: founders.end }];
+      }
+    }
+  }
+  if (storyBeat !== "pattern_interrupt") return [{ start: sourceStart, end: sourceEnd }];
+  const selected = words.filter((word) => word.start >= sourceStart - 0.08 && word.end <= sourceEnd + 0.08);
+  const deadlineEnd = selected.find((word) => word.word.toLowerCase().replace(/[^a-z]/g, "") === "school")?.end;
+  const promiseStart = selected.find((word) => word.start > (deadlineEnd ?? sourceStart) && word.word.toLowerCase().replace(/[^a-z]/g, "") === "heres")?.start;
+  if (!deadlineEnd || !promiseStart || deadlineEnd - sourceStart < 1 || sourceEnd - promiseStart < 1) return [{ start: sourceStart, end: sourceEnd }];
+  return [{ start: sourceStart, end: deadlineEnd }, { start: promiseStart, end: sourceEnd }];
+}
+
 function groupCaptionWords(words: TranscriptWord[], compositionStart: number, sourceStart: number, segmentId: string) {
   const elements: TimelineElement[] = [];
   let group: TranscriptWord[] = [];
@@ -27,6 +78,7 @@ function groupCaptionWords(words: TranscriptWord[], compositionStart: number, so
       start: compositionStart + (first.start - sourceStart),
       duration: Math.max(0.35, last.end - first.start + 0.12),
       color: "#d2a83e",
+      fontFamily: "Anton",
       effects: ["word-pop"]
     });
     group = [];
@@ -49,72 +101,84 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
   const captions: TimelineElement[] = [];
   const dialogue: TimelineElement[] = [];
 
+  let ambitionIndex = 0;
   response.analysis.timeline.segments.forEach((segment, index) => {
-    const duration = segment.sourceEnd - segment.sourceStart;
+    const sourceEnd = alignedSourceEnd(segment.sourceStart, segment.sourceEnd, response.transcript.segments);
+    const segmentWords = response.transcript.words.filter((word) => word.start >= segment.sourceStart - 0.08 && word.end <= sourceEnd + 0.08);
+    const slices = sourceSlices(segment.storyBeat, segment.sourceStart, sourceEnd, segmentWords, response.transcript.words);
+    const segmentStart = cursor;
     const color = beatColors[segment.storyBeat] ?? "#6657e8";
-    primary.push({
-      id: segment.id || `clip-${index}`,
-      trackId: "v1",
-      kind: "video",
-      name: segment.rationale,
-      start: cursor,
-      duration,
-      sourceStart: segment.sourceStart,
-      assetId,
-      color,
-      effects: segment.effects
+    if (segment.storyBeat === "ambition_conflict") ambitionIndex += 1;
+    const title = editorialTitle(segment.storyBeat, segment.title, ambitionIndex);
+    slices.forEach((slice, sliceIndex) => {
+      const sliceDuration = Math.ceil((slice.end - slice.start) * 30) / 30;
+      const sliceId = slices.length === 1 ? segment.id || `clip-${index}` : `${segment.id || `clip-${index}`}-${sliceIndex + 1}`;
+      primary.push({
+        id: sliceId,
+        trackId: "v1",
+        kind: "video",
+        name: slices.length === 1 ? segment.rationale : `${segment.rationale} · ${sliceIndex === 0 ? "deadline" : "promise"}`,
+        start: cursor,
+        duration: sliceDuration,
+        sourceStart: slice.start,
+        assetId,
+        color,
+        effects: beatEffects[segment.storyBeat] ?? segment.effects
+      });
+      dialogue.push({
+        id: `dialogue-${sliceId}`,
+        trackId: "a1",
+        kind: "audio",
+        name: `Dialogue · ${segment.storyBeat.replaceAll("_", " ")}`,
+        start: cursor,
+        duration: sliceDuration,
+        sourceStart: slice.start,
+        assetId,
+        color: "#3e9f78",
+        volume: 1,
+        effects: ["audio.gain_fade@1"]
+      });
+      const sliceWords = segmentWords.filter((word) => word.start >= slice.start - 0.08 && word.end <= slice.end + 0.08);
+      captions.push(...groupCaptionWords(sliceWords, cursor, slice.start, sliceId));
+      cursor += sliceDuration;
     });
-    dialogue.push({
-      id: `dialogue-${segment.id || index}`,
-      trackId: "a1",
-      kind: "audio",
-      name: `Dialogue · ${segment.storyBeat.replaceAll("_", " ")}`,
-      start: cursor,
-      duration,
-      sourceStart: segment.sourceStart,
-      assetId,
-      color: "#3e9f78",
-      volume: 1,
-      effects: ["noise-reduction", "compressor"]
-    });
+    const duration = cursor - segmentStart;
 
-    if (segment.title) {
+    if (title) {
       titles.push({
         id: `title-${segment.id || index}`,
         trackId: "g1",
         kind: "text",
         name: `${segment.storyBeat.replaceAll("_", " ")} title`,
-        text: segment.title.toUpperCase(),
-        start: cursor + Math.min(0.25, duration * 0.08),
-        duration: Math.min(2.8, Math.max(1.2, duration * 0.65)),
+        text: title,
+        start: segment.storyBeat === "pattern_interrupt" ? segmentStart : segmentStart + Math.min(0.14, duration * 0.05),
+        duration: Math.min(2.4, Math.max(1.15, duration * 0.52)),
         color: "#e55745",
+        fontFamily: "Anton",
         effects: ["hard-reveal"]
       });
     }
 
-    if (segment.energy >= 4 && duration >= 1.5) {
+    if (segment.storyBeat === "proof_escalation" && segment.energy >= 4 && duration >= 1.5) {
       broll.push({
         id: `accent-${segment.id || index}`,
         trackId: "v2",
         kind: "video",
         name: `${segment.transition.replaceAll("_", " ")} accent`,
-        start: cursor + duration * 0.55,
+        start: segmentStart + duration * 0.55,
         duration: Math.min(0.8, duration * 0.25),
         sourceStart: segment.sourceStart + duration * 0.55,
         assetId,
         color: "#c94e69",
-        effects: segment.transition === "rgb_split" || segment.transition === "glitch" ? [segment.transition] : ["punch_in"]
+        effects: ["transform.punch@1"]
       });
     }
 
-    const words = response.transcript.words.filter((word) => word.start >= segment.sourceStart - 0.08 && word.end <= segment.sourceEnd + 0.08);
-    captions.push(...groupCaptionWords(words, cursor, segment.sourceStart, segment.id || String(index)));
-    cursor += duration;
   });
 
   const duration = Number(cursor.toFixed(3));
   return {
-    id: `analysis-${Date.now()}`,
+    id: "kumar-draft-01",
     name: response.analysis.recommendedTitle,
     width: 1080,
     height: 1920,
@@ -140,7 +204,7 @@ export function timelineFromAnalysis(response: AnalysisResponse, assetId = "sour
           assetId: "score-1",
           color: "#298a75",
           volume: 0.24,
-          effects: ["duck-under-dialogue-18db"]
+          effects: ["mix.music_duck@1"]
         }]
       }
     ]

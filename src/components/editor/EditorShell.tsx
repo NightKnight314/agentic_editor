@@ -16,6 +16,7 @@ import { timelineFromAnalysis } from "@/lib/analysis/timeline";
 import type { AnalysisResponse } from "@/lib/analysis/schema";
 import { BUILTIN_GLOBAL_ASSETS, kindForFile, loadGoogleFont, type GlobalAsset } from "@/lib/assets/catalog";
 import { loadWorkspaceFile, saveWorkspaceFile } from "@/lib/storage/project-store";
+import { renderTimelineMp4 } from "@/lib/media/browser-render";
 
 interface ImportedAsset {
   name: string;
@@ -46,6 +47,7 @@ export function EditorShell() {
   const [toast, setToast] = useState<string | null>(null);
   const [globalAssets, setGlobalAssets] = useState<GlobalAsset[]>(BUILTIN_GLOBAL_ASSETS);
   const [workspaceReady, setWorkspaceReady] = useState(false);
+  const [exportProgress, setExportProgress] = useState<number | null>(null);
 
   const selectedElement = useMemo(
     () => timeline.tracks.flatMap((track) => track.elements).find((element) => element.id === selection.elementId) ?? null,
@@ -98,16 +100,24 @@ export function EditorShell() {
 
   useEffect(() => {
     if (!workspaceReady) return;
-    const importedAssets = globalAssets.filter((item) => item.source === "imported");
-    localStorage.setItem(SESSION_KEY, JSON.stringify({
-      timeline,
-      analysisReport,
-      selection,
-      playhead,
-      asset: asset ? { name: asset.name, size: asset.size, duration: asset.duration } : null,
-      importedAssets
-    }));
+    const timeout = window.setTimeout(() => {
+      const importedAssets = globalAssets.filter((item) => item.source === "imported");
+      localStorage.setItem(SESSION_KEY, JSON.stringify({
+        timeline,
+        analysisReport,
+        selection,
+        playhead,
+        asset: asset ? { name: asset.name, size: asset.size, duration: asset.duration } : null,
+        importedAssets
+      }));
+    }, 250);
+    return () => window.clearTimeout(timeout);
   }, [analysisReport, asset, globalAssets, playhead, selection, timeline, workspaceReady]);
+
+  useEffect(() => {
+    const fonts = new Set(timeline.tracks.flatMap((track) => track.elements.map((element) => element.fontFamily).filter(Boolean)) as string[]);
+    fonts.forEach(loadGoogleFont);
+  }, [timeline]);
 
   useEffect(() => {
     if (!playing || asset) return;
@@ -283,6 +293,34 @@ export function EditorShell() {
     }
   };
 
+  const exportMp4 = async () => {
+    if (!asset || exportProgress !== null) {
+      if (!asset) setToast("Import source media before exporting");
+      return;
+    }
+    setPlaying(false);
+    setExportProgress(0);
+    setToast("Rendering draft locally…");
+    try {
+      const blob = await renderTimelineMp4(asset.file, timeline, setExportProgress);
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = `${timeline.name.toLowerCase().replaceAll(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "") || "nightcut"}.mp4`;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+      window.setTimeout(() => URL.revokeObjectURL(url), 10_000);
+      setToast(`MP4 ready · ${(blob.size / 1024 / 1024).toFixed(1)} MB`);
+    } catch (error) {
+      const message = error instanceof Error ? error.message : typeof error === "string" ? error : "Export failed";
+      console.error("Timeline export failed", error);
+      setToast(`Export failed: ${message}`);
+    } finally {
+      setExportProgress(null);
+    }
+  };
+
   const splitAtPlayhead = () => {
     if (!selection.elementId) return;
     setTimeline((current) => applyTimelineOperation(current, { type: "element.split", elementId: selection.elementId!, at: playhead }));
@@ -300,7 +338,7 @@ export function EditorShell() {
           <span className="header-divider" />
           <Link className="about-header-link" href="/about"><Icon name="layers" size={13} /> How it works</Link>
           <button className="share-button">Share</button>
-          <button className="export-button" onClick={() => setToast("MP4 renderer is queued after this persistent edit pass")}><Icon name="export" size={15} /> Export MP4</button>
+          <button className="export-button" disabled={exportProgress !== null} onClick={() => void exportMp4()}><Icon name="export" size={15} /> {exportProgress === null ? "Export MP4" : `Rendering ${Math.round(exportProgress * 100)}%`}</button>
         </div>
       </header>
 

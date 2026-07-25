@@ -1,9 +1,12 @@
 #!/usr/bin/env node
 
 import { spawn } from "node:child_process";
-import { access, mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { access, mkdir, mkdtemp, readFile, readdir, rm, stat, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
+import { createRequire } from "node:module";
+
+const require = createRequire(import.meta.url);
 
 const args = process.argv.slice(2);
 const has = (flag) => args.includes(flag);
@@ -16,12 +19,13 @@ const root = process.cwd();
 const baseUrl = value("--url", "http://localhost:4180");
 const videoPath = path.resolve(root, value("--video", "videos/kiro_sample_video.mp4"));
 const paidAnalysis = has("--allow-paid-analysis");
+const testExport = has("--test-export");
 const startServer = has("--start-server");
 const skipStatic = has("--skip-static");
 const artifacts = path.resolve(value("--artifacts", path.join(os.tmpdir(), `nightcut-test-${Date.now()}`)));
 const serverOutput = [];
 const observations = {
-  profile: paidAnalysis ? "paid-analysis" : "free-smoke",
+  profile: testExport ? "export-qc" : paidAnalysis ? "paid-analysis" : "free-smoke",
   baseUrl,
   videoPath,
   artifacts,
@@ -270,7 +274,47 @@ async function runBrowserSmoke() {
   record("sample media imported", Boolean(imported), path.basename(videoPath));
   await screenshot("before-analysis.png");
 
+  await sleep(1_500);
+  await cdp.send("Page.reload", { ignoreCache: false });
+  await waitFor(() => evaluate("document.readyState === 'complete' && Boolean(document.querySelector('.editor-shell'))"), 20_000, "editor reload");
+  const restored = await waitFor(() => evaluate(`Array.from(document.querySelectorAll('.asset-copy strong')).some((node) => node.textContent === ${JSON.stringify(path.basename(videoPath))}) && Boolean(document.querySelector('.source-preview'))`), 20_000, "persistent source restore");
+  record("source restored after refresh", Boolean(restored));
+  await screenshot("after-refresh.png");
+
+  await evaluate(`Array.from(document.querySelectorAll('.panel-tabs button')).find((button) => button.textContent === 'Assets')?.click()`);
+  const library = await waitFor(() => evaluate(`(() => {
+    const text = document.querySelector('.media-panel-content')?.textContent ?? '';
+    return text.includes('Anton') && text.includes('Impact Hit') && text.includes('Slow Push');
+  })()`), 10_000, "global asset library");
+  record("global asset library", Boolean(library), "fonts, SFX, and VFX visible");
+
+  if (testExport) {
+    await cdp.send("Browser.setDownloadBehavior", { behavior: "allow", downloadPath: artifacts, eventsEnabled: true });
+    await evaluate("document.querySelector('.export-button')?.click()");
+    await waitFor(() => evaluate("document.querySelector('.export-button')?.textContent?.includes('Rendering')"), 20_000, "renderer start");
+    const outputPath = await waitFor(async () => {
+      const names = await readdir(artifacts);
+      const mp4 = names.find((name) => name.endsWith(".mp4") && !name.endsWith(".crdownload"));
+      if (!mp4) return null;
+      const candidate = path.join(artifacts, mp4);
+      const info = await stat(candidate);
+      return info.size > 1_000 ? candidate : null;
+    }, 600_000, "MP4 download");
+    const outputInfo = await stat(outputPath);
+    const ffprobePath = require("ffprobe-static").path;
+    const probeResult = await run(ffprobePath, ["-v", "error", "-show_entries", "format=duration,size", "-show_entries", "stream=codec_name,codec_type,width,height,r_frame_rate", "-of", "json", outputPath]);
+    const probe = probeResult.code === 0 ? JSON.parse(probeResult.output) : null;
+    observations.export = { outputPath, bytes: outputInfo.size, probe };
+    record("MP4 downloaded", true, `${outputPath} · ${(outputInfo.size / 1024 / 1024).toFixed(1)} MB`);
+    const video = probe?.streams?.find((stream) => stream.codec_type === "video");
+    const audio = probe?.streams?.find((stream) => stream.codec_type === "audio");
+    const duration = Number(probe?.format?.duration);
+    record("MP4 stream QC", video?.codec_name === "h264" && audio?.codec_name === "aac" && video.height > video.width && video.r_frame_rate === "30/1", JSON.stringify({ video, audio }));
+    record("MP4 duration QC", duration >= 30 && duration <= 60, `${duration.toFixed(3)}s`);
+  }
+
   if (!paidAnalysis) return;
+  await evaluate(`Array.from(document.querySelectorAll('.panel-tabs button')).find((button) => button.textContent === 'Media')?.click()`);
   await evaluate("document.querySelector('.analyze-source-button')?.click()");
   let prior = "";
   const result = await waitFor(async () => {
