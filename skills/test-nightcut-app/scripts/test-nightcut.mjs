@@ -295,13 +295,16 @@ async function runBrowserSmoke() {
     const key = 'nightcut:active-project:v2';
     const saved = JSON.parse(localStorage.getItem(key) ?? '{}');
     const tracks = [
-      { id: 'v1', name: 'Primary video', kind: 'video', elements: [2, 18, 36, 54].map((sourceStart, index) => ({ id: 'qa-cut-' + index, trackId: 'v1', kind: 'video', name: 'QA cut ' + (index + 1), start: index * 2, duration: 2, sourceStart, assetId: 'source-1', color: '#6657e8', effects: [] })) },
+      { id: 'v1', name: 'Primary video', kind: 'video', elements: [2, 18, 36, 54].map((sourceStart, index) => ({ id: 'qa-cut-' + index, trackId: 'v1', kind: 'video', name: 'QA cut ' + (index + 1), start: index * 2, duration: 2, sourceStart, assetId: 'source-1', color: '#6657e8', effects: [['transform.push@1'], ['transform.punch@1'], ['transform.shake@1'], ['color.basic@1', 'look.vignette@1']][index] })) },
       { id: 'v2', name: 'B-roll / accents', kind: 'video', elements: [] },
-      { id: 'g1', name: 'Titles', kind: 'overlay', elements: [] },
-      { id: 'c1', name: 'Captions', kind: 'caption', elements: [] },
+      { id: 'g1', name: 'Titles', kind: 'overlay', elements: [{ id: 'qa-title', trackId: 'g1', kind: 'text', name: 'QA title', text: 'VISIBLE EDIT', start: 0.4, duration: 2, color: '#e55745', fontFamily: 'Anton', effects: ['hard-reveal'] }] },
+      { id: 'c1', name: 'Captions', kind: 'caption', elements: [0, 2, 4, 6].map((start, index) => ({ id: 'qa-caption-' + index, trackId: 'c1', kind: 'caption', name: 'QA caption ' + (index + 1), text: 'CUT ' + (index + 1) + ' ACTIVE', start, duration: 1.8, color: '#d2a83e', fontFamily: 'Anton', effects: ['word-pop'] })) },
       { id: 'a1', name: 'Dialogue', kind: 'audio', elements: [] },
       { id: 'a2', name: 'Music', kind: 'audio', elements: [] },
-      { id: 'a3', name: 'SFX', kind: 'audio', elements: [] }
+      { id: 'a3', name: 'SFX', kind: 'audio', elements: [
+        { id: 'qa-impact', trackId: 'a3', kind: 'audio', name: 'Impact Hit', start: 0, duration: 0.24, assetId: 'sfx-impact', color: '#d28a36', volume: 0.7 },
+        { id: 'qa-whoosh', trackId: 'a3', kind: 'audio', name: 'Fast Whoosh', start: 4, duration: 0.24, assetId: 'sfx-whoosh', color: '#d28a36', volume: 0.5 }
+      ] }
     ];
     saved.timeline = { id: 'qa-jump-cut-draft', name: 'QA jump-cut draft', width: 1080, height: 1920, fps: 30, duration: 8, tracks };
     saved.playhead = 0;
@@ -376,7 +379,35 @@ async function runBrowserSmoke() {
     const audio = probe?.streams?.find((stream) => stream.codec_type === "audio");
     const duration = Number(probe?.format?.duration);
     record("MP4 stream QC", video?.codec_name === "h264" && audio?.codec_name === "aac" && video.height > video.width && video.r_frame_rate === "30/1", JSON.stringify({ video, audio }));
-    record("MP4 duration QC", duration >= 30 && duration <= 60, `${duration.toFixed(3)}s`);
+    record("MP4 duration QC", duration >= 7.9 && duration <= 8.1, `${duration.toFixed(3)}s fixture`);
+    const encodedMp4 = (await readFile(outputPath)).toString("base64");
+    const overlayQc = await evaluate(`(async () => {
+      const video = document.createElement('video');
+      video.muted = true;
+      video.src = 'data:video/mp4;base64,${encodedMp4}';
+      await new Promise((resolve, reject) => { video.onloadedmetadata = resolve; video.onerror = reject; });
+      video.currentTime = 1;
+      await new Promise((resolve, reject) => { video.onseeked = resolve; video.onerror = reject; });
+      const canvas = document.createElement('canvas');
+      canvas.width = 480;
+      canvas.height = 854;
+      const context = canvas.getContext('2d');
+      context.drawImage(video, 0, 0, 480, 854);
+      const pixels = context.getImageData(0, 270, 480, 520).data;
+      let titleRedPixels = 0;
+      let captionBrightPixels = 0;
+      for (let index = 0; index < pixels.length; index += 4) {
+        const pixel = index / 4;
+        const y = Math.floor(pixel / 480) + 270;
+        const r = pixels[index];
+        const g = pixels[index + 1];
+        const b = pixels[index + 2];
+        if (y >= 320 && y <= 430 && r > 170 && r > g * 1.35 && r > b * 1.25) titleRedPixels += 1;
+        if (y >= 710 && y <= 780 && r > 215 && g > 215 && b > 215) captionBrightPixels += 1;
+      }
+      return { titleRedPixels, captionBrightPixels };
+    })()`);
+    record("MP4 overlay QC", overlayQc?.titleRedPixels > 50 && overlayQc?.captionBrightPixels > 50, JSON.stringify(overlayQc));
   }
 
   if (!paidAnalysis) return;
