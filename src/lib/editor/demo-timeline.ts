@@ -71,6 +71,17 @@ export const demoTimeline: TimelineDocument = {
       elements: [
         { id: "audio-score", trackId: "a2", kind: "audio", name: "Dark pulse — 92 BPM", start: 0, duration: 40, assetId: "score-1", color: "#298a75", volume: 0.28, effects: ["duck-under-dialogue"] }
       ]
+    },
+    {
+      id: "a3",
+      name: "SFX",
+      kind: "audio",
+      elements: [
+        { id: "sfx-demo-impact", trackId: "a3", kind: "audio", name: "Impact Hit · hook", start: 0, duration: 0.24, assetId: "sfx-impact", color: "#d28a36", volume: 0.72 },
+        { id: "sfx-demo-whoosh-1", trackId: "a3", kind: "audio", name: "Fast Whoosh · reveal", start: 7.4, duration: 0.24, assetId: "sfx-whoosh", color: "#d28a36", volume: 0.5 },
+        { id: "sfx-demo-whoosh-2", trackId: "a3", kind: "audio", name: "Fast Whoosh · proof", start: 16, duration: 0.24, assetId: "sfx-whoosh", color: "#d28a36", volume: 0.5 },
+        { id: "sfx-demo-scratch", trackId: "a3", kind: "audio", name: "Record Scratch · human beat", start: 25.2, duration: 0.42, assetId: "sfx-scratch", color: "#d28a36", volume: 0.55 }
+      ]
     }
   ]
 };
